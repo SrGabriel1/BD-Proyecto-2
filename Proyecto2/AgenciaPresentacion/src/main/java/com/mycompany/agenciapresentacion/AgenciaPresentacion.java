@@ -4,6 +4,8 @@
 
 package com.mycompany.agenciapresentacion;
 
+import GUI.Ventana;
+
 /**
  *
  * @author yohan
@@ -11,6 +13,8 @@ package com.mycompany.agenciapresentacion;
 public class AgenciaPresentacion {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+    Ventana ventana = new Ventana();
+            ventana.cambiarVistaMenu();
+            ventana.setVisible(true);
     }
 }

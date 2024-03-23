@@ -1,6 +1,8 @@
 package GUI;
 
+import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
+import GUI.Licencia.VigenciaLicencia;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -11,8 +13,6 @@ import javax.swing.JPanel;
  * emergentes. También mantiene instancias de DTOs y una conexión a la base de
  * datos.
  *
- * @author José Karim Franco Valencia - 245138
- * @author Jesús Roberto García Armenta - 244913
  */
 public class Ventana extends javax.swing.JFrame {
 
@@ -37,19 +37,11 @@ public class Ventana extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Potro Pedidos");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(350, 700));
+        setUndecorated(true);
         setResizable(false);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
+        getAccessibleContext().setAccessibleName("Agencia ");
+        getAccessibleContext().setAccessibleParent(this);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -75,7 +67,6 @@ public class Ventana extends javax.swing.JFrame {
      */
     public void cambiarVistaMenu() {
         limpiarFrame();
-        
         Menu vistaMenu = new Menu(this);
         ponerEnJFrame(vistaMenu);
         panelActual = vistaMenu;
@@ -85,13 +76,18 @@ public class Ventana extends javax.swing.JFrame {
      * Método para cambiar a la vista de la ventana de Carrito . Este método elimina
      * el panel actual
      */
-    public void cambiarVistaTramite() {
-//        limpiarFrame();
-//       Tramite vistaTramite = new Tramite(this);
-//        ponerEnJFrame(vistaTramite);
-//        panelActual = vistaTramite;
+    public void cambiarVistaVigencia() {
+        limpiarFrame();
+        VigenciaLicencia vistaVigencia = new VigenciaLicencia(this);
+        ponerEnJFrame(vistaVigencia);
+        panelActual = vistaVigencia;
     }
-    
+      public void cambiarVistaLicenciaGenerada() {
+        limpiarFrame();
+          LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this);
+        ponerEnJFrame(vistaLicenciaGenerada);
+        panelActual = vistaLicenciaGenerada;
+    }
     /**
      * Método para cambiar a la vista de la ventana de MetodoPago . Este método elimina
      * el panel actual
@@ -114,7 +110,7 @@ public class Ventana extends javax.swing.JFrame {
      */
     public void ponerEnJFrame(JPanel panel) {
         this.add(panel);
-        panel.setBounds(0, 0, 350, 700);
+        panel.setBounds(0, 0, 526, 390);
         this.setLocationRelativeTo(null);
         this.pack();  // Ajustar el tamaño automáticamente
     }

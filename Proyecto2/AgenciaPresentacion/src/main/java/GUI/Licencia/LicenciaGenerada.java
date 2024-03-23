@@ -1,22 +1,29 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Licencia;
 
+import GUI.Ventana;
+
 /**
  *
- * @author Ximena
+ * @author yohan
  */
-public class LicenciaGenerada extends javax.swing.JFrame {
+public class LicenciaGenerada extends javax.swing.JPanel {
+
+    private Ventana ventana;
 
     /**
-     * Creates new form LicenciaGenerada
+     * Creates new form LicenciaGenerada1
      */
     public LicenciaGenerada() {
         initComponents();
     }
-
+ public LicenciaGenerada(Ventana ventana) {
+        this.ventana = ventana;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,24 +37,17 @@ public class LicenciaGenerada extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         botonRegresarMenu = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtLicenciaGenerada.setEditable(false);
         txtLicenciaGenerada.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtLicenciaGenerada, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 164, 230, 40));
+        add(txtLicenciaGenerada, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 164, 230, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenciaGeneradaCap.PNG"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 210, 40));
-
-        pack();
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarMenu;

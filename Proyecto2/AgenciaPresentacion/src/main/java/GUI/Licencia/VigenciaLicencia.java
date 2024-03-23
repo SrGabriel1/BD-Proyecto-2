@@ -1,22 +1,29 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Licencia;
 
+import GUI.Ventana;
+
 /**
  *
- * @author Ximena
+ * @author yohan
  */
-public class VigenciaLicencia extends javax.swing.JFrame {
+public class VigenciaLicencia extends javax.swing.JPanel {
+
+    private Ventana ventana;
 
     /**
-     * Creates new form VigenciaLicencia
+     * Creates new form VigenciaLicencia1
      */
     public VigenciaLicencia() {
         initComponents();
     }
-
+ public VigenciaLicencia(Ventana ventana) {
+        this.ventana = ventana;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,7 +33,6 @@ public class VigenciaLicencia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         CheckBox3anios = new javax.swing.JCheckBox();
         CheckBox1anio1 = new javax.swing.JCheckBox();
         CheckBox2anios = new javax.swing.JCheckBox();
@@ -34,41 +40,81 @@ public class VigenciaLicencia extends javax.swing.JFrame {
         BotonAceptar = new javax.swing.JButton();
         BotonRegresar = new javax.swing.JButton();
 
-        jButton1.setText("jButton1");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         CheckBox3anios.setBackground(new java.awt.Color(217, 217, 217));
         CheckBox3anios.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         CheckBox3anios.setForeground(new java.awt.Color(0, 0, 0));
         CheckBox3anios.setText("3 Años");
-        getContentPane().add(CheckBox3anios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 150, 30));
 
         CheckBox1anio1.setBackground(new java.awt.Color(217, 217, 217));
         CheckBox1anio1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         CheckBox1anio1.setForeground(new java.awt.Color(0, 0, 0));
         CheckBox1anio1.setText("1 Año");
-        getContentPane().add(CheckBox1anio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, 30));
 
         CheckBox2anios.setBackground(new java.awt.Color(217, 217, 217));
         CheckBox2anios.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         CheckBox2anios.setForeground(new java.awt.Color(0, 0, 0));
         CheckBox2anios.setText("2 Años");
-        getContentPane().add(CheckBox2anios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, 40));
+        CheckBox2anios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBox2aniosActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TablaVigenciaCap.PNG")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(BotonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 140, 40));
-        getContentPane().add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 140, 40));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TablaVigenciaCap.PNG"))); // NOI18N
 
-        pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(CheckBox1anio1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(CheckBox2anios, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(CheckBox3anios, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(BotonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(150, 150, 150)
+                            .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addComponent(CheckBox1anio1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(CheckBox2anios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(CheckBox3anios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BotonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-   
+    private void CheckBox2aniosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBox2aniosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckBox2aniosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAceptar;
@@ -76,7 +122,6 @@ public class VigenciaLicencia extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBox1anio1;
     private javax.swing.JCheckBox CheckBox2anios;
     private javax.swing.JCheckBox CheckBox3anios;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
