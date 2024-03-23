@@ -5,22 +5,42 @@
 package Entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author yohan
  */
 @Entity
+@Table(name = "Licencias")
 public class Licencia implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @Column(name="vigencia",nullable=false)
+    private String vigencia;
+    
+    @Column(name="tipo",nullable=false)
+    private String tipo;
+    
+    @Column(nullable=false)
+    private float precio;
+
+    public Licencia() {
+    }
+
+    public Licencia(String vigencia, String tipo, float precio) {
+        this.vigencia = vigencia;
+        this.tipo = tipo;
+        this.precio = precio;
+    }
 
     public Long getId() {
         return id;
@@ -30,29 +50,35 @@ public class Licencia implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public String getVigencia() {
+        return vigencia;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Licencia)) {
-            return false;
-        }
-        Licencia other = (Licencia) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setVigencia(String vigencia) {
+        this.vigencia = vigencia;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
     @Override
     public String toString() {
-        return "Entidades.Licencia[ id=" + id + " ]";
+        return "Licencia{" + "id=" + id + ", vigencia=" + vigencia + ", tipo=" + tipo + ", precio=" + precio + '}';
     }
     
+    
+
 }

@@ -42,17 +42,19 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         CheckBox3anios.setBackground(new java.awt.Color(217, 217, 217));
         CheckBox3anios.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
-        CheckBox3anios.setForeground(new java.awt.Color(0, 0, 0));
         CheckBox3anios.setText("3 Años");
 
         CheckBox1anio1.setBackground(new java.awt.Color(217, 217, 217));
         CheckBox1anio1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
-        CheckBox1anio1.setForeground(new java.awt.Color(0, 0, 0));
         CheckBox1anio1.setText("1 Año");
+        CheckBox1anio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckBox1anio1ActionPerformed(evt);
+            }
+        });
 
         CheckBox2anios.setBackground(new java.awt.Color(217, 217, 217));
         CheckBox2anios.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
-        CheckBox2anios.setForeground(new java.awt.Color(0, 0, 0));
         CheckBox2anios.setText("2 Años");
         CheckBox2anios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,14 +84,14 @@ public class VigenciaLicencia extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(CheckBox1anio1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(365, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(CheckBox1anio1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(10, 10, 10)
                             .addComponent(CheckBox2anios, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -106,15 +108,16 @@ public class VigenciaLicencia extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(CheckBox1anio1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(170, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(CheckBox1anio1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
+                            .addGap(200, 200, 200)
                             .addComponent(CheckBox2anios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(10, 10, 10)
                             .addComponent(CheckBox3anios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,6 +141,10 @@ ventana.cambiarVistaLicenciaGenerada();
     private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed
 ventana.cambiarVistaLicencia();
     }//GEN-LAST:event_BotonRegresarActionPerformed
+
+    private void CheckBox1anio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBox1anio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckBox1anio1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
