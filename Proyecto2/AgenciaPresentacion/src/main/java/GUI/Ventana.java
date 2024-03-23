@@ -13,6 +13,8 @@ import javax.swing.JPanel;
  * emergentes. También mantiene instancias de DTOs y una conexión a la base de
  * datos.
  *
+ * @author José Karim Franco Valencia - 245138
+ * @author Jesús Roberto García Armenta - 244913
  */
 public class Ventana extends javax.swing.JFrame {
 
@@ -35,13 +37,21 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Potro Pedidos");
+        setTitle("Agencia");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setUndecorated(true);
+        setMinimumSize(new java.awt.Dimension(526, 400));
         setResizable(false);
-        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
-        getAccessibleContext().setAccessibleName("Agencia ");
-        getAccessibleContext().setAccessibleParent(this);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 526, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -59,13 +69,11 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
- 
-    
     /**
-     * Método para cambiar a la vista de la ventana de Menu . Este método elimina
+     * Método para cambiar a la vista de la ventana de Inicio. Este método elimina
      * el panel actual
      */
-    public void cambiarVistaMenu() {
+        public void cambiarVistaMenu() {
         limpiarFrame();
         Menu vistaMenu = new Menu(this);
         ponerEnJFrame(vistaMenu);
@@ -98,9 +106,6 @@ public class Ventana extends javax.swing.JFrame {
         ponerEnJFrame(vistaLicencia);
         panelActual = vistaLicencia;
     }
-    
-
-
     /**
      * Método para agregar un panel a la ventana. Este método agrega el panel
      * especificado a la ventana, lo posiciona y ajusta su tamaño

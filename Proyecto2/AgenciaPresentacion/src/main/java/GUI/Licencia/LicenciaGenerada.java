@@ -45,8 +45,19 @@ public class LicenciaGenerada extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenciaGeneradaCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        botonRegresarMenu.setContentAreaFilled(false);
+        botonRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarMenuActionPerformed(evt);
+            }
+        });
         add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
+ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

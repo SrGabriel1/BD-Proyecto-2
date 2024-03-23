@@ -45,9 +45,31 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InicioLicenciaCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 385));
+
+        BotonIngresar.setContentAreaFilled(false);
+        BotonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonIngresarActionPerformed(evt);
+            }
+        });
         add(BotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 130, 30));
+
+        BotonRegresar.setContentAreaFilled(false);
+        BotonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegresarActionPerformed(evt);
+            }
+        });
         add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
+ventana.cambiarVistaVigencia();
+    }//GEN-LAST:event_BotonIngresarActionPerformed
+
+    private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed
+ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_BotonRegresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

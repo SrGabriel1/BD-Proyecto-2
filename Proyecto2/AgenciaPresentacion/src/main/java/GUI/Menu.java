@@ -47,20 +47,46 @@ public class Menu extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 530, 390));
 
+        BotonLicencia.setContentAreaFilled(false);
+        BotonLicencia.setFocusPainted(false);
         BotonLicencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonLicenciaActionPerformed(evt);
             }
         });
         add(BotonLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, 30));
+
+        BotonPlacas.setContentAreaFilled(false);
+        BotonPlacas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPlacasActionPerformed(evt);
+            }
+        });
         add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, 40));
+
+        BotonReportes.setContentAreaFilled(false);
+        BotonReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonReportesActionPerformed(evt);
+            }
+        });
         add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 140, 30));
+
+        BotonHistorial.setContentAreaFilled(false);
         add(BotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLicenciaActionPerformed
 ventana.cambiarVistaLicencia();
     }//GEN-LAST:event_BotonLicenciaActionPerformed
+
+    private void BotonPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPlacasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonPlacasActionPerformed
+
+    private void BotonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonReportesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

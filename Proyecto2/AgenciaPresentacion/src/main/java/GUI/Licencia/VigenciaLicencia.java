@@ -62,6 +62,22 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TablaVigenciaCap.PNG"))); // NOI18N
 
+        BotonAceptar.setBorderPainted(false);
+        BotonAceptar.setContentAreaFilled(false);
+        BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAceptarActionPerformed(evt);
+            }
+        });
+
+        BotonRegresar.setBorderPainted(false);
+        BotonRegresar.setContentAreaFilled(false);
+        BotonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,6 +130,14 @@ public class VigenciaLicencia extends javax.swing.JPanel {
     private void CheckBox2aniosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBox2aniosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckBox2aniosActionPerformed
+
+    private void BotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarActionPerformed
+ventana.cambiarVistaLicenciaGenerada();
+    }//GEN-LAST:event_BotonAceptarActionPerformed
+
+    private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed
+ventana.cambiarVistaLicencia();
+    }//GEN-LAST:event_BotonRegresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
