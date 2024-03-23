@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.Licencia.TramiteLicenciaMenu;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
