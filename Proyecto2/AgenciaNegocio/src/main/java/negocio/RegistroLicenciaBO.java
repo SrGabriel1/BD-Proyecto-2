@@ -4,10 +4,16 @@
  */
 package negocio;
 
+import Inegocio.IRegistroLicenciaBO;
+
 /**
  *
  * @author USER
  */
-public class RegistroLicenciaBO {
+public class RegistroLicenciaBO implements IRegistroLicenciaBO{
+
+    @Override
+    public void RegistrarLicencia() {
+    }
     
 }

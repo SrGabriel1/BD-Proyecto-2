@@ -30,54 +30,17 @@ public class Licencia implements Serializable {
     @Column(name="tipo",nullable=false)
     private String tipo;
     
-    @Column(nullable=false)
+    @Column(name="precio",nullable=false)
     private float precio;
+    
+    @Column(name="estado",nullable=false)
+    private String estado;
+    
 
     public Licencia() {
     }
 
-    public Licencia(String vigencia, String tipo, float precio) {
-        this.vigencia = vigencia;
-        this.tipo = tipo;
-        this.precio = precio;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getVigencia() {
-        return vigencia;
-    }
-
-    public void setVigencia(String vigencia) {
-        this.vigencia = vigencia;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public float getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
-    }
-
-    @Override
-    public String toString() {
-        return "Licencia{" + "id=" + id + ", vigencia=" + vigencia + ", tipo=" + tipo + ", precio=" + precio + '}';
-    }
+    
     
     
 
