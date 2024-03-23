@@ -28,7 +28,7 @@ public class TramiteAutoUsado extends javax.swing.JFrame {
 
         txtPlacasAntiguas = new javax.swing.JTextField();
         txtLicencia = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jajajja = new javax.swing.JLabel();
         botonIngresar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
 
@@ -37,8 +37,8 @@ public class TramiteAutoUsado extends javax.swing.JFrame {
         getContentPane().add(txtPlacasAntiguas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 250, 30));
         getContentPane().add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 250, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteAutoUsadoCap.PNG")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 310));
+        jajajja.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteAutoUsadoCap.PNG")); // NOI18N
+        getContentPane().add(jajajja, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 310));
         getContentPane().add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 130, 30));
 
         botonRegresar.setText("jButton1");
@@ -55,7 +55,7 @@ public class TramiteAutoUsado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jajajja;
     private javax.swing.JTextField txtLicencia;
     private javax.swing.JTextField txtPlacasAntiguas;
     // End of variables declaration//GEN-END:variables

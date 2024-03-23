@@ -39,7 +39,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jajajja">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\src\main\resources\Imagenes\TramiteAutoUsadoCap.PNG"/>
