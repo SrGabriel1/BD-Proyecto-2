@@ -36,19 +36,28 @@ public class Menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+        BotonLicencia = new javax.swing.JButton();
+        BotonPlacas = new javax.swing.JButton();
+        BotonReportes = new javax.swing.JButton();
+        BotonHistorial = new javax.swing.JButton();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\InicioCap.PNG")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 540, -1));
+        add(BotonLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, 30));
+        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, 40));
+        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 140, 30));
+        add(BotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonHistorial;
+    private javax.swing.JButton BotonLicencia;
+    private javax.swing.JButton BotonPlacas;
+    private javax.swing.JButton BotonReportes;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

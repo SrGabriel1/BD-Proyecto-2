@@ -85,10 +85,10 @@ public class Ventana extends javax.swing.JFrame {
      * el panel actual
      */
     public void cambiarVistaTramite() {
-        limpiarFrame();
-       Tramite vistaTramite = new Tramite(this);
-        ponerEnJFrame(vistaTramite);
-        panelActual = vistaTramite;
+//        limpiarFrame();
+//       Tramite vistaTramite = new Tramite(this);
+//        ponerEnJFrame(vistaTramite);
+//        panelActual = vistaTramite;
     }
     
     /**
@@ -97,7 +97,7 @@ public class Ventana extends javax.swing.JFrame {
      */
     public void cambiarVistaLicencia() {
         limpiarFrame();
-        Licencia vistaLicencia = new Licencia(this);
+        TramiteLicenciaMenu vistaLicencia = new TramiteLicenciaMenu(this);
         ponerEnJFrame(vistaLicencia);
         panelActual = vistaLicencia;
     }
