@@ -26,13 +26,23 @@ public class TramiteAutoUsado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtPlacasAntiguas = new javax.swing.JTextField();
+        txtLicencia = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        botonIngresar = new javax.swing.JButton();
+        botonRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtPlacasAntiguas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 250, 30));
+        getContentPane().add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 250, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteAutoUsadoCap.PNG")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 310));
+        getContentPane().add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 130, 30));
+
+        botonRegresar.setText("jButton1");
+        getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 130, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -40,39 +50,13 @@ public class TramiteAutoUsado extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TramiteAutoUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TramiteAutoUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TramiteAutoUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TramiteAutoUsado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TramiteAutoUsado().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonIngresar;
+    private javax.swing.JButton botonRegresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtLicencia;
+    private javax.swing.JTextField txtPlacasAntiguas;
     // End of variables declaration//GEN-END:variables
 }
