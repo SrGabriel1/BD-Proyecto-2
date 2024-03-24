@@ -4,8 +4,8 @@
  */
 package Inegocio;
 
-import DAOs.LicenciasDAO;
-import DAOs.PersonasDAO;
+
+import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 
@@ -15,7 +15,7 @@ import Excepciones.persistenciaException;
  */
 public interface IRegistroLicenciaBO {
 
-    public void RegistrarLicencia(LicenciasDAO licencia) throws persistenciaException;
+    public void RegistrarLicencia(Licencia licencia) throws persistenciaException;
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
 }

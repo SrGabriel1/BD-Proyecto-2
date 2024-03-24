@@ -5,6 +5,11 @@
 package Pruebas;
 
 import DAOs.LicenciasDAO;
+import DAOs.PersonasDAO;
+import DTOs.LicenciaDTO;
+import DTOs.PersonaDTO;
+import Entidades.Licencia;
+import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
 import negocio.RegistroLicenciaBO;
@@ -16,10 +21,16 @@ import negocio.RegistroLicenciaBO;
 public class Prueba {
 
     public static void main(String[] args) throws persistenciaException {
-        IRegistroLicenciaBO r = new RegistroLicenciaBO();
-        System.out.println(r.VerificarPersona("FOLC920713345").getPersona().toString());
-        LicenciasDAO licencia = new LicenciasDAO();
-        licencia.setLicencia("1 ano", "normal", 600F, "Activa");
-        r.RegistrarLicencia(licencia);
+        PersonaDTO personaDTO = new PersonaDTO();
+        LicenciaDTO licenciaDTO = new LicenciaDTO();
+        
+        IRegistroLicenciaBO registroLicenciaBO = new RegistroLicenciaBO(personaDTO, licenciaDTO);
+
+        String rfc = "FOLC920713345";
+        Persona persona = registroLicenciaBO.VerificarPersona(rfc);
+        System.out.println(persona.toString());
+
+        Licencia licencia = new Licencia("2 año", "normal", 600F, "activa",persona);
+        registroLicenciaBO.RegistrarLicencia(licencia);
     }
 }

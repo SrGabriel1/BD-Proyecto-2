@@ -5,11 +5,14 @@
 package Interfaces;
 
 import Entidades.Licencia;
+import Entidades.Persona;
+import Excepciones.persistenciaException;
 
 /**
  *
  * @author USER
  */
 public interface ILicenciasDAO {
-    public boolean agregarLicencia(Licencia licencia);
+    public boolean agregarLicencia(Licencia licencia ) throws persistenciaException;    
+    boolean asociarLicenciaAPersona(Licencia licencia, Persona persona) throws persistenciaException;
 }

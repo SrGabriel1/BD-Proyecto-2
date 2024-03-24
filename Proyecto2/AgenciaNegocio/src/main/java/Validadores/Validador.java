@@ -4,7 +4,7 @@
  */
 package Validadores;
 
-import DAOs.LicenciasDAO;
+import Entidades.Licencia;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,22 +19,23 @@ import javax.persistence.criteria.Root;
  */
 public class Validador {
 
-    public Boolean ValidarLicencia(LicenciasDAO licencia) {
+    public Boolean ValidarLicencia(Licencia licencia) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
         EntityManager em = emf.createEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<LicenciasDAO> cq = cb.createQuery(LicenciasDAO.class);
-        Root<LicenciasDAO> rootLicencia = cq.from(LicenciasDAO.class);
+        CriteriaQuery<Licencia> cq = cb.createQuery(Licencia.class);
+        Root<Licencia> rootLicencia = cq.from(Licencia.class);
         cq.select(rootLicencia);
 
-        List<LicenciasDAO> Licencias = em.createQuery(cq).getResultList();
-        boolean validar = false;
-        for (LicenciasDAO Licencia : Licencias) {
-            if (Licencia == licencia) {
-                validar = true;
-            }
-        }
-        return validar;
+        cq.where(
+                cb.equal(rootLicencia.get("tipo"), licencia.getTipo()) // Comparar por tipo de licencia
+        );
+
+        List<Licencia> licencias = em.createQuery(cq).getResultList();
+        em.close();
+        emf.close();
+        return !licencias.isEmpty();
+
     }
-  
+
 }

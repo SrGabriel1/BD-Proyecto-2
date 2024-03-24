@@ -5,13 +5,17 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,10 +53,13 @@ public class Persona implements Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar fecha_nacimiento;
 
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    private List<Licencia> licencias = new ArrayList<>();
+
     public Persona() {
     }
 
-    public Persona( String nombre, String apellido_paterno, String apellido_materno, String CURP, String RFC, String telefono, Calendar fecha_nacimiento) {
+    public Persona(String nombre, String apellido_paterno, String apellido_materno, String CURP, String RFC, String telefono, Calendar fecha_nacimiento) {
         this.nombre = nombre;
         this.apellido_paterno = apellido_paterno;
         this.apellido_materno = apellido_materno;
@@ -60,9 +67,30 @@ public class Persona implements Serializable {
         this.RFC = RFC;
         this.telefono = telefono;
         this.fecha_nacimiento = fecha_nacimiento;
+        this.licencias = new ArrayList<>();
     }
 
-   
+    public Licencia getLicenciaActiva() {
+        for (Licencia licencia : licencias) {
+            if ("Activa".equals(licencia.getEstado())) {
+                return licencia;
+            }
+        }
+        return null;
+    }
+
+    public void agregarLicencia(Licencia licencia) {
+        licencia.setPersona(this);
+        licencias.add(licencia);
+    }
+
+    public List<Licencia> getLicencias() {
+        return licencias;
+    }
+
+    public void setLicencias(List<Licencia> licencias) {
+        this.licencias = licencias;
+    }
 
     public String getRFC() {
         return RFC;

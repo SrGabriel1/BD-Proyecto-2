@@ -7,7 +7,6 @@ package DAOs;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Interfaces.IPersonasDAO;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -22,30 +21,28 @@ import javax.persistence.criteria.Root;
  */
 public class PersonasDAO implements IPersonasDAO {
 
-   Persona Persona;
-   
+    private EntityManager em;
+    private Persona persona;
+
+    public PersonasDAO() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        em = emf.createEntityManager();
+    }
+
     @Override
     public boolean agregarPersona(Persona persona) {
         try {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-            EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
             em.persist(persona);
             em.getTransaction().commit();
-            em.close();
-            emf.close();
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    
-
     @Override
     public Persona VerificarPersona(String rfc) throws persistenciaException {
-       EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-        EntityManager em = emf.createEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Persona> cq = cb.createQuery(Persona.class);
         Root<Persona> rootPersona = cq.from(Persona.class);
@@ -53,19 +50,20 @@ public class PersonasDAO implements IPersonasDAO {
 
         cq.select(rootPersona).where(predicadoColonia);
 
-        Persona persona = em.createQuery(cq).getSingleResult();
-        this.Persona = persona;
-        return persona;
-    }
-
-    public Persona getPersona() {
+        Persona Persona = em.createQuery(cq).getSingleResult();
+        this.persona = Persona;
         return Persona;
     }
 
-    public void setPersona(Persona Persona) {
-        this.Persona = Persona;
+    public Persona getPersona() {
+        return persona;
     }
-    
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public EntityManager getEntityManager() {
+        return em;
+    }
 }
-
-

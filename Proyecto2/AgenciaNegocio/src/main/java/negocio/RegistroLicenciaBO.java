@@ -4,21 +4,16 @@
  */
 package negocio;
 
-import DAOs.LicenciasDAO;
-import DAOs.PersonasDAO;
+
+import DTOs.LicenciaDTO;
+import DTOs.PersonaDTO;
+import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
-import Interfaces.IPersonasDAO;
+
 import Validadores.Validador;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+
 
 /**
  *
@@ -26,21 +21,37 @@ import javax.persistence.criteria.Root;
  */
 public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
-    @Override
-    public void RegistrarLicencia(LicenciasDAO licencia) throws persistenciaException {
-        Validador v = new Validador();
-        if (v.ValidarLicencia(licencia) == true) {
-            throw new persistenciaException("Hay una licencia una licencia con esos datos");
-        }
-        LicenciasDAO Licencia = new LicenciasDAO();
-        Licencia.setLicencia(licencia.getLicencia().getVigencia(), licencia.getLicencia().getTipo(), licencia.getLicencia().getPrecio(), licencia.getLicencia().getEstado());
+    private PersonaDTO personaDTO;
+    private LicenciaDTO licenciaDTO;
+
+    public RegistroLicenciaBO(PersonaDTO personaDTO, LicenciaDTO licenciaDTO) {
+        this.personaDTO = personaDTO;
+        this.licenciaDTO = licenciaDTO;
     }
 
-    public Persona VerificarPersona(String rfc) throws persistenciaException {
-        IPersonasDAO personaD = new PersonasDAO();
-        Persona persona = personaD.VerificarPersona(rfc);
-        personaD.setPersona(persona);
-        return personaD;
+    @Override
+    public void RegistrarLicencia(Licencia licencia) throws persistenciaException {
+        Validador validador = new Validador();
 
+        if (validador.ValidarLicencia(licencia)) {
+            throw new persistenciaException("Hay una licencia con esos datos");
+        }
+        if (licenciaDTO.agregarLicencia(licencia)) {
+            Persona persona = licencia.getPersona();
+            if (persona != null) {
+                persona.agregarLicencia(licencia);
+            } else {
+                throw new persistenciaException("Error: la licencia no está asociada a una persona.");
+            }
+
+            System.out.println("Licencia agregada correctamente a la persona.");
+        } else {
+            throw new persistenciaException("Error al agregar la licencia.");
+        }
+    }
+
+    @Override
+    public Persona VerificarPersona(String rfc) throws persistenciaException {
+        return personaDTO.VerificarPersona(rfc);
     }
 }
