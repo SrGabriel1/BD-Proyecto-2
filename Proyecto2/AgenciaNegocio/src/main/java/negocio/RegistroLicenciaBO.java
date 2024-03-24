@@ -5,28 +5,51 @@
 package negocio;
 
 import DAOs.LicenciasDAO;
+import DAOs.PersonasDAO;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
 import Validadores.Validador;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 /**
  *
  * @author USER
  */
-public class RegistroLicenciaBO implements IRegistroLicenciaBO{
+public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
     @Override
     public void RegistrarLicencia(LicenciasDAO licencia) throws persistenciaException {
         Validador v = new Validador();
-        if (v.ValidarLicencia(licencia)==true) {
-             throw new persistenciaException("Hay una licencia una licencia con esos datos");
+        if (v.ValidarLicencia(licencia) == true) {
+            throw new persistenciaException("Hay una licencia una licencia con esos datos");
         }
-        
+
     }
 
     @Override
-    public boolean VerificarPersona(String rfc) throws persistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public PersonasDAO VerificarPersona(String rfc) throws persistenciaException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        EntityManager em = emf.createEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<PersonasDAO> cq = cb.createQuery(PersonasDAO.class);
+        Root<PersonasDAO> rootPersona = cq.from(PersonasDAO.class);
+        Predicate predicadoColonia = cb.equal(rootPersona.get("RFC"), rfc);
+
+        cq.select(rootPersona).where(predicadoColonia);
+
+        List<PersonasDAO> Personas = em.createQuery(cq).getResultList();
+        PersonasDAO persona = null;
+        for (PersonasDAO Persona : Personas) {
+            persona = Persona;
+        }
+        return persona;
     }
-    
+
 }
