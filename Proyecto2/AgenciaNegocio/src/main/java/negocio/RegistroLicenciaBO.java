@@ -6,6 +6,7 @@ package negocio;
 
 import DAOs.LicenciasDAO;
 import DAOs.PersonasDAO;
+import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
 import Validadores.Validador;
@@ -33,23 +34,11 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
     }
 
-    @Override
     public PersonasDAO VerificarPersona(String rfc) throws persistenciaException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-        EntityManager em = emf.createEntityManager();
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<PersonasDAO> cq = cb.createQuery(PersonasDAO.class);
-        Root<PersonasDAO> rootPersona = cq.from(PersonasDAO.class);
-        Predicate predicadoColonia = cb.equal(rootPersona.get("RFC"), rfc);
-
-        cq.select(rootPersona).where(predicadoColonia);
-
-        List<PersonasDAO> Personas = em.createQuery(cq).getResultList();
-        PersonasDAO persona = null;
-        for (PersonasDAO Persona : Personas) {
-            persona = Persona;
-        }
-        return persona;
+     PersonasDAO personaD = new PersonasDAO();
+        Persona persona = personaD.VerificarPersona(rfc);
+        personaD.setPersona(persona);
+        return personaD;
+        
     }
-
 }

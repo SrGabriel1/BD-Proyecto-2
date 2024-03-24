@@ -4,12 +4,18 @@
  */
 package Interfaces;
 
+import DAOs.PersonasDAO;
 import Entidades.Persona;
+import Excepciones.persistenciaException;
 
 /**
  *
  * @author USER
  */
 public interface IPersonasDAO {
+
     public boolean agregarPersona(Persona persona);
+
+    public Persona VerificarPersona(String rfc) throws persistenciaException;
+
 }

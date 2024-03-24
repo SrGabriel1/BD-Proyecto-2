@@ -13,5 +13,4 @@ import Excepciones.persistenciaException;
  */
 public interface IRegistroLicenciaBO {
     public void RegistrarLicencia(LicenciasDAO licencia) throws persistenciaException;
-    public boolean VerificarPersona(String rfc) throws persistenciaException;
 }

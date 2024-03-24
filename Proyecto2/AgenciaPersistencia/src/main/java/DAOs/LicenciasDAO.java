@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAOs;
+
 import Entidades.Licencia;
 import Interfaces.ILicenciasDAO;
 import javax.persistence.EntityManager;
@@ -13,24 +14,34 @@ import javax.persistence.Persistence;
  *
  * @author USER
  */
-public class LicenciasDAO implements ILicenciasDAO{
+public class LicenciasDAO implements ILicenciasDAO {
 
-    @Override
+    Licencia licencia;
+        
+        @Override
     public boolean agregarLicencia(Licencia licencia) {
-        try{
+        try {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
 
-            em.persist(licencia); 
+            em.persist(licencia);
             em.getTransaction().commit();
             em.close();
-        emf.close();
+            emf.close();
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
-        
+
     }
-    
+
+    public Licencia getLicencia() {
+        return licencia;
+    }
+
+    public void setLicencia(Licencia licencia) {
+        this.licencia = licencia;
+    }
+
 }
