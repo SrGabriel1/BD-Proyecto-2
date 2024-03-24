@@ -34,13 +34,61 @@ public class VigenciaLicencia extends javax.swing.JPanel {
     private void initComponents() {
 
         jRadioButton1 = new javax.swing.JRadioButton();
+        checkBoxCD3 = new javax.swing.JCheckBox();
+        checkBoxCD2 = new javax.swing.JCheckBox();
+        checkBoxCD1 = new javax.swing.JCheckBox();
+        checkBoxCN3 = new javax.swing.JCheckBox();
+        checkBoxCN2 = new javax.swing.JCheckBox();
+        checkBoxCN1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         BotonAceptar = new javax.swing.JButton();
         BotonRegresar = new javax.swing.JButton();
+        jCheckBox3 = new javax.swing.JCheckBox();
 
         jRadioButton1.setText("jRadioButton1");
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        checkBoxCD3.setBackground(new java.awt.Color(217, 217, 217));
+        checkBoxCD3.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBoxCD3.setForeground(new java.awt.Color(0, 0, 0));
+        checkBoxCD3.setText("$700");
+        add(checkBoxCD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 170, -1));
+
+        checkBoxCD2.setBackground(new java.awt.Color(217, 217, 217));
+        checkBoxCD2.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBoxCD2.setForeground(new java.awt.Color(0, 0, 0));
+        checkBoxCD2.setText("$500");
+        add(checkBoxCD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 170, -1));
+
+        checkBoxCD1.setBackground(new java.awt.Color(217, 217, 217));
+        checkBoxCD1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBoxCD1.setForeground(new java.awt.Color(0, 0, 0));
+        checkBoxCD1.setText("$600");
+        add(checkBoxCD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 170, -1));
+
+        checkBoxCN3.setBackground(new java.awt.Color(217, 217, 217));
+        checkBoxCN3.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBoxCN3.setForeground(new java.awt.Color(0, 0, 0));
+        checkBoxCN3.setText("$1,100");
+        checkBoxCN3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxCN3ActionPerformed(evt);
+            }
+        });
+        add(checkBoxCN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 170, -1));
+
+        checkBoxCN2.setBackground(new java.awt.Color(217, 217, 217));
+        checkBoxCN2.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBoxCN2.setForeground(new java.awt.Color(0, 0, 0));
+        checkBoxCN2.setText("$900");
+        add(checkBoxCN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, -1));
+
+        checkBoxCN1.setBackground(new java.awt.Color(217, 217, 217));
+        checkBoxCN1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBoxCN1.setForeground(new java.awt.Color(0, 0, 0));
+        checkBoxCN1.setText("$600");
+        add(checkBoxCN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 170, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/vigencia2.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(542, 346));
@@ -63,6 +111,17 @@ public class VigenciaLicencia extends javax.swing.JPanel {
             }
         });
         add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 289, 144, 40));
+
+        jCheckBox3.setBackground(new java.awt.Color(217, 217, 217));
+        jCheckBox3.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        jCheckBox3.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox3.setText("$900");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarActionPerformed
@@ -73,10 +132,25 @@ ventana.cambiarVistaLicenciaGenerada();
 ventana.cambiarVistaLicencia();
     }//GEN-LAST:event_BotonRegresarActionPerformed
 
+    private void checkBoxCN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCN3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxCN3ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAceptar;
     private javax.swing.JButton BotonRegresar;
+    private javax.swing.JCheckBox checkBoxCD1;
+    private javax.swing.JCheckBox checkBoxCD2;
+    private javax.swing.JCheckBox checkBoxCD3;
+    private javax.swing.JCheckBox checkBoxCN1;
+    private javax.swing.JCheckBox checkBoxCN2;
+    private javax.swing.JCheckBox checkBoxCN3;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
