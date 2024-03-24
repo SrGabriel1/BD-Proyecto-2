@@ -40,8 +40,8 @@ public class LicenciasDAO implements ILicenciasDAO {
         return licencia;
     }
 
-    public void setLicencia(Licencia licencia) {
-        this.licencia = licencia;
+    public void setLicencia(String vigencia,String tipo,Float precio,String estado) {
+        this.licencia = new  Licencia(vigencia, tipo, precio, estado);
     }
 
 }

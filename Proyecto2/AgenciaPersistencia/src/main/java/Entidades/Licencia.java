@@ -31,7 +31,7 @@ public class Licencia implements Serializable {
     private String tipo;
     
     @Column(name="precio",nullable=false)
-    private float precio;
+    private Float precio;
     
     @Column(name="estado",nullable=false)
     private String estado;
@@ -71,11 +71,11 @@ public class Licencia implements Serializable {
         this.tipo = tipo;
     }
 
-    public float getPrecio() {
+    public Float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(Float precio) {
         this.precio = precio;
     }
 

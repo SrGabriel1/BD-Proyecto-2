@@ -4,6 +4,7 @@
  */
 package Pruebas;
 
+import DAOs.LicenciasDAO;
 import Excepciones.persistenciaException;
 import negocio.RegistroLicenciaBO;
 
@@ -16,5 +17,8 @@ public class Prueba {
     public static void main(String[] args) throws persistenciaException {
         RegistroLicenciaBO r = new RegistroLicenciaBO();
         System.out.println(r.VerificarPersona("FOLC920713345").getPersona().toString());
+        LicenciasDAO licencia = new LicenciasDAO();
+        licencia.setLicencia("1 ano", "normal", 600F, "Activa");
+        r.RegistrarLicencia(licencia);
     }
 }

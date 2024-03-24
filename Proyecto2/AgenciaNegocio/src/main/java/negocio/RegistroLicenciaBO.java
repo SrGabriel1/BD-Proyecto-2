@@ -31,14 +31,15 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
         if (v.ValidarLicencia(licencia) == true) {
             throw new persistenciaException("Hay una licencia una licencia con esos datos");
         }
-
+        LicenciasDAO Licencia = new LicenciasDAO();
+        Licencia.setLicencia(licencia.getLicencia().getVigencia(), licencia.getLicencia().getTipo(), licencia.getLicencia().getPrecio(), licencia.getLicencia().getEstado());
     }
 
     public PersonasDAO VerificarPersona(String rfc) throws persistenciaException {
-     PersonasDAO personaD = new PersonasDAO();
+        PersonasDAO personaD = new PersonasDAO();
         Persona persona = personaD.VerificarPersona(rfc);
         personaD.setPersona(persona);
         return personaD;
-        
+
     }
 }

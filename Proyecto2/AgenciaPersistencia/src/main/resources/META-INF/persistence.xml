@@ -3,6 +3,7 @@
   <persistence-unit name="ConexionPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Entidades.Persona</class>
+    <class>DAOs.LicenciasDAO</class>
     <class>DAOs.PersonasDAO</class>
     <class>Entidades.Licencia</class>
     <properties>
