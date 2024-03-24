@@ -9,6 +9,7 @@ import DAOs.PersonasDAO;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
+import Interfaces.IPersonasDAO;
 import Validadores.Validador;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -35,8 +36,8 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
         Licencia.setLicencia(licencia.getLicencia().getVigencia(), licencia.getLicencia().getTipo(), licencia.getLicencia().getPrecio(), licencia.getLicencia().getEstado());
     }
 
-    public PersonasDAO VerificarPersona(String rfc) throws persistenciaException {
-        PersonasDAO personaD = new PersonasDAO();
+    public Persona VerificarPersona(String rfc) throws persistenciaException {
+        IPersonasDAO personaD = new PersonasDAO();
         Persona persona = personaD.VerificarPersona(rfc);
         personaD.setPersona(persona);
         return personaD;
