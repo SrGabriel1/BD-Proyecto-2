@@ -44,10 +44,10 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtIngreseRFC.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 240, 50));
+        add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 240, 50));
 
         txtIngreseRFC1.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 240, 50));
+        add(txtIngreseRFC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 50));
 
         txtIngreseRFC2.setBackground(new java.awt.Color(217, 217, 217));
         txtIngreseRFC2.addActionListener(new java.awt.event.ActionListener() {
@@ -55,10 +55,10 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
                 txtIngreseRFC2ActionPerformed(evt);
             }
         });
-        add(txtIngreseRFC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 250, 50));
+        add(txtIngreseRFC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 250, 50));
 
         txtIngreseRFC3.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 250, 50));
+        add(txtIngreseRFC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 250, 50));
 
         BotonIngresar.setBorderPainted(false);
         BotonIngresar.setContentAreaFilled(false);
@@ -67,7 +67,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
                 BotonIngresarActionPerformed(evt);
             }
         });
-        add(BotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 140, 30));
+        add(BotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 150, 40));
 
         BotonRegresar.setBorderPainted(false);
         BotonRegresar.setContentAreaFilled(false);
@@ -76,10 +76,10 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
                 BotonRegresarActionPerformed(evt);
             }
         });
-        add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 160, 30));
+        add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 160, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tramite 2.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 380));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
