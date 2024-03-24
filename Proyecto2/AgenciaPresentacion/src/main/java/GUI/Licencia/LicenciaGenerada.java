@@ -41,10 +41,15 @@ public class LicenciaGenerada extends javax.swing.JPanel {
 
         txtLicenciaGenerada.setEditable(false);
         txtLicenciaGenerada.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtLicenciaGenerada, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 164, 230, 40));
+        txtLicenciaGenerada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLicenciaGeneradaActionPerformed(evt);
+            }
+        });
+        add(txtLicenciaGenerada, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 230, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenciaGeneradaCap.PNG"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 320));
 
         botonRegresarMenu.setContentAreaFilled(false);
         botonRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -52,12 +57,16 @@ public class LicenciaGenerada extends javax.swing.JPanel {
                 botonRegresarMenuActionPerformed(evt);
             }
         });
-        add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 210, 40));
+        add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
 ventana.cambiarVistaMenu();
     }//GEN-LAST:event_botonRegresarMenuActionPerformed
+
+    private void txtLicenciaGeneradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicenciaGeneradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLicenciaGeneradaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

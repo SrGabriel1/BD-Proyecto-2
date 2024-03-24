@@ -45,7 +45,8 @@ public class Menu extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioCap.PNG"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 530, 390));
+        jLabel1.setPreferredSize(new java.awt.Dimension(526, 390));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 530, 360));
 
         BotonLicencia.setContentAreaFilled(false);
         BotonLicencia.setFocusPainted(false);
@@ -54,7 +55,7 @@ public class Menu extends javax.swing.JPanel {
                 BotonLicenciaActionPerformed(evt);
             }
         });
-        add(BotonLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, 30));
+        add(BotonLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 140, 50));
 
         BotonPlacas.setContentAreaFilled(false);
         BotonPlacas.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +63,7 @@ public class Menu extends javax.swing.JPanel {
                 BotonPlacasActionPerformed(evt);
             }
         });
-        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, 40));
+        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 130, 50));
 
         BotonReportes.setContentAreaFilled(false);
         BotonReportes.addActionListener(new java.awt.event.ActionListener() {

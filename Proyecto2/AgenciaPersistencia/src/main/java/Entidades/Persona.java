@@ -5,6 +5,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,37 +13,64 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author USER
  */
 @Entity
-@Table(name="Personas")
+@Table(name = "Personas")
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nombre",nullable=false)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
-    
-    @Column(name="apellido_paterno",nullable=false)
+
+    @Column(name = "apellido_paterno", nullable = false)
     private String apellido_paterno;
-    
-    @Column(name="apellido_materno",nullable=false)
+
+    @Column(name = "apellido_materno", nullable = false)
     private String apellido_materno;
-    
-    @Column(name="CURP",nullable=false)
+
+    @Column(name = "CURP", nullable = false)
     private String CURP;
-    
-    @Column(name="telefono",nullable=false)
+    @Column(name = "RFC", nullable = false)
+    private String RFC;
+    @Column(name = "telefono", nullable = false)
     private String telefono;
-    
-    @Column(name="fecha_nacimiento",nullable=false)
-    private Date fecha_nacimiento;
+
+    @Column(name = "fecha_nacimiento", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Calendar fecha_nacimiento;
+
+    public Persona() {
+    }
+
+    public Persona( String nombre, String apellido_paterno, String apellido_materno, String CURP, String RFC, String telefono, Calendar fecha_nacimiento) {
+        this.nombre = nombre;
+        this.apellido_paterno = apellido_paterno;
+        this.apellido_materno = apellido_materno;
+        this.CURP = CURP;
+        this.RFC = RFC;
+        this.telefono = telefono;
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+   
+
+    public String getRFC() {
+        return RFC;
+    }
+
+    public void setRFC(String RFC) {
+        this.RFC = RFC;
+    }
 
     public Long getId() {
         return id;
@@ -92,20 +120,17 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public Date getFecha_nacimiento() {
+    public Calendar getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
+    public void setFecha_nacimiento(Calendar fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", CURP=" + CURP + ", telefono=" + telefono + ", fecha_nacimiento=" + fecha_nacimiento + '}';
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", CURP=" + CURP + ", telefono=" + telefono + ", fecha_nacimiento=" + fecha_nacimiento.getTime() + '}';
     }
-    
-    
 
-    
 }

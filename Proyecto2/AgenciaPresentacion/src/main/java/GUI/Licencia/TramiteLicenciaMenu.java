@@ -34,33 +34,52 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
     private void initComponents() {
 
         txtIngreseRFC = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        txtIngreseRFC1 = new javax.swing.JTextField();
+        txtIngreseRFC2 = new javax.swing.JTextField();
+        txtIngreseRFC3 = new javax.swing.JTextField();
         BotonIngresar = new javax.swing.JButton();
         BotonRegresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtIngreseRFC.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 230, 40));
+        add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 240, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InicioLicenciaCap.PNG"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 385));
+        txtIngreseRFC1.setBackground(new java.awt.Color(217, 217, 217));
+        add(txtIngreseRFC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 240, 50));
 
+        txtIngreseRFC2.setBackground(new java.awt.Color(217, 217, 217));
+        txtIngreseRFC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIngreseRFC2ActionPerformed(evt);
+            }
+        });
+        add(txtIngreseRFC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 250, 50));
+
+        txtIngreseRFC3.setBackground(new java.awt.Color(217, 217, 217));
+        add(txtIngreseRFC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 250, 50));
+
+        BotonIngresar.setBorderPainted(false);
         BotonIngresar.setContentAreaFilled(false);
         BotonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonIngresarActionPerformed(evt);
             }
         });
-        add(BotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 130, 30));
+        add(BotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 140, 30));
 
+        BotonRegresar.setBorderPainted(false);
         BotonRegresar.setContentAreaFilled(false);
         BotonRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRegresarActionPerformed(evt);
             }
         });
-        add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 140, 30));
+        add(BotonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 160, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tramite 2.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
@@ -71,11 +90,18 @@ ventana.cambiarVistaVigencia();
 ventana.cambiarVistaMenu();
     }//GEN-LAST:event_BotonRegresarActionPerformed
 
+    private void txtIngreseRFC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngreseRFC2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngreseRFC2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonIngresar;
     private javax.swing.JButton BotonRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtIngreseRFC;
+    private javax.swing.JTextField txtIngreseRFC1;
+    private javax.swing.JTextField txtIngreseRFC2;
+    private javax.swing.JTextField txtIngreseRFC3;
     // End of variables declaration//GEN-END:variables
 }

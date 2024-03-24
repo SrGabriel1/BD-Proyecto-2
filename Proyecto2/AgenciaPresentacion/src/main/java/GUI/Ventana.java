@@ -3,6 +3,8 @@ package GUI;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -46,11 +48,11 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 404, Short.MAX_VALUE)
         );
 
         pack();
@@ -70,19 +72,19 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     /**
-     * Método para cambiar a la vista de la ventana de Inicio. Este método elimina
-     * el panel actual
+     * Método para cambiar a la vista de la ventana de Inicio. Este método
+     * elimina el panel actual
      */
-        public void cambiarVistaMenu() {
+    public void cambiarVistaMenu() {
         limpiarFrame();
         Menu vistaMenu = new Menu(this);
         ponerEnJFrame(vistaMenu);
         panelActual = vistaMenu;
     }
-    
+
     /**
-     * Método para cambiar a la vista de la ventana de Carrito . Este método elimina
-     * el panel actual
+     * Método para cambiar a la vista de la ventana de Carrito . Este método
+     * elimina el panel actual
      */
     public void cambiarVistaVigencia() {
         limpiarFrame();
@@ -90,15 +92,17 @@ public class Ventana extends javax.swing.JFrame {
         ponerEnJFrame(vistaVigencia);
         panelActual = vistaVigencia;
     }
-      public void cambiarVistaLicenciaGenerada() {
+
+    public void cambiarVistaLicenciaGenerada() {
         limpiarFrame();
-          LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this);
+        LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this);
         ponerEnJFrame(vistaLicenciaGenerada);
         panelActual = vistaLicenciaGenerada;
     }
+
     /**
-     * Método para cambiar a la vista de la ventana de MetodoPago . Este método elimina
-     * el panel actual
+     * Método para cambiar a la vista de la ventana de MetodoPago . Este método
+     * elimina el panel actual
      */
     public void cambiarVistaLicencia() {
         limpiarFrame();
@@ -106,6 +110,7 @@ public class Ventana extends javax.swing.JFrame {
         ponerEnJFrame(vistaLicencia);
         panelActual = vistaLicencia;
     }
+
     /**
      * Método para agregar un panel a la ventana. Este método agrega el panel
      * especificado a la ventana, lo posiciona y ajusta su tamaño
@@ -114,10 +119,23 @@ public class Ventana extends javax.swing.JFrame {
      * @param panel El panel que se va a agregar a la ventana.
      */
     public void ponerEnJFrame(JPanel panel) {
-        this.add(panel);
-        panel.setBounds(0, 0, 526, 390);
-        this.setLocationRelativeTo(null);
-        this.pack();  // Ajustar el tamaño automáticamente
+        // Se obtiene el tamaño preferido del panel
+        Dimension panelSize = panel.getPreferredSize();
+
+        // Se agrega un margen adicional para garantizar que el panel se muestre completamente
+        int margin = 18; // Puedes ajustar este valor según sea necesario
+        panelSize.width += margin;
+        panelSize.height += margin;
+
+        setPreferredSize(panelSize);
+
+        setLocationRelativeTo(null);
+
+        setContentPane(panel);
+
+        pack();
+
+        setVisible(true);
     }
 
     /**

@@ -4,7 +4,10 @@
  */
 package negocio;
 
+import DAOs.LicenciasDAO;
+import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
+import Validadores.Validador;
 
 /**
  *
@@ -13,7 +16,17 @@ import Inegocio.IRegistroLicenciaBO;
 public class RegistroLicenciaBO implements IRegistroLicenciaBO{
 
     @Override
-    public void RegistrarLicencia() {
+    public void RegistrarLicencia(LicenciasDAO licencia) throws persistenciaException {
+        Validador v = new Validador();
+        if (v.ValidarLicencia(licencia)==true) {
+             throw new persistenciaException("Hay una licencia una licencia con esos datos");
+        }
+        
+    }
+
+    @Override
+    public boolean VerificarPersona(String rfc) throws persistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
