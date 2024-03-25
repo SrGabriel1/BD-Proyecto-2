@@ -74,11 +74,7 @@ public class LicenciaGenerada extends javax.swing.JPanel {
     }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
     private void txtLicenciaGeneradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicenciaGeneradaActionPerformed
-        try {
-            txtLicenciaGenerada.setText(rlb.MostrarLicencia().getNumero_Licencia());
-        } catch (persistenciaException ex) {
-            Logger.getLogger(LicenciaGenerada.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
 
     }//GEN-LAST:event_txtLicenciaGeneradaActionPerformed
 

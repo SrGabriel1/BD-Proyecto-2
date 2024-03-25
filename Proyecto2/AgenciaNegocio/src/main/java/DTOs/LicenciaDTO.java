@@ -14,7 +14,7 @@ import Interfaces.ILicenciasDAO;
  *
  * @author yohan
  */
-public class LicenciaDTO implements ILicenciasDAO {
+public class LicenciaDTO {
 
     private ILicenciasDAO licenciasDAO;
     private String tipoLicencia;
@@ -28,24 +28,6 @@ public class LicenciaDTO implements ILicenciasDAO {
         this.licenciasDAO = new LicenciasDAO(); // Conexión con el DAO real
     }
 
-    @Override
-    public boolean agregarLicencia(Licencia licencia) throws persistenciaException {
-        return licenciasDAO.agregarLicencia(licencia);
-    }
-
-    @Override
-    public boolean asociarLicenciaAPersona(Licencia licencia, Persona persona) throws persistenciaException {
-        return licenciasDAO.asociarLicenciaAPersona(licencia, persona);
-    }
-
-    @Override
-    public Licencia MostrarLicenciaGenerada() throws persistenciaException {
-        return licenciasDAO.MostrarLicenciaGenerada();
-    }
-
-    public ILicenciasDAO getLicenciasDAO() {
-        return licenciasDAO;
-    }
 
     public void setLicenciasDAO(ILicenciasDAO licenciasDAO) {
         this.licenciasDAO = licenciasDAO;

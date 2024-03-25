@@ -59,11 +59,5 @@ public class LicenciasDAO implements ILicenciasDAO {
         return true;
     }
 
-    @Override
-    public Licencia MostrarLicenciaGenerada() throws persistenciaException {
-        Licencia licencia = new Licencia();
-        licencia = this.licencia;
-        return licencia;
-    }
-
+    
 }

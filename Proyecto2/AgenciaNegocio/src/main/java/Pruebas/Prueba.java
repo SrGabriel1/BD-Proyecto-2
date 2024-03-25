@@ -31,6 +31,6 @@ public class Prueba {
         System.out.println(persona.toString());
 
         Licencia licencia = new Licencia("2 año", "normal", 600F, "activa",persona);
-        registroLicenciaBO.RegistrarLicencia(licencia);
+        //registroLicenciaBO.RegistrarLicencia(licencia);
     }
 }

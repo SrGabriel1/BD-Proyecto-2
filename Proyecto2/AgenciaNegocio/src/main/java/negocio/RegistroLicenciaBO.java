@@ -4,12 +4,14 @@
  */
 package negocio;
 
+import DAOs.LicenciasDAO;
 import DTOs.LicenciaDTO;
 import DTOs.PersonaDTO;
 import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
+import Interfaces.ILicenciasDAO;
 
 import Validadores.Validador;
 
@@ -33,13 +35,14 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
     }
 
     @Override
-    public void RegistrarLicencia(Licencia licencia) throws persistenciaException {
+    public void RegistrarLicencia(LicenciaDTO licenciadto) throws persistenciaException {
         Validador validador = new Validador();
-
+        Licencia licencia=new Licencia(licenciadto.getVigencia(), licenciadto.getTipoLicencia(), licenciadto.getPrecio(), licenciadto.getEstado(),licenciadto.getPersona());
+        ILicenciasDAO ilicencia=new LicenciasDAO();
         if (validador.ValidarLicencia(licencia)) {
             throw new persistenciaException("Hay una licencia con esos datos");
         }
-        if (licenciaDTO.agregarLicencia(licencia)) {
+        if (ilicencia.agregarLicencia(licencia)) {
             Persona persona = licencia.getPersona();
             if (persona != null) {
                 persona.agregarLicencia(licencia);
@@ -58,9 +61,6 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
         return personaDTO.VerificarPersona(rfc);
     }
 
-    @Override
-    public Licencia MostrarLicencia() throws persistenciaException {
-        return licenciaDTO.MostrarLicenciaGenerada();
-    }
+    
 
 }
