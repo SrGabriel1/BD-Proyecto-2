@@ -4,7 +4,6 @@
  */
 package negocio;
 
-
 import DTOs.LicenciaDTO;
 import DTOs.PersonaDTO;
 import Entidades.Licencia;
@@ -14,7 +13,6 @@ import Inegocio.IRegistroLicenciaBO;
 
 import Validadores.Validador;
 
-
 /**
  *
  * @author USER
@@ -23,6 +21,11 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
     private PersonaDTO personaDTO;
     private LicenciaDTO licenciaDTO;
+
+    public RegistroLicenciaBO() {
+        this.personaDTO = new  PersonaDTO();
+        this.licenciaDTO = new LicenciaDTO();
+    }
 
     public RegistroLicenciaBO(PersonaDTO personaDTO, LicenciaDTO licenciaDTO) {
         this.personaDTO = personaDTO;
@@ -54,4 +57,10 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
     public Persona VerificarPersona(String rfc) throws persistenciaException {
         return personaDTO.VerificarPersona(rfc);
     }
+
+    @Override
+    public Licencia MostrarLicencia() throws persistenciaException {
+        return licenciaDTO.MostrarLicenciaGenerada();
+    }
+
 }

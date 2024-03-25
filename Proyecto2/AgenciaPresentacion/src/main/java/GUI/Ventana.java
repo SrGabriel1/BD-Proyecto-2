@@ -1,5 +1,6 @@
 package GUI;
 
+import DTOs.LicenciaDTO;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
@@ -85,17 +86,18 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * Método para cambiar a la vista de la ventana de Carrito . Este método
      * elimina el panel actual
+     * @param licencia
      */
-    public void cambiarVistaVigencia() {
+    public void cambiarVistaVigencia(LicenciaDTO licencia) {
         limpiarFrame();
-        VigenciaLicencia vistaVigencia = new VigenciaLicencia(this);
+        VigenciaLicencia vistaVigencia = new VigenciaLicencia(this,licencia);
         ponerEnJFrame(vistaVigencia);
         panelActual = vistaVigencia;
     }
 
-    public void cambiarVistaLicenciaGenerada() {
+    public void cambiarVistaLicenciaGenerada(LicenciaDTO licencia) {
         limpiarFrame();
-        LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this);
+        LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this,licencia);
         ponerEnJFrame(vistaLicenciaGenerada);
         panelActual = vistaLicenciaGenerada;
     }

@@ -4,7 +4,18 @@
  */
 package GUI.Licencia;
 
+import DTOs.LicenciaDTO;
+import Entidades.Licencia;
+import Entidades.Persona;
+import Excepciones.persistenciaException;
 import GUI.Ventana;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import negocio.RegistroLicenciaBO;
 
 /**
  *
@@ -13,6 +24,8 @@ import GUI.Ventana;
 public class TramiteLicenciaMenu extends javax.swing.JPanel {
 
     private Ventana ventana;
+    private RegistroLicenciaBO rlb;
+    private boolean datosMostrados = false;
 
     /**
      * Creates new form Licencia
@@ -20,10 +33,13 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
     public TramiteLicenciaMenu() {
         initComponents();
     }
-   public TramiteLicenciaMenu(Ventana ventana) {
+
+    public TramiteLicenciaMenu(Ventana ventana) {
         this.ventana = ventana;
+        this.rlb = new RegistroLicenciaBO();
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,32 +49,47 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtFecha_nacimiento = new javax.swing.JTextField();
         txtIngreseRFC = new javax.swing.JTextField();
-        txtIngreseRFC1 = new javax.swing.JTextField();
-        txtIngreseRFC2 = new javax.swing.JTextField();
-        txtIngreseRFC3 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         BotonIngresar = new javax.swing.JButton();
         BotonRegresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtIngreseRFC.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 240, 50));
-
-        txtIngreseRFC1.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 50));
-
-        txtIngreseRFC2.setBackground(new java.awt.Color(217, 217, 217));
-        txtIngreseRFC2.addActionListener(new java.awt.event.ActionListener() {
+        txtFecha_nacimiento.setBackground(new java.awt.Color(217, 217, 217));
+        txtFecha_nacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIngreseRFC2ActionPerformed(evt);
+                txtFecha_nacimientoActionPerformed(evt);
             }
         });
-        add(txtIngreseRFC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 250, 50));
+        add(txtFecha_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 240, 50));
 
-        txtIngreseRFC3.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtIngreseRFC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 250, 50));
+        txtIngreseRFC.setBackground(new java.awt.Color(217, 217, 217));
+        txtIngreseRFC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIngreseRFCActionPerformed(evt);
+            }
+        });
+        add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 50));
+
+        txtTelefono.setBackground(new java.awt.Color(217, 217, 217));
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 250, 50));
+
+        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 250, 50));
 
         BotonIngresar.setBorderPainted(false);
         BotonIngresar.setContentAreaFilled(false);
@@ -83,25 +114,68 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
-ventana.cambiarVistaVigencia();
+        try {
+            String rfc = txtIngreseRFC.getText();
+            Persona persona = rlb.VerificarPersona(rfc);
+            if (persona != null) {
+                txtNombre.setText(persona.getNombre()+" "+persona.getApellido_materno()+" "+persona.getApellido_paterno());
+                txtTelefono.setText(persona.getTelefono());
+
+                Calendar fecha = persona.getFecha_nacimiento();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaNacimiento = sdf.format(fecha.getTime());
+                txtFecha_nacimiento.setText(fechaNacimiento);
+
+                if (!datosMostrados) {
+                    datosMostrados = true; // Marcar que los datos han sido mostrados
+                    return; // Salir del método sin continuar hacia el cambio de ventana
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay ninguna persona con ese RFC.");
+            }
+
+            // Si se llega aquí, significa que los datos ya se han mostrado y se puede cambiar de ventana
+            LicenciaDTO licencia = new LicenciaDTO();
+            licencia.setPersona(rlb.VerificarPersona(txtIngreseRFC.getText()));
+            ventana.cambiarVistaVigencia(licencia);
+        } catch (persistenciaException ex) {
+            Logger.getLogger(TramiteLicenciaMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_BotonIngresarActionPerformed
 
+
     private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed
-ventana.cambiarVistaMenu();
+        ventana.cambiarVistaMenu();
     }//GEN-LAST:event_BotonRegresarActionPerformed
 
-    private void txtIngreseRFC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngreseRFC2ActionPerformed
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void txtIngreseRFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngreseRFCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngreseRFC2ActionPerformed
+
+
+    }//GEN-LAST:event_txtIngreseRFCActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtFecha_nacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFecha_nacimientoActionPerformed
+
+    }//GEN-LAST:event_txtFecha_nacimientoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonIngresar;
     private javax.swing.JButton BotonRegresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtFecha_nacimiento;
     private javax.swing.JTextField txtIngreseRFC;
-    private javax.swing.JTextField txtIngreseRFC1;
-    private javax.swing.JTextField txtIngreseRFC2;
-    private javax.swing.JTextField txtIngreseRFC3;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

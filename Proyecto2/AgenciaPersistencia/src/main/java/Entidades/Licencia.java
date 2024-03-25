@@ -5,6 +5,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.Random;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,10 @@ public class Licencia implements Serializable {
 
     @Column(name = "vigencia", nullable = false)
     private String vigencia;
-
+    
+    @Column(name = "Numero_Licencia", nullable = false)
+    private String Numero_Licencia;
+    
     @Column(name = "tipo", nullable = false)
     private String tipo;
 
@@ -37,7 +41,7 @@ public class Licencia implements Serializable {
 
     @Column(name = "estado", nullable = false)
     private String estado;
-    
+
     @ManyToOne
     @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
@@ -45,14 +49,32 @@ public class Licencia implements Serializable {
     public Licencia() {
     }
 
- 
-
-    public Licencia( String vigencia, String tipo, Float precio, String estado, Persona persona) {
+    public Licencia(String vigencia, String tipo, Float precio, String estado, Persona persona) {
         this.vigencia = vigencia;
         this.tipo = tipo;
         this.precio = precio;
         this.estado = estado;
         this.persona = persona;
+        this.Numero_Licencia = generarNumeroAleatorio();
+    }
+
+    private String generarNumeroAleatorio() {
+        // Crear un objeto Random
+        Random random = new Random();
+
+        // Generar un número aleatorio de 8 cifras
+        int numero = random.nextInt(90000000) + 10000000;
+
+        // Convertir el número a String y devolverlo
+        return String.valueOf(numero);
+    }
+
+    public String getNumero_Licencia() {
+        return Numero_Licencia;
+    }
+
+    public void setNumero_Licencia(String Numero_Licencia) {
+        this.Numero_Licencia = Numero_Licencia;
     }
 
     public Persona getPersona() {

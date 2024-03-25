@@ -4,7 +4,16 @@
  */
 package GUI.Licencia;
 
+import DTOs.LicenciaDTO;
+import Entidades.Licencia;
+import Excepciones.persistenciaException;
 import GUI.Ventana;
+import java.awt.event.ItemEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+import negocio.RegistroLicenciaBO;
 
 /**
  *
@@ -13,6 +22,8 @@ import GUI.Ventana;
 public class VigenciaLicencia extends javax.swing.JPanel {
 
     private Ventana ventana;
+    private RegistroLicenciaBO rlb;
+    LicenciaDTO licencia = new LicenciaDTO();
 
     /**
      * Creates new form VigenciaLicencia1
@@ -20,10 +31,14 @@ public class VigenciaLicencia extends javax.swing.JPanel {
     public VigenciaLicencia() {
         initComponents();
     }
- public VigenciaLicencia(Ventana ventana) {
+
+    public VigenciaLicencia(Ventana ventana, LicenciaDTO licencia) {
         this.ventana = ventana;
+        this.licencia = licencia;
+        this.rlb = new RegistroLicenciaBO();
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,6 +68,11 @@ public class VigenciaLicencia extends javax.swing.JPanel {
         checkBoxCD3.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         checkBoxCD3.setForeground(new java.awt.Color(0, 0, 0));
         checkBoxCD3.setText("$700");
+        checkBoxCD3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxCD3ActionPerformed(evt);
+            }
+        });
         add(checkBoxCD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 170, -1));
 
         checkBoxCD2.setBackground(new java.awt.Color(217, 217, 217));
@@ -64,7 +84,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
         checkBoxCD1.setBackground(new java.awt.Color(217, 217, 217));
         checkBoxCD1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         checkBoxCD1.setForeground(new java.awt.Color(0, 0, 0));
-        checkBoxCD1.setText("$600");
+        checkBoxCD1.setText("$200");
         add(checkBoxCD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 170, -1));
 
         checkBoxCN3.setBackground(new java.awt.Color(217, 217, 217));
@@ -82,12 +102,22 @@ public class VigenciaLicencia extends javax.swing.JPanel {
         checkBoxCN2.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         checkBoxCN2.setForeground(new java.awt.Color(0, 0, 0));
         checkBoxCN2.setText("$900");
+        checkBoxCN2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxCN2ActionPerformed(evt);
+            }
+        });
         add(checkBoxCN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, -1));
 
         checkBoxCN1.setBackground(new java.awt.Color(217, 217, 217));
         checkBoxCN1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         checkBoxCN1.setForeground(new java.awt.Color(0, 0, 0));
         checkBoxCN1.setText("$600");
+        checkBoxCN1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxCN1ActionPerformed(evt);
+            }
+        });
         add(checkBoxCN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 170, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/vigencia2.png"))); // NOI18N
@@ -125,11 +155,49 @@ public class VigenciaLicencia extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarActionPerformed
-ventana.cambiarVistaLicenciaGenerada();
+
+        try {
+            if (checkBoxCD1.isSelected()) {
+                licencia.setTipoLicencia("Discapacitado");
+                licencia.setPrecio(200F);
+                licencia.setVigencia("1 año");
+            } else if (checkBoxCD2.isSelected()) {
+                licencia.setTipoLicencia("Discapacitado");
+                licencia.setPrecio(500F);
+                licencia.setVigencia("2 año");
+            } else if (checkBoxCD3.isSelected()) {
+                licencia.setTipoLicencia("Discapacitado");
+                licencia.setPrecio(700F);
+                licencia.setVigencia("3 año");
+            } else if (checkBoxCN1.isSelected()) {
+                licencia.setTipoLicencia("Normal");
+                licencia.setPrecio(600F);
+                licencia.setVigencia("1 año");
+            } else if (checkBoxCN2.isSelected()) {
+                licencia.setTipoLicencia("Normal");
+                licencia.setPrecio(900F);
+                licencia.setVigencia("2 año");
+            } else if (checkBoxCN3.isSelected()) {
+                licencia.setTipoLicencia("Normal");
+                licencia.setPrecio(1100F);
+                licencia.setVigencia("3 año");
+            } else {
+                JOptionPane.showMessageDialog(this, "Debes seleccionar al menos una opción de licencia.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            licencia.setEstado("Activa");
+            Licencia Licencia = new Licencia(licencia.getVigencia(), licencia.getTipoLicencia(), licencia.getPrecio(), licencia.getEstado(), licencia.getPersona());
+            rlb.RegistrarLicencia(Licencia);
+            licencia.asociarLicenciaAPersona(Licencia, licencia.getPersona());
+        } catch (persistenciaException ex) {
+            Logger.getLogger(VigenciaLicencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ventana.cambiarVistaLicenciaGenerada(licencia);
+
     }//GEN-LAST:event_BotonAceptarActionPerformed
 
     private void BotonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegresarActionPerformed
-ventana.cambiarVistaLicencia();
+        ventana.cambiarVistaLicencia();
     }//GEN-LAST:event_BotonRegresarActionPerformed
 
     private void checkBoxCN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCN3ActionPerformed
@@ -139,6 +207,18 @@ ventana.cambiarVistaLicencia();
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void checkBoxCN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCN1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxCN1ActionPerformed
+
+    private void checkBoxCN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCN2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxCN2ActionPerformed
+
+    private void checkBoxCD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCD3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBoxCD3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -28,6 +28,7 @@ public class LicenciasDAO implements ILicenciasDAO {
 
         em.persist(licencia);
         em.getTransaction().commit();
+        this.licencia = licencia;
         em.close();
         emf.close();
         return true;
@@ -38,8 +39,8 @@ public class LicenciasDAO implements ILicenciasDAO {
         return licencia;
     }
 
-    public void setLicencia(String vigencia, String tipo, Float precio, String estado,Persona persona) {
-        this.licencia = new Licencia(vigencia, tipo, precio, estado,persona);
+    public void setLicencia(String vigencia, String tipo, Float precio, String estado, Persona persona) {
+        this.licencia = new Licencia(vigencia, tipo, precio, estado, persona);
     }
 
     @Override
@@ -50,11 +51,19 @@ public class LicenciasDAO implements ILicenciasDAO {
 
         persona.agregarLicencia(licencia); // Asociar la licencia a la persona
         em.merge(persona); // Actualizar la persona en la base de datos
+        this.licencia = licencia;
 
         em.getTransaction().commit();
         em.close();
         emf.close();
         return true;
+    }
+
+    @Override
+    public Licencia MostrarLicenciaGenerada() throws persistenciaException {
+        Licencia licencia = new Licencia();
+        licencia = this.licencia;
+        return licencia;
     }
 
 }

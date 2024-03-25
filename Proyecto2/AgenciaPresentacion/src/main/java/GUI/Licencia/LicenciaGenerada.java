@@ -4,7 +4,12 @@
  */
 package GUI.Licencia;
 
+import DTOs.LicenciaDTO;
+import Excepciones.persistenciaException;
 import GUI.Ventana;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.RegistroLicenciaBO;
 
 /**
  *
@@ -13,6 +18,7 @@ import GUI.Ventana;
 public class LicenciaGenerada extends javax.swing.JPanel {
 
     private Ventana ventana;
+    private RegistroLicenciaBO rlb;
 
     /**
      * Creates new form LicenciaGenerada1
@@ -20,10 +26,13 @@ public class LicenciaGenerada extends javax.swing.JPanel {
     public LicenciaGenerada() {
         initComponents();
     }
- public LicenciaGenerada(Ventana ventana) {
+
+    public LicenciaGenerada(Ventana ventana, LicenciaDTO licencia) {
         this.ventana = ventana;
+        this.rlb = new RegistroLicenciaBO();
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,11 +70,16 @@ public class LicenciaGenerada extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
-ventana.cambiarVistaMenu();
+        ventana.cambiarVistaMenu();
     }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
     private void txtLicenciaGeneradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicenciaGeneradaActionPerformed
-        // TODO add your handling code here:
+        try {
+            txtLicenciaGenerada.setText(rlb.MostrarLicencia().getNumero_Licencia());
+        } catch (persistenciaException ex) {
+            Logger.getLogger(LicenciaGenerada.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_txtLicenciaGeneradaActionPerformed
 
 

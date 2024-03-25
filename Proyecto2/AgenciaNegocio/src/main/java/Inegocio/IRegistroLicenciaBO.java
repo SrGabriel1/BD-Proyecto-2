@@ -4,7 +4,6 @@
  */
 package Inegocio;
 
-
 import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
@@ -18,4 +17,7 @@ public interface IRegistroLicenciaBO {
     public void RegistrarLicencia(Licencia licencia) throws persistenciaException;
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
+
+    public Licencia MostrarLicencia() throws persistenciaException;
+
 }
