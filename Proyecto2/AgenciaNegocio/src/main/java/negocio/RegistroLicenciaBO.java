@@ -92,7 +92,7 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
     @Override
     public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     }
 
 }
