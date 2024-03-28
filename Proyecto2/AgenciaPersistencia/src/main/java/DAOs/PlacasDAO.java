@@ -21,7 +21,7 @@ public class PlacasDAO implements IPlacasDAO {
     }
 
     @Override
-    public Placas agregarPlacas(Placas placas) throws persistenciaException {
+    public boolean agregarPlacas(Placas placas) throws persistenciaException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

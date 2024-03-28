@@ -8,6 +8,8 @@
     <class>Entidades.Licencia</class>
     <class>Entidades.Automovil</class>
     <class>Entidades.Placas</class>
+    <class>Entidades.PlacaVieja</class>
+    <class>Entidades.PlacasNuevas</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Agencia?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

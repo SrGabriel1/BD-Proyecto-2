@@ -5,6 +5,7 @@
 package Validadores;
 
 import Entidades.Licencia;
+import Entidades.Placas;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +16,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author yohan
+ * @author yohan, ximena, jesus
  */
 public class Validador {
 
@@ -36,6 +37,24 @@ public class Validador {
         emf.close();
         return !licencias.isEmpty();
 
+    }
+    
+    public Boolean ValidarPlaca(Placas placa){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        EntityManager em = emf.createEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Placas> cq = cb.createQuery(Placas.class);
+        Root<Placas> rootPlacas = cq.from(Placas.class);
+        cq.select(rootPlacas);
+
+        cq.where(
+                cb.equal(rootPlacas.get("tipo"), placa.getTipo()) // Comparar por tipo de licencia
+        );
+
+        List<Placas> placa1 = em.createQuery(cq).getResultList();
+        em.close();
+        emf.close();
+        return !placa1.isEmpty();
     }
 
 }

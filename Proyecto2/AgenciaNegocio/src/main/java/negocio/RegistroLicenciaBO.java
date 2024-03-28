@@ -5,13 +5,18 @@
 package negocio;
 
 import DAOs.LicenciasDAO;
+import DAOs.PlacasDAO;
 import DTOs.LicenciaDTO;
 import DTOs.PersonaDTO;
+import DTOs.PlacasDTO;
+import Entidades.Automovil;
 import Entidades.Licencia;
 import Entidades.Persona;
+import Entidades.Placas;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroLicenciaBO;
 import Interfaces.ILicenciasDAO;
+import Interfaces.IPlacasDAO;
 
 import Validadores.Validador;
 
@@ -61,6 +66,33 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
         return personaDTO.VerificarPersona(rfc);
     }
 
-    
+    @Override
+    public void RegistrarPlacasNuevas(PlacasDTO placadto, Automovil auto) throws persistenciaException {
+        Validador validador = new Validador();
+        Placas placa = new Placas(placadto.getNumero(), placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), placadto.getAuto_id(), placadto.getTipo());
+        IPlacasDAO Iplacas = new PlacasDAO();
+        if(validador.ValidarPlaca(placa)){
+              throw new persistenciaException("Hay una placa con esos datos");
+        }
+         if(Iplacas.agregarPlacas(placa)){
+             Automovil auto2 = placa.getAuto_id();
+             if(auto != null){
+                 auto.agregarPlaca(placa);
+             } else{
+                  throw new persistenciaException("Error: la placa no está asociada a un automóvil.");
+             }
+         } else{
+             throw new persistenciaException("Error al agregar la placa");
+         }
+        
+    }
+
+    //popipopopipo
+
+
+    @Override
+    public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

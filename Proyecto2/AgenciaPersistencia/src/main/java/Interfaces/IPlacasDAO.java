@@ -14,6 +14,6 @@ import Excepciones.persistenciaException;
  */
 public interface IPlacasDAO {
     public String GenerarNumero() throws persistenciaException;
-    public Placas agregarPlacas(Placas placas) throws persistenciaException;
+    public boolean agregarPlacas(Placas placas) throws persistenciaException;
     public boolean asociarPlacas(Placas placas,Automovil auto) throws persistenciaException;
 }

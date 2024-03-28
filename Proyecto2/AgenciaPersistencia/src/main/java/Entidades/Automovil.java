@@ -5,15 +5,21 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
- * @author yohan
+ * @author lifty, nanis y jefra popipopipopi
  */
 @Entity
 public class Automovil implements Serializable {
@@ -22,39 +28,41 @@ public class Automovil implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   @Column(name = "Numero_Serie", nullable = false)
+    @Column(name = "Numero_Serie", nullable = false)
     private String Numero_Serie;
-    
+
     @Column(name = "Modelo", nullable = false)
     private String Modelo;
-    
+
     @Column(name = "tipo", nullable = false)
     private String tipo;
-            
+
     @Column(name = "Estado", nullable = false)
     private String Estado;
 
-    @Column(name = "placas")
-    private Float placas;
+    @ManyToOne
+    @JoinColumn(name = "licencia_id", nullable = false)
+    private Licencia licencia_id;
+
+    @OneToMany(mappedBy = "placa", cascade = CascadeType.ALL)
+    private List<Placas> placas = new ArrayList<>();
 
     public Automovil() {
     }
 
-    public Automovil(String Numero_Serie, String Modelo, String tipo, String Estado) {
+    public Automovil(String Numero_Serie, String Modelo, String tipo, String Estado, Licencia licencia_id) {
         this.Numero_Serie = Numero_Serie;
         this.Modelo = Modelo;
         this.tipo = tipo;
         this.Estado = Estado;
+        this.licencia_id = licencia_id;
+        this.placas = new ArrayList<>();
     }
 
-    public Automovil(String Numero_Serie, String Modelo, String tipo, String Estado, Float placas) {
-        this.Numero_Serie = Numero_Serie;
-        this.Modelo = Modelo;
-        this.tipo = tipo;
-        this.Estado = Estado;
-        this.placas = placas;
+    public void agregarPlaca(Placas placa) {
+        placa.setAuto_id(this);
+        placas.add(placa);
     }
-
 
     public Long getId() {
         return id;
@@ -88,11 +96,11 @@ public class Automovil implements Serializable {
         this.tipo = tipo;
     }
 
-    public Float getPlacas() {
+    public List<Placas> getPlacas() {
         return placas;
     }
 
-    public void setPlacas(Float placas) {
+    public void setPlacas(List<Placas> placas) {
         this.placas = placas;
     }
 
@@ -104,10 +112,17 @@ public class Automovil implements Serializable {
         this.Estado = Estado;
     }
 
-    @Override
-    public String toString() {
-        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", tipo=" + tipo + ", Estado=" + Estado + ", placas=" + placas + '}';
+    public Licencia getLicencia_id() {
+        return licencia_id;
     }
 
-   
+    public void setLicencia_id(Licencia licencia_id) {
+        this.licencia_id = licencia_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", tipo=" + tipo + ", Estado=" + Estado + ", licencia_id=" + licencia_id + ", placas=" + placas + '}';
+    }
+
 }

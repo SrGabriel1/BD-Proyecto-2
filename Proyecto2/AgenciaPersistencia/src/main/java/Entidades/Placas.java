@@ -6,11 +6,18 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Random;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,6 +26,7 @@ import javax.persistence.TemporalType;
  * @author yohan
  */
 @Entity
+@Table (name= "Placas")
 public class Placas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,13 +44,51 @@ public class Placas implements Serializable {
     @Column(name = "fecha_recepcion", nullable = false)
     @Temporal(TemporalType.DATE)
     private Calendar fecha_recepcion;
+    
+    @Column(name = "Costo", nullable = false)
+    private Float costo;
 
-    public Placas(String Numero, Calendar fecha_emision, Calendar fecha_recepcion) {
+     @ManyToOne
+    @JoinColumn(name = "autp_id", nullable = false)
+    private Automovil auto_id;
+     
+     @Column(name="tipo", nullable = false)
+ private String tipo;
+
+     public static String generarPlaca() {
+        Random random = new Random();
+        StringBuilder placa = new StringBuilder();
+
+        // Generar tres letras aleatorias
+        for (int i = 0; i < 3; i++) {
+            char letra = (char) (random.nextInt(26) + 'A');
+            placa.append(letra);
+        }
+
+        // Agregar un guión
+        placa.append("-");
+
+        // Generar tres dígitos aleatorios
+        for (int i = 0; i < 3; i++) {
+            int digito = random.nextInt(10);
+            placa.append(digito);
+        }
+
+        return placa.toString();
+    }
+
+    public Placas(String Numero, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id, String tipo) {
         this.Numero = Numero;
         this.fecha_emision = fecha_emision;
         this.fecha_recepcion = fecha_recepcion;
+        this.costo = costo;
+        this.auto_id = auto_id;
+        this.tipo = tipo;
     }
-
+     
+    public Placas() {
+    }
+   
     public Long getId() {
         return id;
     }
@@ -75,9 +121,36 @@ public class Placas implements Serializable {
         this.fecha_recepcion = fecha_recepcion;
     }
 
-    @Override
-    public String toString() {
-        return "Placas{" + "id=" + id + ", Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + '}';
+    public Float getCosto() {
+        return costo;
     }
 
+    public void setCosto(Float costo) {
+        this.costo = costo;
+    }
+
+    public Automovil getAuto_id() {
+        return auto_id;
+    }
+
+    public void setAuto_id(Automovil auto_id) {
+        this.auto_id = auto_id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Placas{" + "id=" + id + ", Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + ", costo=" + costo + ", auto_id=" + auto_id + ", tipo=" + tipo + '}';
+    }
+
+    
+       
+    
 }

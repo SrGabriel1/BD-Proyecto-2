@@ -5,6 +5,8 @@
 package Inegocio;
 
 import DTOs.LicenciaDTO;
+import DTOs.PlacasDTO;
+import Entidades.Automovil;
 import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
@@ -19,5 +21,9 @@ public interface IRegistroLicenciaBO {
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
 
+    public void RegistrarPlacasNuevas(PlacasDTO placa, Automovil auto) throws persistenciaException;
+    
+     public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException;
 
+    
 }
