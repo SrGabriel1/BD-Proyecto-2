@@ -18,7 +18,7 @@ import java.util.Date;
 public class PlacasDTO implements IPlacasDAO{
 
     private IPlacasDAO placas;
-    private String numero, tipo;
+    private String numero, tipo,estado;
     private Calendar fecha_emision, fecha_recepcion; 
     private Float costo;
     private Automovil auto_id;
@@ -29,6 +29,14 @@ public class PlacasDTO implements IPlacasDAO{
 
     public IPlacasDAO getPlacas() {
         return placas;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public void setPlacas(IPlacasDAO placas) {
@@ -100,6 +108,11 @@ public class PlacasDTO implements IPlacasDAO{
     @Override
     public boolean asociarPlacas(Placas placa, Automovil auto) throws persistenciaException {
         return placas.asociarPlacas(placa, auto);
+    }
+
+    @Override
+    public boolean actualizarPlaca(Placas placa) throws persistenciaException {
+        return placas.actualizarPlaca(placa);
     }
     
 }

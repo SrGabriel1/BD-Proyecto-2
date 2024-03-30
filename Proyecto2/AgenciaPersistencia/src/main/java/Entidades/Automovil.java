@@ -64,6 +64,15 @@ public class Automovil implements Serializable {
         placas.add(placa);
     }
 
+    public Placas buscarPlacaActiva() {
+        for (Placas placa : placas) {
+            if ("Activa".equals(placa.getEstado())) {
+                return placa;
+            }
+        }
+        return null;
+    }
+
     public Long getId() {
         return id;
     }

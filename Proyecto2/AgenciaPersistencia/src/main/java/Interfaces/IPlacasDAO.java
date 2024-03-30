@@ -16,4 +16,5 @@ public interface IPlacasDAO {
     public String GenerarNumero() throws persistenciaException;
     public boolean agregarPlacas(Placas placas) throws persistenciaException;
     public boolean asociarPlacas(Placas placas,Automovil auto) throws persistenciaException;
+    public boolean actualizarPlaca(Placas placa) throws persistenciaException;
 }

@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
  * @author yohan
  */
 @Entity
-@Table (name= "Placas")
+@Table(name = "Placas")
 public class Placas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,22 +40,24 @@ public class Placas implements Serializable {
     @Column(name = "fecha_emision", nullable = false)
     @Temporal(TemporalType.DATE)
     private Calendar fecha_emision;
-    
+
     @Column(name = "fecha_recepcion", nullable = false)
     @Temporal(TemporalType.DATE)
     private Calendar fecha_recepcion;
-    
+
     @Column(name = "Costo", nullable = false)
     private Float costo;
 
-     @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "autp_id", nullable = false)
     private Automovil auto_id;
-     
-     @Column(name="tipo", nullable = false)
- private String tipo;
 
-     public static String generarPlaca() {
+    @Column(name = "tipo", nullable = false)
+    private String tipo;
+    @Column(name = "Estado", nullable = false)
+    private String Estado;
+
+    public static String generarPlaca() {
         Random random = new Random();
         StringBuilder placa = new StringBuilder();
 
@@ -77,18 +79,28 @@ public class Placas implements Serializable {
         return placa.toString();
     }
 
-    public Placas(String Numero, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id, String tipo) {
+    public Placas(String Numero, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id, String tipo, String Estado) {
         this.Numero = Numero;
         this.fecha_emision = fecha_emision;
         this.fecha_recepcion = fecha_recepcion;
         this.costo = costo;
         this.auto_id = auto_id;
         this.tipo = tipo;
+        this.Estado = Estado;
     }
-     
+
+
     public Placas() {
     }
-   
+
+    public String getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
+    }
+
     public Long getId() {
         return id;
     }
@@ -150,7 +162,4 @@ public class Placas implements Serializable {
         return "Placas{" + "id=" + id + ", Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + ", costo=" + costo + ", auto_id=" + auto_id + ", tipo=" + tipo + '}';
     }
 
-    
-       
-    
 }
