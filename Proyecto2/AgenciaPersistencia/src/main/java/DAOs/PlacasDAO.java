@@ -52,13 +52,14 @@ public class PlacasDAO implements IPlacasDAO {
     @Override
     public boolean asociarPlacas(Placas placas, Automovil auto) throws persistenciaException {
         try {
-
             Automovil automovil = em.find(Automovil.class, auto.getId());
             automovil.agregarPlaca(placas);
+            
             em.getTransaction().begin();
             em.merge(automovil);
             em.getTransaction().commit();
             em.close();
+            
             return true;
         } catch (Exception e) {
             throw new persistenciaException("Error al asociar las placas al automóvil: " + e.getMessage());
@@ -75,18 +76,22 @@ public class PlacasDAO implements IPlacasDAO {
             CriteriaQuery<Placas> cq = cb.createQuery(Placas.class);
             Root<Placas> rootPlacas = cq.from(Placas.class);
             Predicate predicadoID = cb.equal(rootPlacas.get("id"), placa.getId());
-
+            
             cq.select(rootPlacas).where(predicadoID);
 
             Placas placaActualizada = em.createQuery(cq).getSingleResult();
+            
             if (placaActualizada != null) {
-                placaActualizada.setEstado(placa.getEstado()); // Actualizar el estado de la placa
-                em.merge(placaActualizada); // Actualizar la placa en la base de datos
+                placaActualizada.setEstado(placa.getEstado()); 
+                em.merge(placaActualizada); 
+                
                 em.getTransaction().commit();
+                
                 resultado = true;
             } else {
                 throw new persistenciaException("No se encontró la placa en la base de datos.");
             }
+            
         } catch (persistenciaException e) {
             if (em.getTransaction() != null && em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
