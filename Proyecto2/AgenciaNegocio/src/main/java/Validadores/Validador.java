@@ -48,7 +48,7 @@ public class Validador {
         cq.select(rootPlacas);
 
         cq.where(
-                cb.equal(rootPlacas.get("tipo"), placa.getTipo()) // Comparar por tipo de licencia
+                cb.equal(rootPlacas.get("tipo"), placa.getTipo()) // Comparar por tipo de placa
         );
 
         List<Placas> placa1 = em.createQuery(cq).getResultList();

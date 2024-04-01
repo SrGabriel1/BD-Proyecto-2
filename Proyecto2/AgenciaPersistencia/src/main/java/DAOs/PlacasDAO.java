@@ -5,12 +5,17 @@
 package DAOs;
 
 import Entidades.Automovil;
+import Entidades.Persona;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
 import Interfaces.IPlacasDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -66,8 +71,14 @@ public class PlacasDAO implements IPlacasDAO {
 
         try {
             em.getTransaction().begin();
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Placas> cq = cb.createQuery(Placas.class);
+            Root<Placas> rootPlacas = cq.from(Placas.class);
+            Predicate predicadoID = cb.equal(rootPlacas.get("id"), placa.getId());
 
-            Placas placaActualizada = em.find(Placas.class, placa.getId());
+            cq.select(rootPlacas).where(predicadoID);
+
+            Placas placaActualizada = em.createQuery(cq).getSingleResult();
             if (placaActualizada != null) {
                 placaActualizada.setEstado(placa.getEstado()); // Actualizar el estado de la placa
                 em.merge(placaActualizada); // Actualizar la placa en la base de datos
@@ -76,16 +87,13 @@ public class PlacasDAO implements IPlacasDAO {
             } else {
                 throw new persistenciaException("No se encontró la placa en la base de datos.");
             }
-        } catch (Exception e) {
+        } catch (persistenciaException e) {
             if (em.getTransaction() != null && em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
             throw new persistenciaException("Error al actualizar la placa en la base de datos: " + e.getMessage());
-        } finally {
-            if (em != null) {
-                em.close();
-            }
         }
+        em.close();
 
         return resultado;
     }
