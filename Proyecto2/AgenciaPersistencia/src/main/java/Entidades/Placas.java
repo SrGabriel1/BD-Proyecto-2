@@ -12,11 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,9 +26,8 @@ import javax.persistence.TemporalType;
 @Table(name = "Placas")
 public class Placas implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "Numero", nullable = false)
@@ -49,11 +45,12 @@ public class Placas implements Serializable {
     private Float costo;
 
     @ManyToOne
-    @JoinColumn(name = "autp_id", nullable = false)
+    @JoinColumn(name = "auto_id", nullable = false)
     private Automovil auto_id;
 
     @Column(name = "tipo", nullable = false)
     private String tipo;
+    
     @Column(name = "Estado", nullable = false)
     private String Estado;
 

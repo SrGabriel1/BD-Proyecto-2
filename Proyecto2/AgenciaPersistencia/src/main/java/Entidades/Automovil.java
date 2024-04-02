@@ -16,12 +16,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author lifty, nanis y jefra popipopipopi
  */
 @Entity
+@Table(name = "Automoviles")
 public class Automovil implements Serializable {
 
     @Id
@@ -44,8 +46,8 @@ public class Automovil implements Serializable {
     @JoinColumn(name = "licencia_id", nullable = false)
     private Licencia licencia_id;
 
-    @OneToMany(mappedBy = "placa", cascade = CascadeType.ALL)
-    private List<Placas> placas = new ArrayList<>();
+    @OneToMany(mappedBy = "auto_id", cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    private List<Placas> placas;
 
     public Automovil() {
     }

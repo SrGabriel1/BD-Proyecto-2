@@ -53,7 +53,7 @@ public class Persona implements Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar fecha_nacimiento;
 
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", cascade =  {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Licencia> licencias = new ArrayList<>();
 
     public Persona() {
