@@ -1,21 +1,34 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Placas;
 
+import GUI.Ventana;
+import Inegocio.IRegistroPlacasBO;
+import negocio.RegistroPlacasBO;
+
 /**
  *
- * @author Ximena
+ * @author USER
  */
-public class TramitePlacas extends javax.swing.JFrame {
+public class TramitePlacas extends javax.swing.JPanel {
 
+   
+    private Ventana ventana;
     /**
      * Creates new form TramitePlacas
      */
     public TramitePlacas() {
         initComponents();
     }
+    
+    public TramitePlacas(Ventana ventana) {
+        this.ventana = ventana;
+        initComponents();
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,36 +39,78 @@ public class TramitePlacas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        botonAutoUsado = new javax.swing.JButton();
-        botonAutoNuevo = new javax.swing.JButton();
-        botonRegresar = new javax.swing.JButton();
+        AutoNuevoButton = new javax.swing.JButton();
+        AutoUsadoButton = new javax.swing.JButton();
+        RegresarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AutoNuevoButton.setText("Auto Nuevo");
+        AutoNuevoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AutoNuevoButtonActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\SeleccionDeAutoCap.PNG")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 355));
+        AutoUsadoButton.setText("Auto Usado");
+        AutoUsadoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AutoUsadoButtonActionPerformed(evt);
+            }
+        });
 
-        botonAutoUsado.setText("jButton1");
-        getContentPane().add(botonAutoUsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 170, 30));
+        RegresarButton.setText("Regresar");
+        RegresarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarButtonActionPerformed(evt);
+            }
+        });
 
-        botonAutoNuevo.setText("jButton1");
-        getContentPane().add(botonAutoNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 170, 30));
-        getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 130, 40));
-
-        pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(RegresarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AutoNuevoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addComponent(AutoUsadoButton)
+                .addGap(70, 70, 70))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AutoNuevoButton)
+                    .addComponent(AutoUsadoButton))
+                .addGap(64, 64, 64)
+                .addComponent(RegresarButton)
+                .addGap(27, 27, 27))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
- 
+    private void AutoNuevoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutoNuevoButtonActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaTramiteAutoNuevo();
+        
+        
+    }//GEN-LAST:event_AutoNuevoButtonActionPerformed
+
+    private void AutoUsadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutoUsadoButtonActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaTramiteAutoUsado();
+    }//GEN-LAST:event_AutoUsadoButtonActionPerformed
+
+    private void RegresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarButtonActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_RegresarButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonAutoNuevo;
-    private javax.swing.JButton botonAutoUsado;
-    private javax.swing.JButton botonRegresar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton AutoNuevoButton;
+    private javax.swing.JButton AutoUsadoButton;
+    private javax.swing.JButton RegresarButton;
     // End of variables declaration//GEN-END:variables
 }

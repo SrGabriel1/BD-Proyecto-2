@@ -4,6 +4,9 @@ import DTOs.LicenciaDTO;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
+import GUI.Placas.TramiteAutoNuevo;
+import GUI.Placas.TramiteAutoUsado;
+import GUI.Placas.TramitePlacas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
@@ -101,6 +104,7 @@ public class Ventana extends javax.swing.JFrame {
         ponerEnJFrame(vistaLicenciaGenerada);
         panelActual = vistaLicenciaGenerada;
     }
+    
 
     /**
      * Método para cambiar a la vista de la ventana de MetodoPago . Este método
@@ -111,6 +115,26 @@ public class Ventana extends javax.swing.JFrame {
         TramiteLicenciaMenu vistaLicencia = new TramiteLicenciaMenu(this);
         ponerEnJFrame(vistaLicencia);
         panelActual = vistaLicencia;
+    }
+    public void cambiarVistaTramiteAutoNuevo() {
+        limpiarFrame();
+        TramiteAutoNuevo tramiteAutoNuevo=new TramiteAutoNuevo(this);
+        ponerEnJFrame(tramiteAutoNuevo);
+        panelActual = tramiteAutoNuevo;
+    }
+    
+    public void cambiarVistaTramiteAutoUsado() {
+        limpiarFrame();
+        TramiteAutoUsado tramiteAutoUsado=new TramiteAutoUsado(this);
+        ponerEnJFrame(tramiteAutoUsado);
+        panelActual = tramiteAutoUsado;
+    }
+    
+    public void cambiarVistaPlaca() {
+        limpiarFrame();
+        TramitePlacas vistaPlacas = new  TramitePlacas(this);
+        ponerEnJFrame(vistaPlacas);
+        panelActual = vistaPlacas;
     }
 
     /**

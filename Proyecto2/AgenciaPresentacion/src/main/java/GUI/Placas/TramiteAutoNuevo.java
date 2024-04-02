@@ -1,19 +1,26 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Placas;
 
+import GUI.Ventana;
+
 /**
  *
- * @author Ximena
+ * @author USER
  */
-public class TramiteAutoNuevo extends javax.swing.JFrame {
-
+public class TramiteAutoNuevo extends javax.swing.JPanel {
+    
+    private Ventana ventana;
     /**
-     * Creates new form TramiteAutoNuevo
+     * Creates new form TramiteAutoNuevo1
      */
     public TramiteAutoNuevo() {
+        initComponents();
+    }
+    public TramiteAutoNuevo(Ventana ventana) {
+        this.ventana = ventana;
         initComponents();
     }
 
@@ -32,62 +39,84 @@ public class TramiteAutoNuevo extends javax.swing.JFrame {
         txtLicencia = new javax.swing.JTextField();
         txtColor = new javax.swing.JTextField();
         txtModeloAuto = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         botonAceptar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
-        txtModeloAuto1 = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtLineaAuto.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtLineaAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 210, 30));
 
         txtMarca.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 210, 30));
 
         txtNumSerie.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtNumSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 94, 210, 30));
 
         txtLicencia.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 224, 210, 30));
 
         txtColor.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 210, 30));
 
         txtModeloAuto.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtModeloAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 96, 210, 30));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteAutoNuevoCap.PNG")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         botonAceptar.setText("jButton1");
-        getContentPane().add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 140, 30));
 
         botonRegresar.setText("jButton1");
-        getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 130, 30));
 
-        txtModeloAuto1.setBackground(new java.awt.Color(130, 130, 130));
-        getContentPane().add(txtModeloAuto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 96, 210, -1));
-
-        pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtModeloAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtLineaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtModeloAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLineaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtLicencia;
     private javax.swing.JTextField txtLineaAuto;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModeloAuto;
-    private javax.swing.JTextField txtModeloAuto1;
     private javax.swing.JTextField txtNumSerie;
     // End of variables declaration//GEN-END:variables
 }

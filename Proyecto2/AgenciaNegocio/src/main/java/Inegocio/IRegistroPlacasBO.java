@@ -15,11 +15,11 @@ import Excepciones.persistenciaException;
  *
  * @author USER
  */
-public interface IRegistroLicenciaBO {
+public interface IRegistroPlacasBO {
 
-    public void RegistrarLicencia(LicenciaDTO licencia) throws persistenciaException;
-
-    public Persona VerificarPersona(String rfc) throws persistenciaException;
+    public void RegistrarPlacasNuevas(PlacasDTO placa, Automovil auto) throws persistenciaException;
+    
+     public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException;
 
     
 }

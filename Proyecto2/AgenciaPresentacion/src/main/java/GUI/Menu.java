@@ -78,11 +78,13 @@ public class Menu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLicenciaActionPerformed
-ventana.cambiarVistaLicencia();
+        ventana.cambiarVistaLicencia();
     }//GEN-LAST:event_BotonLicenciaActionPerformed
 
     private void BotonPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPlacasActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_BotonPlacasActionPerformed
 
     private void BotonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReportesActionPerformed

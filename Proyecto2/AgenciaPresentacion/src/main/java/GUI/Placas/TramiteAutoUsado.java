@@ -1,19 +1,26 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Placas;
 
+import GUI.Ventana;
+
 /**
  *
- * @author Ximena
+ * @author USER
  */
-public class TramiteAutoUsado extends javax.swing.JFrame {
+public class TramiteAutoUsado extends javax.swing.JPanel {
 
+    private Ventana ventana;
     /**
-     * Creates new form TramiteAutoUsado
+     * Creates new form TramiteAutoUsado1
      */
     public TramiteAutoUsado() {
+        initComponents();
+    }
+    public TramiteAutoUsado(Ventana ventana) {
+        this.ventana = ventana;
         initComponents();
     }
 
@@ -28,34 +35,46 @@ public class TramiteAutoUsado extends javax.swing.JFrame {
 
         txtPlacasAntiguas = new javax.swing.JTextField();
         txtLicencia = new javax.swing.JTextField();
-        jajajja = new javax.swing.JLabel();
         botonIngresar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtPlacasAntiguas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 250, 30));
-        getContentPane().add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 250, -1));
-
-        jajajja.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteAutoUsadoCap.PNG")); // NOI18N
-        getContentPane().add(jajajja, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, -1, 310));
-        getContentPane().add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 130, 30));
-
         botonRegresar.setText("jButton1");
-        getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 130, 30));
 
-        pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPlacasAntiguas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150)
+                        .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(txtPlacasAntiguas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JLabel jajajja;
     private javax.swing.JTextField txtLicencia;
     private javax.swing.JTextField txtPlacasAntiguas;
     // End of variables declaration//GEN-END:variables
