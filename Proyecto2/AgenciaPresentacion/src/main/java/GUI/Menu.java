@@ -63,7 +63,7 @@ public class Menu extends javax.swing.JPanel {
                 BotonPlacasActionPerformed(evt);
             }
         });
-        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 130, 50));
+        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 130, 30));
 
         BotonReportes.setContentAreaFilled(false);
         BotonReportes.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +83,7 @@ public class Menu extends javax.swing.JPanel {
 
     private void BotonPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPlacasActionPerformed
         // TODO add your handling code here:
-        
-        
+        ventana.cambiarVistaPlaca();
     }//GEN-LAST:event_BotonPlacasActionPerformed
 
     private void BotonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReportesActionPerformed

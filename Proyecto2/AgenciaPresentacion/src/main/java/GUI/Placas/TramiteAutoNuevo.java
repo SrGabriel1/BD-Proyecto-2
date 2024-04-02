@@ -54,9 +54,19 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
 
         txtModeloAuto.setBackground(new java.awt.Color(130, 130, 130));
 
-        botonAceptar.setText("jButton1");
+        botonAceptar.setText("Aceptar");
+        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarActionPerformed(evt);
+            }
+        });
 
-        botonRegresar.setText("jButton1");
+        botonRegresar.setText("Regresar");
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,6 +117,16 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
                 .addGap(17, 17, 17))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaPlaca();
+    }//GEN-LAST:event_botonRegresarActionPerformed
+
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaPlacaGenerada();
+    }//GEN-LAST:event_botonAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

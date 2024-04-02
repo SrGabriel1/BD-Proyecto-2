@@ -4,6 +4,7 @@ import DTOs.LicenciaDTO;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
+import GUI.Placas.PlacaGenerada;
 import GUI.Placas.TramiteAutoNuevo;
 import GUI.Placas.TramiteAutoUsado;
 import GUI.Placas.TramitePlacas;
@@ -135,6 +136,13 @@ public class Ventana extends javax.swing.JFrame {
         TramitePlacas vistaPlacas = new  TramitePlacas(this);
         ponerEnJFrame(vistaPlacas);
         panelActual = vistaPlacas;
+    }
+    
+    public void cambiarVistaPlacaGenerada() {
+        limpiarFrame();
+        PlacaGenerada placaGenerada = new PlacaGenerada(this);
+        ponerEnJFrame(placaGenerada);
+        panelActual = placaGenerada;
     }
 
     /**

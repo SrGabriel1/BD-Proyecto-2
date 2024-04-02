@@ -45,7 +45,7 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
         Licencia licencia = new Licencia(licenciadto.getVigencia(), licenciadto.getTipoLicencia(), licenciadto.getPrecio(), licenciadto.getEstado(), licenciadto.getPersona());
         ILicenciasDAO ilicencia = new LicenciasDAO();
         if (validador.ValidarLicencia(licencia)) {
-            throw new persistenciaException("Hay una licencia con esos datos");
+            throw new persistenciaException("Ya cuentas con una licencia!!!!!");
         }
         if (ilicencia.agregarLicencia(licencia)) {
             Persona persona = licencia.getPersona();

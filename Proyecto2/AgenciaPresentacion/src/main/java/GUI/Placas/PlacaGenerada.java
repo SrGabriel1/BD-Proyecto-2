@@ -4,19 +4,26 @@
  */
 package GUI.Placas;
 
+import GUI.Ventana;
+
 /**
  *
  * @author USER
  */
-public class PlacaGeneradas extends javax.swing.JPanel {
+public class PlacaGenerada extends javax.swing.JPanel {
 
+    private Ventana ventana;
     /**
      * Creates new form PlacasGeneradas
      */
-    public PlacaGeneradas() {
+    public PlacaGenerada() {
         initComponents();
     }
 
+    public PlacaGenerada(Ventana ventana) {
+        this.ventana = ventana;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,7 +43,12 @@ public class PlacaGeneradas extends javax.swing.JPanel {
         txtPlacasNuevas.setEditable(false);
         txtPlacasNuevas.setBackground(new java.awt.Color(217, 217, 217));
 
-        botonRegresarMenu.setText("jButton1");
+        botonRegresarMenu.setText("Regresar al menú");
+        botonRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -65,6 +77,11 @@ public class PlacaGeneradas extends javax.swing.JPanel {
                 .addGap(68, 68, 68))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
