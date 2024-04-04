@@ -5,6 +5,7 @@
 package negocio;
 
 import DAOs.PlacasDAO;
+import DTOs.AutomovilDTO;
 import DTOs.PlacasDTO;
 import Entidades.Automovil;
 import Entidades.Placas;
@@ -17,9 +18,10 @@ import Validadores.Validador;
  *
  * @author USER
  */
-public class RegistroPlacasBO implements IRegistroPlacasBO{
+public class RegistroPlacasBO implements IRegistroPlacasBO {
+
     @Override
-    public void RegistrarPlacasNuevas(PlacasDTO placadto, Automovil auto) throws persistenciaException {
+    public void RegistrarPlacasNuevas(PlacasDTO placadto, AutomovilDTO auto) throws persistenciaException {
         Validador validador = new Validador();
         String numeroPlaca = Placas.generarPlaca();
         placadto.setEstado("Activa");
@@ -41,7 +43,6 @@ public class RegistroPlacasBO implements IRegistroPlacasBO{
     }
 
     //popipopopipo
-    
     // miku miku oeo
     @Override
     public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException {
@@ -56,16 +57,17 @@ public class RegistroPlacasBO implements IRegistroPlacasBO{
 
         // Verificar que el automóvil esté registrado y asociado a una placa activa
         Automovil automovil = Placa.getAuto_id();
+        AutomovilDTO auto = new AutomovilDTO();
         if (automovil == null) {
             throw new persistenciaException("Error: la placa no está asociada a un automóvil registrado.");
         }
 
         // Buscar una placa activa asociada al automóvil
-        Placas placaActiva = automovil.buscarPlacaActiva(); 
+        Placas placaActiva = auto.buscarPlacaActiva();
         if (placaActiva != null) {
             // Asociar las placas al automóvil y agregarlas
             if (Iplacas.asociarPlacas(Placa, automovil)) {
-                automovil.agregarPlaca(Placa);
+                auto.agregarPlaca(Placa);
                 // Desactivar la placa activa anterior
                 placaActiva.setEstado("Desactivada");
                 // Actualizar la placa activa en la base de datos
@@ -77,7 +79,7 @@ public class RegistroPlacasBO implements IRegistroPlacasBO{
                 placa.setEstado("Activa");
                 Placas nuevaPlaca = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), automovil, placa.getTipo(), placa.getEstado());
                 if (!validador.ValidarPlaca(nuevaPlaca) && Iplacas.agregarPlacas(nuevaPlaca)) {
-                    automovil.agregarPlaca(nuevaPlaca);
+                    auto.agregarPlaca(nuevaPlaca);
                 } else {
                     throw new persistenciaException("Error al generar y asociar las nuevas placas al automóvil.");
                 }

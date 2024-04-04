@@ -36,30 +36,36 @@ public class Automovil implements Serializable {
     @Column(name = "Modelo", nullable = false)
     private String Modelo;
 
-    @Column(name = "tipo", nullable = false)
-    private String tipo;
+    @Column(name = "línea", nullable = false)
+    private String línea;
 
-    @Column(name = "Estado", nullable = false)
-    private String Estado;
+    @Column(name = "marca", nullable = false)
+    private String marca;
 
+    @Column(name = "color ", nullable = false)
+    private String color;
+    
     @ManyToOne
     @JoinColumn(name = "licencia_id", nullable = false)
     private Licencia licencia_id;
 
-    @OneToMany(mappedBy = "auto_id", cascade = {CascadeType.MERGE,CascadeType.PERSIST})
+    @OneToMany(mappedBy = "auto_id", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Placas> placas;
 
     public Automovil() {
     }
 
-    public Automovil(String Numero_Serie, String Modelo, String tipo, String Estado, Licencia licencia_id) {
+    public Automovil(String Numero_Serie, String Modelo, String línea, String marca, String color, Licencia licencia_id) {
         this.Numero_Serie = Numero_Serie;
         this.Modelo = Modelo;
-        this.tipo = tipo;
-        this.Estado = Estado;
+        this.línea = línea;
+        this.marca = marca;
+        this.color = color;
         this.licencia_id = licencia_id;
         this.placas = new ArrayList<>();
     }
+
+
 
     public void agregarPlaca(Placas placa) {
         placa.setAuto_id(this);
@@ -99,28 +105,28 @@ public class Automovil implements Serializable {
         this.Modelo = Modelo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getLínea() {
+        return línea;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setLínea(String línea) {
+        this.línea = línea;
     }
 
-    public List<Placas> getPlacas() {
-        return placas;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setPlacas(List<Placas> placas) {
-        this.placas = placas;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public String getEstado() {
-        return Estado;
+    public String getColor() {
+        return color;
     }
 
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public Licencia getLicencia_id() {
@@ -131,9 +137,19 @@ public class Automovil implements Serializable {
         this.licencia_id = licencia_id;
     }
 
+    public List<Placas> getPlacas() {
+        return placas;
+    }
+
+    public void setPlacas(List<Placas> placas) {
+        this.placas = placas;
+    }
+
     @Override
     public String toString() {
-        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", tipo=" + tipo + ", Estado=" + Estado + ", licencia_id=" + licencia_id + ", placas=" + placas + '}';
+        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", l\u00ednea=" + línea + ", marca=" + marca + ", color=" + color + ", licencia_id=" + licencia_id + ", placas=" + placas + '}';
     }
 
 }
+     
+

@@ -1,5 +1,6 @@
 package GUI;
 
+import DTOs.AutomovilDTO;
 import DTOs.LicenciaDTO;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
@@ -138,9 +139,9 @@ public class Ventana extends javax.swing.JFrame {
         panelActual = vistaPlacas;
     }
     
-    public void cambiarVistaPlacaGenerada() {
+    public void cambiarVistaPlacaGenerada(AutomovilDTO auto) {
         limpiarFrame();
-        PlacaGenerada placaGenerada = new PlacaGenerada(this);
+        PlacaGenerada placaGenerada = new PlacaGenerada(this,auto);
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
     }

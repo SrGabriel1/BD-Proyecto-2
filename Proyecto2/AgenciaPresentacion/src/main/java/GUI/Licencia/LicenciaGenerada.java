@@ -31,6 +31,8 @@ public class LicenciaGenerada extends javax.swing.JPanel {
         this.ventana = ventana;
         this.rlb = new RegistroLicenciaBO();
         initComponents();
+        txtLicencia.setText(licencia.getNumeroLicencia());
+        txtLicencia.setEditable(false);
     }
 
     /**
@@ -42,10 +44,19 @@ public class LicenciaGenerada extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtLicencia = new javax.swing.JTextField();
         botonRegresarMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtLicencia.setBackground(new java.awt.Color(217, 217, 217));
+        txtLicencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLicenciaActionPerformed(evt);
+            }
+        });
+        add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 230, 50));
 
         botonRegresarMenu.setBorderPainted(false);
         botonRegresarMenu.setContentAreaFilled(false);
@@ -54,19 +65,24 @@ public class LicenciaGenerada extends javax.swing.JPanel {
                 botonRegresarMenuActionPerformed(evt);
             }
         });
-        add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 270, 60));
+        add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 240, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/generada.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 390));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LicenciaGeneradaCap.PNG"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 330));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
         ventana.cambiarVistaMenu();
     }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
+    private void txtLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicenciaActionPerformed
+
+    }//GEN-LAST:event_txtLicenciaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtLicencia;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,23 +4,36 @@
  */
 package GUI.Placas;
 
+import DTOs.AutomovilDTO;
+import DTOs.PlacasDTO;
+import Excepciones.persistenciaException;
 import GUI.Ventana;
+import Inegocio.IRegistroPlacasBO;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.RegistroPlacasBO;
 
 /**
  *
  * @author USER
  */
 public class TramiteAutoNuevo extends javax.swing.JPanel {
-    
+
     private Ventana ventana;
+    private IRegistroPlacasBO rp;
+
     /**
      * Creates new form TramiteAutoNuevo1
      */
     public TramiteAutoNuevo() {
         initComponents();
     }
+
     public TramiteAutoNuevo(Ventana ventana) {
         this.ventana = ventana;
+        this.rp = new RegistroPlacasBO();
         initComponents();
     }
 
@@ -33,6 +46,8 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel1 = new javax.swing.JLabel();
         txtLineaAuto = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtNumSerie = new javax.swing.JTextField();
@@ -42,80 +57,78 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         botonAceptar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TramiteAutoNuevoCap.PNG"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 340));
+
         txtLineaAuto.setBackground(new java.awt.Color(130, 130, 130));
+        txtLineaAuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLineaAutoActionPerformed(evt);
+            }
+        });
+        add(txtLineaAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 210, 30));
 
         txtMarca.setBackground(new java.awt.Color(130, 130, 130));
+        txtMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaActionPerformed(evt);
+            }
+        });
+        add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 210, 30));
 
         txtNumSerie.setBackground(new java.awt.Color(130, 130, 130));
+        txtNumSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumSerieActionPerformed(evt);
+            }
+        });
+        add(txtNumSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 210, 30));
 
         txtLicencia.setBackground(new java.awt.Color(130, 130, 130));
+        txtLicencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLicenciaActionPerformed(evt);
+            }
+        });
+        add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 210, 30));
 
         txtColor.setBackground(new java.awt.Color(130, 130, 130));
+        txtColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtColorActionPerformed(evt);
+            }
+        });
+        add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, 30));
 
         txtModeloAuto.setBackground(new java.awt.Color(130, 130, 130));
+        txtModeloAuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModeloAutoActionPerformed(evt);
+            }
+        });
+        add(txtModeloAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 210, 30));
 
-        botonAceptar.setText("Aceptar");
+        botonAceptar.setBorderPainted(false);
+        botonAceptar.setContentAreaFilled(false);
+        botonAceptar.setFocusPainted(false);
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAceptarActionPerformed(evt);
             }
         });
+        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 140, 30));
 
-        botonRegresar.setText("Regresar");
+        botonRegresar.setBorderPainted(false);
+        botonRegresar.setContentAreaFilled(false);
+        botonRegresar.setFocusPainted(false);
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegresarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtModeloAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtLineaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtModeloAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLineaAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
-        );
+        add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 130, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
@@ -125,13 +138,53 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         // TODO add your handling code here:
-        ventana.cambiarVistaPlacaGenerada();
+        String Numero_Serie = txtNumSerie.getText();
+        String Modelo = txtModeloAuto.getText();
+        String linea = txtLineaAuto.getText();
+        String licencia = txtLicencia.getText();
+        String color = txtColor.getText();
+        String marca = txtMarca.getText();
+        AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color, licencia);
+        Calendar fecha_emision,fecha_recepcion;
+        PlacasDTO placa = new PlacasDTO("Nuevo", "Activa", fecha_emision, fecha_recepcion, TOP_ALIGNMENT, auto_id);
+        try {
+            rp.RegistrarPlacasNuevas(placa, auto);
+        } catch (persistenciaException ex) {
+            Logger.getLogger(TramiteAutoNuevo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ventana.cambiarVistaPlacaGenerada(auto);
     }//GEN-LAST:event_botonAceptarActionPerformed
+
+    private void txtLineaAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLineaAutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLineaAutoActionPerformed
+
+    private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaActionPerformed
+
+    private void txtNumSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumSerieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumSerieActionPerformed
+
+    private void txtLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLicenciaActionPerformed
+
+    private void txtColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtColorActionPerformed
+
+    private void txtModeloAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloAutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModeloAutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonRegresar;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtLicencia;
     private javax.swing.JTextField txtLineaAuto;

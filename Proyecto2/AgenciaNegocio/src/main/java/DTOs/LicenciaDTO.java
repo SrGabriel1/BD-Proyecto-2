@@ -25,7 +25,7 @@ public class LicenciaDTO {
     private Persona persona;
 
     public LicenciaDTO() {
-        this.licenciasDAO = new LicenciasDAO(); // Conexión con el DAO real
+        this.licenciasDAO = new LicenciasDAO();
     }
 
 

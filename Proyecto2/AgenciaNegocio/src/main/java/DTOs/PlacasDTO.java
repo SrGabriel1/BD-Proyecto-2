@@ -4,6 +4,7 @@
  */
 package DTOs;
 
+import DAOs.PlacasDAO;
 import Entidades.Automovil;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
@@ -23,8 +24,17 @@ public class PlacasDTO implements IPlacasDAO{
     private Float costo;
     private Automovil auto_id;
 
-    public PlacasDTO(IPlacasDAO placas) {
-        this.placas = placas;
+    public PlacasDTO() {
+        this.placas = new PlacasDAO();
+    }
+
+    public PlacasDTO( String tipo, String estado, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id) {
+        this.tipo = tipo;
+        this.estado = estado;
+        this.fecha_emision = fecha_emision;
+        this.fecha_recepcion = fecha_recepcion;
+        this.costo = costo;
+        this.auto_id = auto_id;
     }
 
     public IPlacasDAO getPlacas() {

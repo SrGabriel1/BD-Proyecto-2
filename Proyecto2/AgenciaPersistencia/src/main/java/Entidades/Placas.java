@@ -156,7 +156,9 @@ public class Placas implements Serializable {
 
     @Override
     public String toString() {
-        return "Placas{" + "id=" + id + ", Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + ", costo=" + costo + ", auto_id=" + auto_id + ", tipo=" + tipo + '}';
+        return "Placas{" + "id=" + id + ", Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + ", costo=" + costo + ", auto_id=" + auto_id + ", tipo=" + tipo + ", Estado=" + Estado + '}';
     }
+
+  
 
 }

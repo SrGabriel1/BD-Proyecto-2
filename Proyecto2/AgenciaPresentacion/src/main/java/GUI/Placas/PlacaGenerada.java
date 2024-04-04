@@ -4,7 +4,10 @@
  */
 package GUI.Placas;
 
+import DTOs.AutomovilDTO;
 import GUI.Ventana;
+import Inegocio.IRegistroPlacasBO;
+import negocio.RegistroPlacasBO;
 
 /**
  *
@@ -12,7 +15,11 @@ import GUI.Ventana;
  */
 public class PlacaGenerada extends javax.swing.JPanel {
 
+    AutomovilDTO auto;
+    private IRegistroPlacasBO rp;
+
     private Ventana ventana;
+
     /**
      * Creates new form PlacasGeneradas
      */
@@ -20,10 +27,13 @@ public class PlacaGenerada extends javax.swing.JPanel {
         initComponents();
     }
 
-    public PlacaGenerada(Ventana ventana) {
+    public PlacaGenerada(Ventana ventana, AutomovilDTO auto) {
         this.ventana = ventana;
+        this.auto = auto;
+        this.rp = new RegistroPlacasBO();
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,46 +46,30 @@ public class PlacaGenerada extends javax.swing.JPanel {
         txtPrecio = new javax.swing.JTextField();
         txtPlacasNuevas = new javax.swing.JTextField();
         botonRegresarMenu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtPrecio.setEditable(false);
         txtPrecio.setBackground(new java.awt.Color(217, 217, 217));
+        add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 200, 40));
 
         txtPlacasNuevas.setEditable(false);
         txtPlacasNuevas.setBackground(new java.awt.Color(217, 217, 217));
+        add(txtPlacasNuevas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 210, 40));
 
-        botonRegresarMenu.setText("Regresar al menú");
+        botonRegresarMenu.setBorderPainted(false);
+        botonRegresarMenu.setContentAreaFilled(false);
+        botonRegresarMenu.setFocusPainted(false);
         botonRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegresarMenuActionPerformed(evt);
             }
         });
+        add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 210, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtPlacasNuevas, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(botonRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPlacasNuevas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
-                .addComponent(botonRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PlacasGeneradasCap.PNG"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 350));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
@@ -86,6 +80,7 @@ public class PlacaGenerada extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtPlacasNuevas;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

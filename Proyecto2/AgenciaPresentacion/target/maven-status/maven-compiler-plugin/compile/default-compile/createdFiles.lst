@@ -3,8 +3,10 @@ GUI\Placas\TramiteAutoNuevo$1.class
 GUI\Placas\TramitePlacas.class
 GUI\Licencia\TramiteLicenciaMenu$6.class
 GUI\Licencia\TramiteLicenciaMenu$3.class
+GUI\Licencia\LicenciaGenerada$2.class
 GUI\Licencia\VigenciaLicencia$9.class
 GUI\Placas\TramiteAutoUsado.class
+GUI\Placas\TramiteAutoNuevo$4.class
 GUI\Placas\TramiteAutoUsado$2.class
 GUI\Placas\TramiteAutoNuevo$2.class
 GUI\Licencia\TramiteLicenciaMenu.class
@@ -22,6 +24,7 @@ GUI\Placas\TramiteAutoNuevo.class
 GUI\Licencia\LicenciaGenerada.class
 com\mycompany\agenciapresentacion\AgenciaPresentacion.class
 GUI\Licencia\TramiteLicenciaMenu$4.class
+GUI\Placas\TramiteAutoNuevo$3.class
 GUI\Placas\TramitePlacas$2.class
 GUI\Licencia\VigenciaLicencia$1.class
 GUI\Licencia\TramiteLicenciaMenu$1.class
@@ -29,6 +32,7 @@ GUI\Menu$2.class
 GUI\Placas\PlacaGenerada$1.class
 GUI\Licencia\VigenciaLicencia$4.class
 GUI\Licencia\TramiteLicenciaMenu$5.class
+GUI\Placas\TramiteAutoUsado$3.class
 GUI\Licencia\TramiteLicenciaMenu$2.class
 GUI\Licencia\VigenciaLicencia$7.class
 GUI\Licencia\LicenciaGenerada$1.class

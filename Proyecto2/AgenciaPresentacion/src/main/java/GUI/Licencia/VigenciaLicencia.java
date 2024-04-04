@@ -190,11 +190,11 @@ public class VigenciaLicencia extends javax.swing.JPanel {
                 return;
             }
             licencia.setEstado("Activa");
-            rlb.RegistrarLicencia(licencia);
+           licencia.setNumeroLicencia(rlb.RegistrarLicencia(licencia));
         } catch (persistenciaException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(VigenciaLicencia.class.getName()).log(Level.SEVERE, null, ex);
-            
+            return;
         }
         ventana.cambiarVistaLicenciaGenerada(licencia);
 
