@@ -6,7 +6,7 @@ package GUI.Licencia;
 
 import DTOs.LicenciaDTO;
 import Excepciones.persistenciaException;
-import GUI.Ventana;
+import GUI.ControladorVentana;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import negocio.RegistroLicenciaBO;
@@ -17,7 +17,7 @@ import negocio.RegistroLicenciaBO;
  */
 public class LicenciaGenerada extends javax.swing.JPanel {
 
-    private Ventana ventana;
+    private ControladorVentana ventana;
     private RegistroLicenciaBO rlb;
 
     /**
@@ -27,7 +27,7 @@ public class LicenciaGenerada extends javax.swing.JPanel {
         initComponents();
     }
 
-    public LicenciaGenerada(Ventana ventana, LicenciaDTO licencia) {
+    public LicenciaGenerada(ControladorVentana ventana, LicenciaDTO licencia) {
         this.ventana = ventana;
         this.rlb = new RegistroLicenciaBO();
         initComponents();

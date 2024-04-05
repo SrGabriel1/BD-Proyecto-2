@@ -21,16 +21,16 @@ import javax.swing.JPanel;
  * de usuario, así como de interactuar con el usuario mediante ventanas
  * emergentes. También mantiene instancias de DTOs y una conexión a la base de
  * datos.
- *
+ * 
  */
-public class Ventana extends javax.swing.JFrame {
+public class ControladorVentana extends javax.swing.JFrame {
 
     private JPanel panelActual;
 
     /**
      * Constructor de la clase Ventana.
      */
-    public Ventana() {
+    public ControladorVentana() {
         initComponents();
     }
 

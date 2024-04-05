@@ -5,7 +5,7 @@
 package GUI.Placas;
 
 import DTOs.AutomovilDTO;
-import GUI.Ventana;
+import GUI.ControladorVentana;
 import negocio.RegistroPlacasBO;
 
 /**
@@ -13,7 +13,7 @@ import negocio.RegistroPlacasBO;
  * @author yohan
  */
 public class TramiteGenerarPlacas extends javax.swing.JPanel {
-    private Ventana ventana;
+    private ControladorVentana ventana;
     private AutomovilDTO auto;
     private String tipo;
     /**
@@ -22,7 +22,7 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     public TramiteGenerarPlacas() {
         initComponents();
     }
-     public TramiteGenerarPlacas(Ventana ventana,AutomovilDTO auto,String tipo) {
+     public TramiteGenerarPlacas(ControladorVentana ventana,AutomovilDTO auto,String tipo) {
         this.ventana = ventana;
         this.auto = auto;
         this.tipo=tipo;

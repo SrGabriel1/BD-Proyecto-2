@@ -4,7 +4,7 @@
 
 package com.mycompany.agenciapresentacion;
 
-import GUI.Ventana;
+import GUI.ControladorVentana;
 
 /**
  *
@@ -13,7 +13,7 @@ import GUI.Ventana;
 public class AgenciaPresentacion {
 
     public static void main(String[] args) {
-    Ventana ventana = new Ventana();
+    ControladorVentana ventana = new ControladorVentana();
             ventana.cambiarVistaMenu();
             ventana.setVisible(true);
     }

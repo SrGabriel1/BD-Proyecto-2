@@ -5,7 +5,7 @@
 package GUI.Placas;
 
 import DTOs.AutomovilDTO;
-import GUI.Ventana;
+import GUI.ControladorVentana;
 import Inegocio.IRegistroPlacasBO;
 import negocio.RegistroPlacasBO;
 
@@ -18,7 +18,7 @@ public class PlacaGenerada extends javax.swing.JPanel {
     AutomovilDTO auto;
     private IRegistroPlacasBO rp;
 
-    private Ventana ventana;
+    private ControladorVentana ventana;
 
     /**
      * Creates new form PlacasGeneradas
@@ -27,7 +27,7 @@ public class PlacaGenerada extends javax.swing.JPanel {
         initComponents();
     }
 
-    public PlacaGenerada(Ventana ventana) {
+    public PlacaGenerada(ControladorVentana ventana) {
         this.ventana = ventana;
         this.auto = auto;
         this.rp = new RegistroPlacasBO();

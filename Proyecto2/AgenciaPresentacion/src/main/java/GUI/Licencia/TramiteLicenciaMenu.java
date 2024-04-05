@@ -9,7 +9,7 @@ import Encriptador.Encriptador;
 import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
-import GUI.Ventana;
+import GUI.ControladorVentana;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +24,7 @@ import negocio.RegistroLicenciaBO;
  */
 public class TramiteLicenciaMenu extends javax.swing.JPanel {
 
-    private Ventana ventana;
+    private ControladorVentana ventana;
     private RegistroLicenciaBO rlb;
     private boolean datosMostrados = false;
 
@@ -35,7 +35,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
         initComponents();
     }
 
-    public TramiteLicenciaMenu(Ventana ventana) {
+    public TramiteLicenciaMenu(ControladorVentana ventana) {
         this.ventana = ventana;
         this.rlb = new RegistroLicenciaBO();
         initComponents();

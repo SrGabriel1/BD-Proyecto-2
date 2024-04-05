@@ -4,7 +4,7 @@
  */
 package GUI.Placas;
 
-import GUI.Ventana;
+import GUI.ControladorVentana;
 
 /**
  *
@@ -12,14 +12,14 @@ import GUI.Ventana;
  */
 public class TramiteAutoUsado extends javax.swing.JPanel {
 
-    private Ventana ventana;
+    private ControladorVentana ventana;
     /**
      * Creates new form TramiteAutoUsado1
      */
     public TramiteAutoUsado() {
         initComponents();
     }
-    public TramiteAutoUsado(Ventana ventana) {
+    public TramiteAutoUsado(ControladorVentana ventana) {
         this.ventana = ventana;
         initComponents();
     }

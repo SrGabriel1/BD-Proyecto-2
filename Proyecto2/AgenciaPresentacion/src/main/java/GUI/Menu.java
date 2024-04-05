@@ -1,7 +1,7 @@
 package GUI;
 
 
-import GUI.Ventana;
+import GUI.ControladorVentana;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,7 +14,7 @@ import GUI.Ventana;
  */
 public class Menu extends javax.swing.JPanel {
 
-    private Ventana ventana;
+    private ControladorVentana ventana;
 
     /**
      * Creates new form Menu
@@ -22,7 +22,7 @@ public class Menu extends javax.swing.JPanel {
     public Menu() {
         initComponents();
     }
-       public Menu(Ventana ventana) {
+       public Menu(ControladorVentana ventana) {
         this.ventana = ventana;
         initComponents();
     }

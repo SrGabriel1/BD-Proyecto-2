@@ -4,7 +4,7 @@
  */
 package GUI.Placas;
 
-import GUI.Ventana;
+import GUI.ControladorVentana;
 import Inegocio.IRegistroPlacasBO;
 import negocio.RegistroPlacasBO;
 
@@ -15,7 +15,7 @@ import negocio.RegistroPlacasBO;
 public class TramitePlacas extends javax.swing.JPanel {
 
    
-    private Ventana ventana;
+    private ControladorVentana ventana;
     /**
      * Creates new form TramitePlacas
      */
@@ -23,7 +23,7 @@ public class TramitePlacas extends javax.swing.JPanel {
         initComponents();
     }
     
-    public TramitePlacas(Ventana ventana) {
+    public TramitePlacas(ControladorVentana ventana) {
         this.ventana = ventana;
         initComponents();
     }

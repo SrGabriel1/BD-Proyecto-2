@@ -7,7 +7,7 @@ package GUI.Placas;
 import DTOs.AutomovilDTO;
 import DTOs.PlacasDTO;
 import Excepciones.persistenciaException;
-import GUI.Ventana;
+import GUI.ControladorVentana;
 import Inegocio.IRegistroLicenciaBO;
 import Inegocio.IRegistroPlacasBO;
 import java.util.Calendar;
@@ -23,7 +23,7 @@ import negocio.RegistroPlacasBO;
  */
 public class TramiteAutoNuevo extends javax.swing.JPanel {
 
-    private Ventana ventana;
+    private ControladorVentana ventana;
     private IRegistroPlacasBO rp;
 
     /**
@@ -33,7 +33,7 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         initComponents();
     }
 
-    public TramiteAutoNuevo(Ventana ventana) {
+    public TramiteAutoNuevo(ControladorVentana ventana) {
         this.ventana = ventana;
         this.rp = new RegistroPlacasBO();
         initComponents();
