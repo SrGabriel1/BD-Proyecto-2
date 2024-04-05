@@ -15,15 +15,17 @@ import negocio.RegistroPlacasBO;
 public class TramiteGenerarPlacas extends javax.swing.JPanel {
     private Ventana ventana;
     private AutomovilDTO auto;
+    private String tipo;
     /**
      * Creates new form TramiteGenerarPlacas
      */
     public TramiteGenerarPlacas() {
         initComponents();
     }
-     public TramiteGenerarPlacas(Ventana ventana,AutomovilDTO auto) {
+     public TramiteGenerarPlacas(Ventana ventana,AutomovilDTO auto,String tipo) {
         this.ventana = ventana;
         this.auto = auto;
+        this.tipo=tipo;
         initComponents();
     }
 
@@ -56,6 +58,11 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
 
         tipo_Auto.setEditable(false);
         tipo_Auto.setBackground(new java.awt.Color(217, 217, 217));
+        tipo_Auto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipo_AutoActionPerformed(evt);
+            }
+        });
         add(tipo_Auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 190, 40));
 
         Costo.setEditable(false);
@@ -87,12 +94,21 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        // TODO add your handling code here:
+        if (tipo.equalsIgnoreCase("nuevo")) {
+            ventana.cambiarVistaTramiteAutoNuevo();
+        }else if (tipo.equalsIgnoreCase("usado")) {
+                        ventana.cambiarVistaTramiteAutoUsado();
+        }
+
     }//GEN-LAST:event_regresarActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AceptarActionPerformed
+
+    private void tipo_AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_AutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipo_AutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

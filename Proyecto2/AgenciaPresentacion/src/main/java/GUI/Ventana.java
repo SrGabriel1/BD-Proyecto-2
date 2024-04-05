@@ -146,9 +146,9 @@ public class Ventana extends javax.swing.JFrame {
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
     }
-    public void cambiarVistaTramiteGenerar(AutomovilDTO auto) {
+    public void cambiarVistaTramiteGenerar(AutomovilDTO auto,String tipo) {
         limpiarFrame();
-        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto);
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,tipo);
         ponerEnJFrame(tramiteGenerarPlacas );
         panelActual = tramiteGenerarPlacas ;
     }

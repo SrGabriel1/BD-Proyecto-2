@@ -153,10 +153,11 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         PlacasDTO placa = new PlacasDTO("Nuevo", "Activa", fecha_emision, fecha_recepcion, 1500.f);
         try {
             String numeroPlaca=rp.RegistrarPlacasNuevas(placa, auto);
+            placa.setNumero(numeroPlaca);
         } catch (persistenciaException ex) {
             Logger.getLogger(TramiteAutoNuevo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ventana.cambiarVistaTramiteGenerar(auto);
+        ventana.cambiarVistaTramiteGenerar(auto,"nuevo");
     }//GEN-LAST:event_botonAceptarActionPerformed
 
     private void txtLineaAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLineaAutoActionPerformed
