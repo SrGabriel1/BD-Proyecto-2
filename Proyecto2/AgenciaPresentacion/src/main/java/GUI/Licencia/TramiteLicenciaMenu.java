@@ -5,6 +5,7 @@
 package GUI.Licencia;
 
 import DTOs.LicenciaDTO;
+import Encriptador.Encriptador;
 import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
@@ -119,7 +120,9 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
             Persona persona = rlb.VerificarPersona(rfc);
             if (persona != null) {
                 txtNombre.setText(persona.getNombre()+" "+persona.getApellido_materno()+" "+persona.getApellido_paterno());
-                txtTelefono.setText(persona.getTelefono());
+                Encriptador e = new Encriptador();
+                String telefono = e.encriptar(persona.getTelefono());
+                txtTelefono.setText(telefono);
 
                 Calendar fecha = persona.getFecha_nacimiento();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
