@@ -22,8 +22,6 @@ import javax.swing.JPanel;
  * emergentes. También mantiene instancias de DTOs y una conexión a la base de
  * datos.
  *
- * @author José Karim Franco Valencia - 245138
- * @author Jesús Roberto García Armenta - 244913
  */
 public class Ventana extends javax.swing.JFrame {
 
