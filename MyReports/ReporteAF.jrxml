@@ -14,6 +14,10 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="tipoTramite" class="java.lang.String"/>
+	<field name="fechaEmision" class="java.util.Date"/>
+	<field name="costo" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -36,7 +40,7 @@
 				</textElement>
 				<text><![CDATA[Reporte de movimientos]]></text>
 			</staticText>
-			<image>
+			<image onErrorType="Icon">
 				<reportElement x="100" y="0" width="120" height="111" uuid="07830185-0ee1-4195-a582-28bf67dbde60"/>
 				<imageExpression><![CDATA["C:/Users/Ximena/Downloads/cases-svgrepo-com.svg"]]></imageExpression>
 			</image>
@@ -46,9 +50,38 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="26" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="802" height="1" uuid="e9d2002a-c8ee-4649-a258-640dad29110c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="40" y="10" width="80" height="20" forecolor="#882709" backcolor="#882709" uuid="2a842d0e-d5ad-4dda-bc13-2a393b5d56a3"/>
+				<textElement>
+					<font fontName="Tahoma" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="10" width="130" height="20" forecolor="#882709" uuid="6e10e471-73ad-4f2f-a2b4-a658a7f364bd"/>
+				<textElement>
+					<font fontName="Tahoma" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de trámite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="10" width="100" height="20" forecolor="#882709" uuid="911232fb-f015-4574-8d66-804f6e1b7355"/>
+				<textElement>
+					<font fontName="Tahoma" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Costo]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="40" width="802" height="1" uuid="7cbfc49b-3dc3-4896-8810-c7efcf93db6b">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 				<graphicElement>
@@ -58,13 +91,52 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="38" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="fa7cec56-4ec1-48e6-a26e-7266a995d174"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="30" uuid="fa7cec56-4ec1-48e6-a26e-7266a995d174"/>
 				<staticText>
-					<reportElement x="0" y="-25" width="100" height="30" uuid="ec07bd68-e014-4a15-ac09-0dd1ab12f83c"/>
+					<reportElement x="440" y="-30" width="160" height="20" forecolor="#882709" uuid="ec07bd68-e014-4a15-ac09-0dd1ab12f83c"/>
+					<textElement>
+						<font fontName="Tahoma" size="16" isBold="true"/>
+					</textElement>
 					<text><![CDATA[Fecha de emisión]]></text>
 				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="20" y="1" width="100" height="30" uuid="1ff06463-dc7a-43d1-bc73-8bb8a37e581e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6e33d719-589a-4841-af53-fed2b9e308b2"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma&#xD;&#xA;" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="210" y="0" width="100" height="30" uuid="f6be8822-fbc3-4696-a5ad-e6ff0186a40e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88d7c901-75b3-4287-8d78-1f5667b43cde"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoTramite}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="440" y="1" width="140" height="30" uuid="e4b98947-4392-4fe2-a950-a8e3833e7a9e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4c4b102-fa32-420d-b854-5aaeb5a9a427"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fechaEmision}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="680" y="1" width="100" height="30" uuid="907b0b75-c65a-4c5e-8a06-d897d420eff6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="535e06ec-bd29-45cd-8df5-8440a3201950"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Tahoma" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</detail>
