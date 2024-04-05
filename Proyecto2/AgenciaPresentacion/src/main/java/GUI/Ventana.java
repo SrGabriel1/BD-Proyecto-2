@@ -8,6 +8,7 @@ import GUI.Licencia.VigenciaLicencia;
 import GUI.Placas.PlacaGenerada;
 import GUI.Placas.TramiteAutoNuevo;
 import GUI.Placas.TramiteAutoUsado;
+import GUI.Placas.TramiteGenerarPlacas;
 import GUI.Placas.TramitePlacas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -139,11 +140,17 @@ public class Ventana extends javax.swing.JFrame {
         panelActual = vistaPlacas;
     }
     
-    public void cambiarVistaPlacaGenerada(AutomovilDTO auto) {
+    public void cambiarVistaPlacaGenerada() {
         limpiarFrame();
-        PlacaGenerada placaGenerada = new PlacaGenerada(this,auto);
+        PlacaGenerada placaGenerada = new PlacaGenerada(this);
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
+    }
+    public void cambiarVistaTramiteGenerar(AutomovilDTO auto) {
+        limpiarFrame();
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto);
+        ponerEnJFrame(tramiteGenerarPlacas );
+        panelActual = tramiteGenerarPlacas ;
     }
 
     /**

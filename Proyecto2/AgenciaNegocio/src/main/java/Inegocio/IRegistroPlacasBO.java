@@ -14,9 +14,9 @@ import Excepciones.persistenciaException;
  */
 public interface IRegistroPlacasBO {
 
-    public void RegistrarPlacasNuevas(PlacasDTO placa, AutomovilDTO auto) throws persistenciaException;
+    public String RegistrarPlacasNuevas(PlacasDTO placa, AutomovilDTO auto) throws persistenciaException;
     
-     public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException;
+     public String RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException;
 
     
 }

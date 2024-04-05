@@ -19,6 +19,8 @@ import Interfaces.ILicenciasDAO;
 import Interfaces.IPlacasDAO;
 
 import Validadores.Validador;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,6 +69,17 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
     @Override
     public Persona VerificarPersona(String rfc) throws persistenciaException {
         return personaDTO.VerificarPersona(rfc);
+    }
+
+    @Override
+    public Licencia regresarLicencias(String numLicencia) {
+        ILicenciasDAO ilicencia = new LicenciasDAO();
+        try {
+            return ilicencia.regresarLicencia(numLicencia);
+        } catch (persistenciaException ex) {
+            Logger.getLogger(RegistroLicenciaBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }

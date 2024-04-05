@@ -27,7 +27,7 @@ public class PlacaGenerada extends javax.swing.JPanel {
         initComponents();
     }
 
-    public PlacaGenerada(Ventana ventana, AutomovilDTO auto) {
+    public PlacaGenerada(Ventana ventana) {
         this.ventana = ventana;
         this.auto = auto;
         this.rp = new RegistroPlacasBO();

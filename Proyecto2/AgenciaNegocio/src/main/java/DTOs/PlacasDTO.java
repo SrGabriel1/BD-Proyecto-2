@@ -36,6 +36,13 @@ public class PlacasDTO implements IPlacasDAO{
         this.costo = costo;
         this.auto_id = auto_id;
     }
+    public PlacasDTO( String tipo, String estado, Calendar fecha_emision, Calendar fecha_recepcion, Float costo) {
+        this.tipo = tipo;
+        this.estado = estado;
+        this.fecha_emision = fecha_emision;
+        this.fecha_recepcion = fecha_recepcion;
+        this.costo = costo;
+    }
 
     public IPlacasDAO getPlacas() {
         return placas;

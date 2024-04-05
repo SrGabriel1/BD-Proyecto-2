@@ -8,11 +8,13 @@ import DTOs.AutomovilDTO;
 import DTOs.PlacasDTO;
 import Excepciones.persistenciaException;
 import GUI.Ventana;
+import Inegocio.IRegistroLicenciaBO;
 import Inegocio.IRegistroPlacasBO;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import negocio.RegistroLicenciaBO;
 import negocio.RegistroPlacasBO;
 
 /**
@@ -46,7 +48,6 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         jLabel1 = new javax.swing.JLabel();
         txtLineaAuto = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
@@ -144,15 +145,18 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         String licencia = txtLicencia.getText();
         String color = txtColor.getText();
         String marca = txtMarca.getText();
-        AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color, licencia);
+        IRegistroLicenciaBO rl=new RegistroLicenciaBO();
+        AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color, rl.regresarLicencias(licencia));
         Calendar fecha_emision,fecha_recepcion;
-        PlacasDTO placa = new PlacasDTO("Nuevo", "Activa", fecha_emision, fecha_recepcion, TOP_ALIGNMENT, auto_id);
+        fecha_emision=Calendar.getInstance();
+        fecha_recepcion=Calendar.getInstance();
+        PlacasDTO placa = new PlacasDTO("Nuevo", "Activa", fecha_emision, fecha_recepcion, 1500.f);
         try {
-            rp.RegistrarPlacasNuevas(placa, auto);
+            String numeroPlaca=rp.RegistrarPlacasNuevas(placa, auto);
         } catch (persistenciaException ex) {
             Logger.getLogger(TramiteAutoNuevo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ventana.cambiarVistaPlacaGenerada(auto);
+        ventana.cambiarVistaTramiteGenerar(auto);
     }//GEN-LAST:event_botonAceptarActionPerformed
 
     private void txtLineaAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLineaAutoActionPerformed
@@ -183,7 +187,6 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonRegresar;
-    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtLicencia;

@@ -15,5 +15,6 @@ import Excepciones.persistenciaException;
 public interface ILicenciasDAO {
     public boolean agregarLicencia(Licencia licencia ) throws persistenciaException;    
    public  boolean asociarLicenciaAPersona(Licencia licencia, Persona persona) throws persistenciaException;
+   public Licencia regresarLicencia(String numLicencia) throws persistenciaException;
 
 }

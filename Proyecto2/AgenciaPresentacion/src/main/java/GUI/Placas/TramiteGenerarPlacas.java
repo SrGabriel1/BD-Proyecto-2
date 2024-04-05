@@ -4,16 +4,26 @@
  */
 package GUI.Placas;
 
+import DTOs.AutomovilDTO;
+import GUI.Ventana;
+import negocio.RegistroPlacasBO;
+
 /**
  *
  * @author yohan
  */
 public class TramiteGenerarPlacas extends javax.swing.JPanel {
-
+    private Ventana ventana;
+    private AutomovilDTO auto;
     /**
      * Creates new form TramiteGenerarPlacas
      */
     public TramiteGenerarPlacas() {
+        initComponents();
+    }
+     public TramiteGenerarPlacas(Ventana ventana,AutomovilDTO auto) {
+        this.ventana = ventana;
+        this.auto = auto;
         initComponents();
     }
 

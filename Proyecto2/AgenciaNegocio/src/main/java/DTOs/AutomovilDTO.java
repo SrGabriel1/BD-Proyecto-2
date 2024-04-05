@@ -5,6 +5,7 @@
 package DTOs;
 
 import DAOs.AutomovilDAO;
+import Entidades.Licencia;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
 import Interfaces.IAutomovilDAO;
@@ -27,13 +28,13 @@ public class AutomovilDTO implements IAutomovilDAO {
 
     private String color;
     
-    private String licencia;
+    private Licencia licencia;
 
     public AutomovilDTO() {
         this.auto = new AutomovilDAO();
     }
 
-    public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color, String licencia) {
+    public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color, Licencia licencia) {
         this.Numero_Serie = Numero_Serie;
         this.Modelo = Modelo;
         this.línea = línea;
@@ -100,11 +101,11 @@ public class AutomovilDTO implements IAutomovilDAO {
         this.color = color;
     }
 
-    public String getLicencia() {
+    public Licencia getLicencia() {
         return licencia;
     }
 
-    public void setLicencia(String licencia) {
+    public void setLicencia(Licencia licencia) {
         this.licencia = licencia;
     }
     

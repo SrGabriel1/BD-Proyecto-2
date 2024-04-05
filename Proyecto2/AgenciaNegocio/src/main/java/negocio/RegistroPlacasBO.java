@@ -21,11 +21,12 @@ import Validadores.Validador;
 public class RegistroPlacasBO implements IRegistroPlacasBO {
 
     @Override
-    public void RegistrarPlacasNuevas(PlacasDTO placadto, AutomovilDTO auto) throws persistenciaException {
+    public String RegistrarPlacasNuevas(PlacasDTO placadto, AutomovilDTO auto) throws persistenciaException {
         Validador validador = new Validador();
         String numeroPlaca = Placas.generarPlaca();
         placadto.setEstado("Activa");
-        Placas placa = new Placas(numeroPlaca, placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), placadto.getAuto_id(), placadto.getTipo(), placadto.getEstado());
+        Automovil autoTemp=new Automovil(auto.getNumero_Serie(),auto.getModelo(),auto.getLínea(),auto.getMarca(),auto.getColor(),auto.getLicencia());
+        Placas placa = new Placas(numeroPlaca, placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), autoTemp, placadto.getTipo(), placadto.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();
         if (validador.ValidarPlaca(placa)) {
             throw new persistenciaException("Hay una placa con esos datos");
@@ -39,13 +40,14 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
         } else {
             throw new persistenciaException("Error al agregar la placa");
         }
+        return numeroPlaca;
 
     }
 
     //popipopopipo
     // miku miku oeo
     @Override
-    public void RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException {
+    public String RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException {
         Validador validador = new Validador();
         Placas Placa = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), placa.getAuto_id(), placa.getTipo(), placa.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();
@@ -80,6 +82,7 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
                 Placas nuevaPlaca = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), automovil, placa.getTipo(), placa.getEstado());
                 if (!validador.ValidarPlaca(nuevaPlaca) && Iplacas.agregarPlacas(nuevaPlaca)) {
                     auto.agregarPlaca(nuevaPlaca);
+                    return numeroPlacaNueva;
                 } else {
                     throw new persistenciaException("Error al generar y asociar las nuevas placas al automóvil.");
                 }
@@ -89,5 +92,6 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
         } else {
             throw new persistenciaException("No se encontró una placa activa asociada al automóvil.");
         }
+        
     }
 }

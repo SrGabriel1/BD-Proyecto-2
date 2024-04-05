@@ -8,9 +8,11 @@ import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Interfaces.ILicenciasDAO;
+import com.mysql.cj.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -57,6 +59,24 @@ public class LicenciasDAO implements ILicenciasDAO {
         em.close();
         emf.close();
         return true;
+    }
+    @Override
+    public Licencia regresarLicencia(String numLicencia)throws persistenciaException{
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        String jpql = "SELECT l FROM Licencia l WHERE l.Numero_Licencia = :numero";
+        TypedQuery<Licencia> query = em.createQuery(jpql, Licencia.class);
+        query.setParameter("numero", numLicencia);
+        Licencia licenciaTemp=query.getSingleResult();
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+        return licenciaTemp;
+        
+        
+        
     }
 
     

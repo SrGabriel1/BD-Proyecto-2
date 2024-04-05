@@ -20,6 +20,8 @@ public interface IRegistroLicenciaBO {
     public String RegistrarLicencia(LicenciaDTO licencia) throws persistenciaException;
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
+    
+    public Licencia regresarLicencias(String numLicencia);
 
     
 }
