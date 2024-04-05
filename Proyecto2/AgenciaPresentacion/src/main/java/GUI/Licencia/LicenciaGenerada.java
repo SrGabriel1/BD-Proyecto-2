@@ -50,6 +50,7 @@ public class LicenciaGenerada extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtLicencia.setEditable(false);
         txtLicencia.setBackground(new java.awt.Color(217, 217, 217));
         txtLicencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

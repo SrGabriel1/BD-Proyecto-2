@@ -20,6 +20,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -27,6 +28,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
  */
 public class ReporteGenerado extends javax.swing.JFrame {
 
+    ReporteGenerado reporte;
    Connection conexionReporte;
 //     conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia","root", "233300515");
     /**
@@ -45,21 +47,41 @@ public class ReporteGenerado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        botonRegresarMenu = new javax.swing.JButton();
+        botonImprimir = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\ReporteExitosoCap.PNG")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        botonRegresarMenu.setText("a");
+        getContentPane().add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 230, 30));
+
+        botonImprimir.setText("jButton1");
+        botonImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 384, 230, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirActionPerformed
+        JasperPrint jp;
+        try {
+            jp = reporte.reportesTramites();
+            JasperViewer.viewReport(jp);
+        } catch (SQLException ex) {
+            Logger.getLogger(ReporteGenerado.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(ReporteGenerado.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_botonImprimirActionPerformed
 
     public JasperPrint reportesTramites() throws SQLException, JRException{
        conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia","root", "233300515");
@@ -76,6 +98,7 @@ public class ReporteGenerado extends javax.swing.JFrame {
        }
        return null;
     }
+    
     
     
     
@@ -115,5 +138,8 @@ public class ReporteGenerado extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonImprimir;
+    private javax.swing.JButton botonRegresarMenu;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

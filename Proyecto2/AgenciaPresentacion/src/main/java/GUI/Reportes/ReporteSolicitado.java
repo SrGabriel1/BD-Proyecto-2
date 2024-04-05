@@ -26,18 +26,37 @@ public class ReporteSolicitado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        txtCosto = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtTipoTramite = new javax.swing.JTextField();
+        txtFechaTramite = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        botonCancelar = new javax.swing.JButton();
+        botonAceptar = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCosto.setEditable(false);
+        txtCosto.setBackground(new java.awt.Color(217, 217, 217));
+        getContentPane().add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 160, 40));
+
+        txtNombre.setEditable(false);
+        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 160, 40));
+
+        txtTipoTramite.setEditable(false);
+        txtTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
+        getContentPane().add(txtTipoTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 160, 40));
+
+        txtFechaTramite.setEditable(false);
+        txtFechaTramite.setBackground(new java.awt.Color(217, 217, 217));
+        getContentPane().add(txtFechaTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\ReportesGeneradosCap.PNG")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 140, 40));
+        getContentPane().add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 150, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +97,12 @@ public class ReporteSolicitado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAceptar;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField txtCosto;
+    private javax.swing.JTextField txtFechaTramite;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTipoTramite;
     // End of variables declaration//GEN-END:variables
 }

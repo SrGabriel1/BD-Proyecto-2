@@ -67,6 +67,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         checkBox700.setBackground(new java.awt.Color(217, 217, 217));
         checkBox700.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBox700.setForeground(new java.awt.Color(0, 0, 0));
         checkBox700.setText("$700");
         checkBox700.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +78,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         checkBox500.setBackground(new java.awt.Color(217, 217, 217));
         checkBox500.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBox500.setForeground(new java.awt.Color(0, 0, 0));
         checkBox500.setText("$500");
         checkBox500.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +89,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         checkBox200.setBackground(new java.awt.Color(217, 217, 217));
         checkBox200.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBox200.setForeground(new java.awt.Color(0, 0, 0));
         checkBox200.setText("$200");
         checkBox200.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +100,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         checkBox1100.setBackground(new java.awt.Color(217, 217, 217));
         checkBox1100.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBox1100.setForeground(new java.awt.Color(0, 0, 0));
         checkBox1100.setText("$1,100");
         checkBox1100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +111,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         checkBox900.setBackground(new java.awt.Color(217, 217, 217));
         checkBox900.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBox900.setForeground(new java.awt.Color(0, 0, 0));
         checkBox900.setText("$900");
         checkBox900.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +122,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         checkBox600.setBackground(new java.awt.Color(217, 217, 217));
         checkBox600.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        checkBox600.setForeground(new java.awt.Color(0, 0, 0));
         checkBox600.setText("$600");
         checkBox600.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
