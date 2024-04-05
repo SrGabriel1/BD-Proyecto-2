@@ -36,19 +36,72 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        fecha_Recepcion = new javax.swing.JTextField();
+        Fecha_emision = new javax.swing.JTextField();
+        tipo_Auto = new javax.swing.JTextField();
+        Costo = new javax.swing.JTextField();
+        regresar = new javax.swing.JButton();
+        Aceptar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        fecha_Recepcion.setEditable(false);
+        fecha_Recepcion.setBackground(new java.awt.Color(217, 217, 217));
+        add(fecha_Recepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 200, 40));
+
+        Fecha_emision.setEditable(false);
+        Fecha_emision.setBackground(new java.awt.Color(217, 217, 217));
+        add(Fecha_emision, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 190, 40));
+
+        tipo_Auto.setEditable(false);
+        tipo_Auto.setBackground(new java.awt.Color(217, 217, 217));
+        add(tipo_Auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 190, 40));
+
+        Costo.setEditable(false);
+        Costo.setBackground(new java.awt.Color(217, 217, 217));
+        add(Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 200, 40));
+
+        regresar.setBorderPainted(false);
+        regresar.setContentAreaFilled(false);
+        regresar.setFocusPainted(false);
+        regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarActionPerformed(evt);
+            }
+        });
+        add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 150, 50));
+
+        Aceptar.setBorderPainted(false);
+        Aceptar.setContentAreaFilled(false);
+        Aceptar.setFocusPainted(false);
+        Aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarActionPerformed(evt);
+            }
+        });
+        add(Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 150, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TramitePlacas.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 390));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regresarActionPerformed
+
+    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Aceptar;
+    private javax.swing.JTextField Costo;
+    private javax.swing.JTextField Fecha_emision;
+    private javax.swing.JTextField fecha_Recepcion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton regresar;
+    private javax.swing.JTextField tipo_Auto;
     // End of variables declaration//GEN-END:variables
 }
