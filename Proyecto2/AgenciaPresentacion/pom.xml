@@ -21,11 +21,18 @@
             <artifactId>LGoodDatePicker</artifactId>
             <version>11.2.1</version>
         </dependency>
-       <dependency>
-    <groupId>net.sf.jasperreports</groupId>
-    <artifactId>jasperreports</artifactId>
-    <version>6.21.2</version>
-</dependency>
+       
+        <dependency>
+            <groupId>hu.blackbelt.bundles.jasperreports</groupId>
+            <artifactId>net.sf.jasperreports</artifactId>
+            <version>6.20.5_2</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.21.2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

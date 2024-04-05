@@ -4,7 +4,22 @@
  */
 package GUI.Reportes;
 
+import com.google.protobuf.compiler.PluginProtos;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
  *
@@ -12,8 +27,8 @@ import java.sql.Connection;
  */
 public class Reporte extends javax.swing.JFrame {
 
-    Connection conexionReporte;
-    
+   Connection conexionReporte;
+//     conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia","root", "233300515");
     /**
      * Creates new form Reporte
      */
@@ -46,7 +61,21 @@ public class Reporte extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public JasperPrint
+    public JasperPrint reportesTramites() throws SQLException, JRException{
+       conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia","root", "233300515");
+        File reporte = new File(getClass().getResource("/reportes/ReporteAF.jasper").getFile());
+        if(!reporte.exists()){
+            return null;
+        }
+       try {
+           InputStream is = new BufferedInputStream(new FileInputStream(reporte.getAbsoluteFile()));
+           JasperReport jr = (JasperReport) JRLoader.loadObject(is);
+           JasperPrint jp = JasperFillManager.fillReport(jr, null, conexionReporte);
+       } catch (FileNotFoundException ex) {
+           Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return null;
+    }
     
     
     
