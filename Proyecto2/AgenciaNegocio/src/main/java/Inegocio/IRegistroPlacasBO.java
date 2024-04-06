@@ -16,7 +16,7 @@ public interface IRegistroPlacasBO {
 
     public String RegistrarPlacasNuevas(PlacaDTO placa, AutomovilDTO auto) throws persistenciaException;
     
-     public String RegistrarPlacasViejas(PlacaDTO placa) throws persistenciaException;
+     public String RegistrarPlacasViejas(String numeroPlaca,PlacaDTO placa) throws persistenciaException;
 
     
 }

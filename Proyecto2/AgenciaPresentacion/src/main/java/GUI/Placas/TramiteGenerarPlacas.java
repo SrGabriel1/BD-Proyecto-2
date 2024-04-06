@@ -23,8 +23,10 @@ import negocio.RegistroPlacasBO;
 public class TramiteGenerarPlacas extends javax.swing.JPanel {
     private ControladorVentana ventana;
     private AutomovilDTO auto;
+    private String numPlaca;
     private String tipo;
     private PlacaDTO placa;
+    private int modo;
     /**
      * Creates new form TramiteGenerarPlacas
      */
@@ -36,6 +38,22 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
         this.auto = auto;
         this.tipo=tipo;
         this.placa=placa;
+        this.modo=modo;
+        initComponents();
+        if(modo==1){
+            Costo.setText("$1,500");
+            tipo_Auto.setText("Nuevo");
+        }else if(modo==2){
+            Costo.setText("$1,000");
+            tipo_Auto.setText("Usado");
+        }
+    }
+     public TramiteGenerarPlacas(ControladorVentana ventana,String numPlaca,PlacaDTO placa,String tipo,int modo) {
+        this.ventana = ventana;
+        this.numPlaca=numPlaca;
+        this.tipo=tipo;
+        this.placa=placa;
+        this.modo=modo;
         initComponents();
         if(modo==1){
             Costo.setText("$1,500");
@@ -132,9 +150,15 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
             calendar.set(Calendar.MONTH, localDate.getMonthValue() - 1);
             calendar.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
             placa.setFecha_recepcion(calendar);
-            rp.RegistrarPlacasNuevas(placa, auto);
+            String numPlacaTemp;
+            if(modo==1){
+                numPlacaTemp=rp.RegistrarPlacasNuevas(placa, auto);
+            }else{
+                numPlacaTemp=rp.RegistrarPlacasViejas(numPlaca,placa);
+            }
             
-            ventana.cambiarVistaPlacaGenerada(placa.getNumero(),Costo.getText());
+            
+            ventana.cambiarVistaPlacaGenerada( numPlaca,Costo.getText());
         } catch (persistenciaException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }

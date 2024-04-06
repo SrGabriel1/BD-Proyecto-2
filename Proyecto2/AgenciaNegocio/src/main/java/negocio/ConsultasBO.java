@@ -4,6 +4,7 @@
  */
 package negocio;
 
+import DAOs.AutomovilDAO;
 import DAOs.LicenciasDAO;
 import DAOs.PersonasDAO;
 import Entidades.Automovil;
@@ -11,6 +12,7 @@ import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Inegocio.IConsultasBO;
+import Interfaces.IAutomovilDAO;
 import Interfaces.ILicenciasDAO;
 import Interfaces.IPersonasDAO;
 
@@ -43,8 +45,10 @@ public class ConsultasBO implements IConsultasBO{
     }
 
     @Override
-    public Automovil regresarAutomovil() throws persistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Automovil regresarAutomovil(String numPlaca) throws persistenciaException {
+        IAutomovilDAO iAutomovilDAO=new AutomovilDAO();
+        return iAutomovilDAO.buscarAutomovilPorPlaca(numPlaca);
+        
     }
 
     

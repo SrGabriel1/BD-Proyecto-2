@@ -3,6 +3,7 @@ package GUI;
 import DTOs.AutomovilDTO;
 import DTOs.LicenciaDTO;
 import DTOs.PlacaDTO;
+import Entidades.Automovil;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
@@ -149,6 +150,12 @@ public class ControladorVentana extends javax.swing.JFrame {
     public void cambiarVistaTramiteGenerar(AutomovilDTO auto,PlacaDTO placa,String tipo,int modo) {
         limpiarFrame();
         TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,placa,tipo,modo);
+        ponerEnJFrame(tramiteGenerarPlacas );
+        panelActual = tramiteGenerarPlacas ;
+    }
+    public void cambiarVistaTramiteGenerar(String numPlaca,PlacaDTO placa,String tipo,int modo) {
+        limpiarFrame();
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,numPlaca,placa,tipo,modo);
         ponerEnJFrame(tramiteGenerarPlacas );
         panelActual = tramiteGenerarPlacas ;
     }

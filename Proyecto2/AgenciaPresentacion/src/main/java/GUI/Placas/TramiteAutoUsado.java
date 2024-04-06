@@ -4,8 +4,15 @@
  */
 package GUI.Placas;
 
+import DTOs.AutomovilDTO;
 import DTOs.LicenciaDTO;
+import DTOs.PlacaDTO;
+import Excepciones.persistenciaException;
 import GUI.ControladorVentana;
+import Inegocio.IRegistroPlacasBO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.RegistroPlacasBO;
 
 /**
  *
@@ -81,13 +88,16 @@ public class TramiteAutoUsado extends javax.swing.JPanel {
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         // TODO add your handling code here:
+        IRegistroPlacasBO iRegistroPlacasBO = new RegistroPlacasBO();
+        PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1000.f);
+
         
-        
-        //ventana.cambiarVistaPlacaGenerada();
+        ventana.cambiarVistaTramiteGenerar(txtPlacasAntiguas.getText(), placa, "Usado", 2);
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:}
+        
         ventana.cambiarVistaPlaca();
     }//GEN-LAST:event_botonRegresarActionPerformed
 

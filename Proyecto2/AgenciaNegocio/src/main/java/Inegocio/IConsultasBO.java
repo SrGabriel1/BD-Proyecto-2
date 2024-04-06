@@ -22,5 +22,5 @@ public interface IConsultasBO {
      */
     public Persona regresarPersona(Licencia licencia)throws persistenciaException;
     public Licencia regresarLicencia(String numLicencia)throws persistenciaException;
-    public Automovil regresarAutomovil()throws persistenciaException;
+    public Automovil regresarAutomovil(String numPlaca)throws persistenciaException;
 }

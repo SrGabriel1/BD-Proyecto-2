@@ -15,6 +15,8 @@ import Excepciones.persistenciaException;
 public interface IAutomovilDAO {
 
    public void registrarAutoYPlaca(Placas placa,Automovil auto) throws persistenciaException;
+   public void actualizarPlaca(Placas placa,Automovil auto) throws persistenciaException;
 
     public Placas buscarPlacaActiva(Automovil auto) throws persistenciaException;
+    public Automovil buscarAutomovilPorPlaca(String numPlaca)throws persistenciaException;
 }
