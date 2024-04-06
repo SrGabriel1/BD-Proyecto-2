@@ -46,8 +46,8 @@ public class Automovil implements Serializable {
     private String color;
     
     @ManyToOne
-    @JoinColumn(name = "licencia_id", nullable = false)
-    private Licencia licencia_id;
+    @JoinColumn(name = "persona", nullable = false)
+    private Persona persona;
 
     @OneToMany(mappedBy = "auto_id", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Placas> placas;
@@ -55,13 +55,13 @@ public class Automovil implements Serializable {
     public Automovil() {
     }
 
-    public Automovil(String Numero_Serie, String Modelo, String línea, String marca, String color, Licencia licencia_id) {
+    public Automovil(String Numero_Serie, String Modelo, String línea, String marca, String color, Persona persona) {
         this.Numero_Serie = Numero_Serie;
         this.Modelo = Modelo;
         this.línea = línea;
         this.marca = marca;
         this.color = color;
-        this.licencia_id = licencia_id;
+        this.persona= persona;
         this.placas = new ArrayList<>();
     }
 
@@ -129,12 +129,13 @@ public class Automovil implements Serializable {
         this.color = color;
     }
 
-    public Licencia getLicencia_id() {
-        return licencia_id;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setLicencia_id(Licencia licencia_id) {
-        this.licencia_id = licencia_id;
+    public void setPersona(Persona persona) {
+        this.persona= persona ;
+        
     }
 
     public List<Placas> getPlacas() {
@@ -147,7 +148,7 @@ public class Automovil implements Serializable {
 
     @Override
     public String toString() {
-        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", l\u00ednea=" + línea + ", marca=" + marca + ", color=" + color + ", licencia_id=" + licencia_id + ", placas=" + placas + '}';
+        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", l\u00ednea=" + línea + ", marca=" + marca + ", color=" + color + ", persona=" + persona + ", placas=" + placas + '}';
     }
 
 }

@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import negocio.RegistroLicenciaBO;
 import negocio.RegistroPlacasBO;
 
@@ -93,7 +94,7 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
                 txtLicenciaActionPerformed(evt);
             }
         });
-        add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 210, 30));
+        add(txtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 210, 20));
 
         txtColor.setBackground(new java.awt.Color(130, 130, 130));
         txtColor.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +102,7 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
                 txtColorActionPerformed(evt);
             }
         });
-        add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, 30));
+        add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 210, 30));
 
         txtModeloAuto.setBackground(new java.awt.Color(130, 130, 130));
         txtModeloAuto.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +110,7 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
                 txtModeloAutoActionPerformed(evt);
             }
         });
-        add(txtModeloAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 210, 30));
+        add(txtModeloAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 200, -1));
 
         botonAceptar.setBorderPainted(false);
         botonAceptar.setContentAreaFilled(false);
@@ -145,14 +146,21 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         String licencia = txtLicencia.getText();
         String color = txtColor.getText();
         String marca = txtMarca.getText();
-        IRegistroLicenciaBO rl=new RegistroLicenciaBO();
-        AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color, rl.regresarLicencias(licencia));
-        Calendar fecha_emision,fecha_recepcion;
-        fecha_emision=Calendar.getInstance();
-        fecha_recepcion=Calendar.getInstance();
-        PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1500.f);
+        IRegistroLicenciaBO rl = new RegistroLicenciaBO();
+        try {
+            AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color, rl.regresarLicencias(licencia));
+            Calendar fecha_emision, fecha_recepcion;
+            fecha_emision = Calendar.getInstance();
+            fecha_recepcion = Calendar.getInstance();
+            PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1500.f);
+
+            ventana.cambiarVistaTramiteGenerar(auto, placa, "nuevo");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+
         
-        ventana.cambiarVistaTramiteGenerar(auto,placa,"nuevo");
     }//GEN-LAST:event_botonAceptarActionPerformed
 
     private void txtLineaAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLineaAutoActionPerformed

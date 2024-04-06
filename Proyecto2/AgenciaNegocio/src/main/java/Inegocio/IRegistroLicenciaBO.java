@@ -21,7 +21,7 @@ public interface IRegistroLicenciaBO {
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
     
-    public Licencia regresarLicencias(String numLicencia);
+    public Licencia regresarLicencias(String numLicencia)throws persistenciaException;
 
     
 }

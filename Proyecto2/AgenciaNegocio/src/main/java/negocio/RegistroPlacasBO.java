@@ -25,7 +25,7 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
         Validador validador = new Validador();
         String numeroPlaca = Placas.generarPlaca();
         placadto.setEstado("Activa");
-        Automovil autoTemp=new Automovil(auto.getNumero_Serie(),auto.getModelo(),auto.getLínea(),auto.getMarca(),auto.getColor(),auto.getLicencia());
+        Automovil autoTemp=new Automovil(auto.getNumero_Serie(),auto.getModelo(),auto.getLínea(),auto.getMarca(),auto.getColor(),auto.getPersona());
         Placas placa = new Placas(numeroPlaca, placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), autoTemp, placadto.getTipo(), placadto.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();
         if (validador.ValidarPlaca(placa)) {

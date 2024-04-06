@@ -53,7 +53,7 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
             Persona persona = licencia.getPersona();
             if (persona != null) {
                 persona.agregarLicencia(licencia);
-                licenciaDTO.setNumeroLicencia(licencia.getNumero_Licencia());
+                licenciaDTO.setNumeroLicencia(licencia.getNumeroLicencia());
             } else {
                 throw new persistenciaException("Error: la licencia no está asociada a una persona.");
             }
@@ -72,14 +72,17 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
     }
 
     @Override
-    public Licencia regresarLicencias(String numLicencia) {
+    public Licencia regresarLicencias(String numLicencia) throws persistenciaException{
         ILicenciasDAO ilicencia = new LicenciasDAO();
+       
         try {
             return ilicencia.regresarLicencia(numLicencia);
         } catch (persistenciaException ex) {
-            Logger.getLogger(RegistroLicenciaBO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new persistenciaException(ex.getMessage()); 
+            
         }
-        return null;
+        
+        
     }
 
 }

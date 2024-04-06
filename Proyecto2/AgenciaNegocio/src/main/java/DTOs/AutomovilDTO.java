@@ -6,6 +6,7 @@ package DTOs;
 
 import DAOs.AutomovilDAO;
 import Entidades.Licencia;
+import Entidades.Persona;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
 import Interfaces.IAutomovilDAO;
@@ -28,19 +29,21 @@ public class AutomovilDTO implements IAutomovilDAO {
 
     private String color;
     
-    private Licencia licencia;
+    private Placas placa;
+    
+    private Persona persona;
 
     public AutomovilDTO() {
         this.auto = new AutomovilDAO();
     }
 
-    public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color, Licencia licencia) {
+    public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color, Placas placa) {
         this.Numero_Serie = Numero_Serie;
         this.Modelo = Modelo;
         this.línea = línea;
         this.marca = marca;
         this.color = color;
-        this.licencia = licencia;
+        this.placa = placa;
     }
     
     @Override
@@ -101,12 +104,28 @@ public class AutomovilDTO implements IAutomovilDAO {
         this.color = color;
     }
 
-    public Licencia getLicencia() {
-        return licencia;
+    public Placas getPlacas() {
+        return placa;
     }
 
-    public void setLicencia(Licencia licencia) {
-        this.licencia = licencia;
+    public void setPlacas(Placas placa) {
+        this.placa = placa;
+    }
+
+    public Placas getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(Placas placa) {
+        this.placa = placa;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     
 }

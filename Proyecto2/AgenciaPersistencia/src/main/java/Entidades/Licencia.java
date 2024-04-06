@@ -31,7 +31,7 @@ public class Licencia implements Serializable {
     private String vigencia;
     
     @Column(name = "Numero_Licencia", nullable = false)
-    private String Numero_Licencia;
+    private String numeroLicencia;
     
     @Column(name = "tipo", nullable = false)
     private String tipo;
@@ -55,7 +55,7 @@ public class Licencia implements Serializable {
         this.precio = precio;
         this.estado = estado;
         this.persona = persona;
-        this.Numero_Licencia = generarNumeroAleatorio();
+        this.numeroLicencia = generarNumeroAleatorio();
     }
 
     private String generarNumeroAleatorio() {
@@ -69,12 +69,12 @@ public class Licencia implements Serializable {
         return String.valueOf(numero);
     }
 
-    public String getNumero_Licencia() {
-        return Numero_Licencia;
+    public String getNumeroLicencia() {
+        return numeroLicencia;
     }
 
-    public void setNumero_Licencia(String Numero_Licencia) {
-        this.Numero_Licencia = Numero_Licencia;
+    public void setNumeroLicencia(String numeroLicencia) {
+        this.numeroLicencia = numeroLicencia;
     }
 
     public Persona getPersona() {

@@ -11,6 +11,7 @@ import Interfaces.ILicenciasDAO;
 import com.mysql.cj.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -61,22 +62,20 @@ public class LicenciasDAO implements ILicenciasDAO {
         return true;
     }
     @Override
-    public Licencia regresarLicencia(String numLicencia)throws persistenciaException{
+    public Licencia regresarLicencia(String numLicencia) throws persistenciaException {
         
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        String jpql = "SELECT l FROM Licencia l WHERE l.numeroLicencia = :numero";
+        TypedQuery<Licencia> query = em.createQuery(jpql, Licencia.class);
+        query.setParameter("numero", numLicencia);
         try {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-            EntityManager em = emf.createEntityManager();
-            em.getTransaction().begin();
-            String jpql = "SELECT l FROM Licencias l WHERE l.Numero_Licencia = :numero";
-            TypedQuery<Licencia> query = em.createQuery(jpql, Licencia.class);
-            query.setParameter("numero", numLicencia);
-            Licencia licenciaTemp = query.getSingleResult();
-            em.getTransaction().commit();
-            em.close();
-            emf.close();
+            Licencia licenciaTemp = (Licencia) query.getSingleResult();
             return licenciaTemp;
-        } catch (Exception e) {
-            throw new persistenciaException("No existen licencias con ese número");
+        } catch (NoResultException e) {
+            throw new persistenciaException("Error al buscar la licencia: " + e.getMessage());
+            
         }
     }
 
