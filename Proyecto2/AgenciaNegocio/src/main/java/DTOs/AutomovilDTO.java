@@ -15,9 +15,8 @@ import Interfaces.IAutomovilDAO;
  *
  * @author yohan
  */
-public class AutomovilDTO implements IAutomovilDAO {
+public class AutomovilDTO{
 
-    IAutomovilDAO auto;
     
     private String Numero_Serie;
 
@@ -33,7 +32,6 @@ public class AutomovilDTO implements IAutomovilDAO {
     private Persona persona;
 
     public AutomovilDTO() {
-        this.auto = new AutomovilDAO();
     }
 
     public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color,Persona persona) {
@@ -45,23 +43,8 @@ public class AutomovilDTO implements IAutomovilDAO {
         this.persona=persona;
     }
     
-    @Override
-    public void agregarPlaca(Placas placa) throws persistenciaException {
-        auto.agregarPlaca(placa);
-    }
 
-    @Override
-    public Placas buscarPlacaActiva() throws persistenciaException {
-        return auto.buscarPlacaActiva();
-    }
-
-    public IAutomovilDAO getAuto() {
-        return auto;
-    }
-
-    public void setAuto(IAutomovilDAO auto) {
-        this.auto = auto;
-    }
+    
 
     public String getNumero_Serie() {
         return Numero_Serie;

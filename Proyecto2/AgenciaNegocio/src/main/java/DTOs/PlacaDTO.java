@@ -16,7 +16,7 @@ import java.util.Date;
  *
  * @author Ximena
  */
-public class PlacaDTO implements IPlacasDAO{
+public class PlacaDTO{
 
     private IPlacasDAO placas;
     private String numero, tipo,estado;
@@ -117,25 +117,6 @@ public class PlacaDTO implements IPlacasDAO{
     
     
     
-    @Override
-    public String GenerarNumero() throws persistenciaException{
-        return placas.GenerarNumero();
-    }
-
-    @Override
-    public boolean agregarPlacas(Placas placa) throws persistenciaException {
-        return placas.agregarPlacas(placa);
-        
-    }
-
-    @Override
-    public boolean asociarPlacas(Placas placa, Automovil auto) throws persistenciaException {
-        return placas.asociarPlacas(placa, auto);
-    }
-
-    @Override
-    public boolean actualizarPlaca(Placas placa) throws persistenciaException {
-        return placas.actualizarPlaca(placa);
-    }
+ 
     
 }

@@ -83,7 +83,7 @@ public class TramiteAutoUsado extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         
-        ventana.cambiarVistaPlacaGenerada();
+        //ventana.cambiarVistaPlacaGenerada();
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed

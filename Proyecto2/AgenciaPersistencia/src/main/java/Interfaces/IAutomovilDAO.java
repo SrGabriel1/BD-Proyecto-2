@@ -4,6 +4,7 @@
  */
 package Interfaces;
 
+import Entidades.Automovil;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
 
@@ -13,7 +14,7 @@ import Excepciones.persistenciaException;
  */
 public interface IAutomovilDAO {
 
-   public void agregarPlaca(Placas placa) throws persistenciaException;
+   public void registrarAutoYPlaca(Placas placa,Automovil auto) throws persistenciaException;
 
-    public Placas buscarPlacaActiva() throws persistenciaException;
+    public Placas buscarPlacaActiva(Automovil auto) throws persistenciaException;
 }

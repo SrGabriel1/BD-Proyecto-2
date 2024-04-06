@@ -27,11 +27,14 @@ public class PlacaGenerada extends javax.swing.JPanel {
         initComponents();
     }
 
-    public PlacaGenerada(ControladorVentana ventana) {
+    public PlacaGenerada(ControladorVentana ventana,String placa,String costo) {
         this.ventana = ventana;
-        this.auto = auto;
-        this.rp = new RegistroPlacasBO();
+        
+        
+        
         initComponents();
+        txtPlacasNuevas.setText(placa);
+        txtPrecio.setText(costo);
     }
 
     /**

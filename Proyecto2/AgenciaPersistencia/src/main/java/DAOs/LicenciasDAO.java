@@ -21,8 +21,6 @@ import javax.persistence.TypedQuery;
  */
 public class LicenciasDAO implements ILicenciasDAO {
 
-    Licencia licencia;
-
     @Override
     public boolean agregarLicencia(Licencia licencia) throws persistenciaException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
@@ -31,20 +29,12 @@ public class LicenciasDAO implements ILicenciasDAO {
 
         em.persist(licencia);
         em.getTransaction().commit();
-        this.licencia = licencia;
         em.close();
         emf.close();
         return true;
 
     }
 
-    public Licencia getLicencia() {
-        return licencia;
-    }
-
-    public void setLicencia(String vigencia, String tipo, Float precio, String estado, Persona persona) {
-        this.licencia = new Licencia(vigencia, tipo, precio, estado, persona);
-    }
 
     @Override
     public boolean asociarLicenciaAPersona(Licencia licencia, Persona persona) throws persistenciaException {
@@ -52,9 +42,8 @@ public class LicenciasDAO implements ILicenciasDAO {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        persona.agregarLicencia(licencia); // Asociar la licencia a la persona
-        em.merge(persona); // Actualizar la persona en la base de datos
-        this.licencia = licencia;
+        persona.agregarLicencia(licencia); 
+        em.merge(persona); 
 
         em.getTransaction().commit();
         em.close();

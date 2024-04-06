@@ -140,9 +140,9 @@ public class ControladorVentana extends javax.swing.JFrame {
         panelActual = vistaPlacas;
     }
     
-    public void cambiarVistaPlacaGenerada() {
+    public void cambiarVistaPlacaGenerada(String placa,String costo) {
         limpiarFrame();
-        PlacaGenerada placaGenerada = new PlacaGenerada(this);
+        PlacaGenerada placaGenerada = new PlacaGenerada(this,placa,costo);
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
     }

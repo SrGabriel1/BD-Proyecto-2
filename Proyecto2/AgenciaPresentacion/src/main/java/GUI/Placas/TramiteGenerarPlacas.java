@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import negocio.RegistroPlacasBO;
 
 /**
@@ -37,9 +38,11 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
         this.placa=placa;
         initComponents();
         if(modo==1){
-            
+            Costo.setText("$1,500");
+            tipo_Auto.setText("Nuevo");
         }else if(modo==2){
-            
+            Costo.setText("$1,000");
+            tipo_Auto.setText("Usado");
         }
     }
 
@@ -52,17 +55,15 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        FechaEmisionDatePicker = new com.github.lgooddatepicker.components.DatePicker();
-        FechaRecepcionDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         tipo_Auto = new javax.swing.JTextField();
         Costo = new javax.swing.JTextField();
+        FechaEmisionDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        FechaRecepcionDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         regresar = new javax.swing.JButton();
         Aceptar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(FechaEmisionDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, 40));
-        add(FechaRecepcionDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 200, 40));
 
         tipo_Auto.setEditable(false);
         tipo_Auto.setBackground(new java.awt.Color(217, 217, 217));
@@ -76,6 +77,8 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
         Costo.setEditable(false);
         Costo.setBackground(new java.awt.Color(217, 217, 217));
         add(Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 200, 40));
+        add(FechaEmisionDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, 40));
+        add(FechaRecepcionDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 200, 40));
 
         regresar.setBorderPainted(false);
         regresar.setContentAreaFilled(false);
@@ -130,8 +133,10 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
             calendar.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
             placa.setFecha_recepcion(calendar);
             rp.RegistrarPlacasNuevas(placa, auto);
+            
+            ventana.cambiarVistaPlacaGenerada(placa.getNumero(),Costo.getText());
         } catch (persistenciaException ex) {
-            Logger.getLogger(TramiteGenerarPlacas.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
         
     }//GEN-LAST:event_AceptarActionPerformed

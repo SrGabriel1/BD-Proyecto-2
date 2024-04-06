@@ -4,6 +4,7 @@
  */
 package negocio;
 
+import DAOs.AutomovilDAO;
 import DAOs.PlacasDAO;
 import DTOs.AutomovilDTO;
 import DTOs.PlacaDTO;
@@ -11,6 +12,7 @@ import Entidades.Automovil;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
 import Inegocio.IRegistroPlacasBO;
+import Interfaces.IAutomovilDAO;
 import Interfaces.IPlacasDAO;
 import Validadores.Validador;
 
@@ -27,30 +29,30 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
         placadto.setEstado("Activa");
         Automovil autoTemp=new Automovil(auto.getNumero_Serie(),auto.getModelo(),auto.getLínea(),auto.getMarca(),auto.getColor(),auto.getPersona());
         Placas placa = new Placas(numeroPlaca, placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), autoTemp, placadto.getTipo(), placadto.getEstado());
-        IPlacasDAO Iplacas = new PlacasDAO();
+        
+        IAutomovilDAO Iautomovil=new AutomovilDAO();
         if (validador.ValidarPlaca(placa)) {
             throw new persistenciaException("Hay una placa con esos datos");
-        }
-        if (Iplacas.agregarPlacas(placa)) {
-            if (auto != null) {
-                auto.agregarPlaca(placa);
-            } else {
-                throw new persistenciaException("Error: la placa no está asociada a un automóvil.");
+        }else{
+            try{
+               Iautomovil.registrarAutoYPlaca(placa, autoTemp); 
+               return numeroPlaca;
+            }catch(Exception e){
+                throw new persistenciaException(e.getMessage());
             }
-        } else {
-            throw new persistenciaException("Error al agregar la placa");
+            
         }
-        return numeroPlaca;
-
     }
 
-    //popipopopipo
-    // miku miku oeo
+    
     @Override
     public String RegistrarPlacasViejas(PlacaDTO placa) throws persistenciaException {
+        /**
         Validador validador = new Validador();
         Placas Placa = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), placa.getAuto_id(), placa.getTipo(), placa.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();
+        IAutomovilDAO Iautomovil=new AutomovilDAO();
+        
 
         // Validar que la placa no este ya registrada
         if (validador.ValidarPlaca(Placa)) {
@@ -65,11 +67,11 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
         }
 
         // Buscar una placa activa asociada al automóvil
-        Placas placaActiva = auto.buscarPlacaActiva();
+        Placas placaActiva = Iautomovil.buscarPlacaActiva(automovil);
         if (placaActiva != null) {
             // Asociar las placas al automóvil y agregarlas
             if (Iplacas.asociarPlacas(Placa, automovil)) {
-                auto.agregarPlaca(Placa);
+                Iautomovil.agregarPlaca(Placa,automovil);
                 // Desactivar la placa activa anterior
                 placaActiva.setEstado("Desactivada");
                 // Actualizar la placa activa en la base de datos
@@ -79,9 +81,10 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
                 String numeroPlacaNueva = Placas.generarPlaca();
                 placa.setNumero(numeroPlacaNueva);
                 placa.setEstado("Activa");
+                
                 Placas nuevaPlaca = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), automovil, placa.getTipo(), placa.getEstado());
                 if (!validador.ValidarPlaca(nuevaPlaca) && Iplacas.agregarPlacas(nuevaPlaca)) {
-                    auto.agregarPlaca(nuevaPlaca);
+                    Iautomovil.agregarPlaca(nuevaPlaca,automovil);
                     return numeroPlacaNueva;
                 } else {
                     throw new persistenciaException("Error al generar y asociar las nuevas placas al automóvil.");
@@ -91,7 +94,7 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
             }
         } else {
             throw new persistenciaException("No se encontró una placa activa asociada al automóvil.");
-        }
-        
+        }**/
+        return "wasap danger";
     }
 }
