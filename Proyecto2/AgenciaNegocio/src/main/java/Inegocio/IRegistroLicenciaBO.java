@@ -5,7 +5,7 @@
 package Inegocio;
 
 import DTOs.LicenciaDTO;
-import DTOs.PlacasDTO;
+import DTOs.PlacaDTO;
 import Entidades.Automovil;
 import Entidades.Licencia;
 import Entidades.Persona;

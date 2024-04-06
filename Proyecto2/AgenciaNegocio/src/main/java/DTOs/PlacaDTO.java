@@ -16,7 +16,7 @@ import java.util.Date;
  *
  * @author Ximena
  */
-public class PlacasDTO implements IPlacasDAO{
+public class PlacaDTO implements IPlacasDAO{
 
     private IPlacasDAO placas;
     private String numero, tipo,estado;
@@ -24,11 +24,11 @@ public class PlacasDTO implements IPlacasDAO{
     private Float costo;
     private Automovil auto_id;
 
-    public PlacasDTO() {
+    public PlacaDTO() {
         this.placas = new PlacasDAO();
     }
 
-    public PlacasDTO( String tipo, String estado, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id) {
+    public PlacaDTO( String tipo, String estado, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id) {
         this.tipo = tipo;
         this.estado = estado;
         this.fecha_emision = fecha_emision;
@@ -36,11 +36,17 @@ public class PlacasDTO implements IPlacasDAO{
         this.costo = costo;
         this.auto_id = auto_id;
     }
-    public PlacasDTO( String tipo, String estado, Calendar fecha_emision, Calendar fecha_recepcion, Float costo) {
+    public PlacaDTO( String tipo, String estado, Calendar fecha_emision, Calendar fecha_recepcion, Float costo) {
         this.tipo = tipo;
         this.estado = estado;
         this.fecha_emision = fecha_emision;
         this.fecha_recepcion = fecha_recepcion;
+        this.costo = costo;
+    }
+
+    public PlacaDTO(String tipo, String estado, float costo) {
+        this.tipo = tipo;
+        this.estado = estado;
         this.costo = costo;
     }
 

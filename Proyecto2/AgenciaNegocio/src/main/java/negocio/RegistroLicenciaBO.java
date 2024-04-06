@@ -8,7 +8,7 @@ import DAOs.LicenciasDAO;
 import DAOs.PlacasDAO;
 import DTOs.LicenciaDTO;
 import DTOs.PersonaDTO;
-import DTOs.PlacasDTO;
+import DTOs.PlacaDTO;
 import Entidades.Automovil;
 import Entidades.Licencia;
 import Entidades.Persona;

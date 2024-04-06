@@ -5,7 +5,7 @@
 package GUI.Placas;
 
 import DTOs.AutomovilDTO;
-import DTOs.PlacasDTO;
+import DTOs.PlacaDTO;
 import Excepciones.persistenciaException;
 import GUI.ControladorVentana;
 import Inegocio.IRegistroLicenciaBO;
@@ -150,14 +150,9 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         Calendar fecha_emision,fecha_recepcion;
         fecha_emision=Calendar.getInstance();
         fecha_recepcion=Calendar.getInstance();
-        PlacasDTO placa = new PlacasDTO("Nuevo", "Activa", fecha_emision, fecha_recepcion, 1500.f);
-        try {
-            String numeroPlaca=rp.RegistrarPlacasNuevas(placa, auto);
-            placa.setNumero(numeroPlaca);
-        } catch (persistenciaException ex) {
-            Logger.getLogger(TramiteAutoNuevo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ventana.cambiarVistaTramiteGenerar(auto,"nuevo");
+        PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1500.f);
+        
+        ventana.cambiarVistaTramiteGenerar(auto,placa,"nuevo");
     }//GEN-LAST:event_botonAceptarActionPerformed
 
     private void txtLineaAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLineaAutoActionPerformed

@@ -5,7 +5,7 @@
 package Inegocio;
 
 import DTOs.AutomovilDTO;
-import DTOs.PlacasDTO;
+import DTOs.PlacaDTO;
 import Excepciones.persistenciaException;
 
 /**
@@ -14,9 +14,9 @@ import Excepciones.persistenciaException;
  */
 public interface IRegistroPlacasBO {
 
-    public String RegistrarPlacasNuevas(PlacasDTO placa, AutomovilDTO auto) throws persistenciaException;
+    public String RegistrarPlacasNuevas(PlacaDTO placa, AutomovilDTO auto) throws persistenciaException;
     
-     public String RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException;
+     public String RegistrarPlacasViejas(PlacaDTO placa) throws persistenciaException;
 
     
 }

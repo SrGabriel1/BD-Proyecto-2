@@ -2,6 +2,7 @@ package GUI;
 
 import DTOs.AutomovilDTO;
 import DTOs.LicenciaDTO;
+import DTOs.PlacaDTO;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
@@ -106,6 +107,7 @@ public class ControladorVentana extends javax.swing.JFrame {
         panelActual = vistaLicenciaGenerada;
     }
     
+    
 
     /**
      * Método para cambiar a la vista de la ventana de MetodoPago . Este método
@@ -144,9 +146,9 @@ public class ControladorVentana extends javax.swing.JFrame {
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
     }
-    public void cambiarVistaTramiteGenerar(AutomovilDTO auto,String tipo) {
+    public void cambiarVistaTramiteGenerar(AutomovilDTO auto,PlacaDTO placa,String tipo) {
         limpiarFrame();
-        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,tipo);
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,placa,tipo);
         ponerEnJFrame(tramiteGenerarPlacas );
         panelActual = tramiteGenerarPlacas ;
     }

@@ -5,7 +5,14 @@
 package GUI.Placas;
 
 import DTOs.AutomovilDTO;
+import DTOs.PlacaDTO;
+import Excepciones.persistenciaException;
 import GUI.ControladorVentana;
+import Inegocio.IRegistroPlacasBO;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import negocio.RegistroPlacasBO;
 
 /**
@@ -16,16 +23,18 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     private ControladorVentana ventana;
     private AutomovilDTO auto;
     private String tipo;
+    private PlacaDTO placa;
     /**
      * Creates new form TramiteGenerarPlacas
      */
     public TramiteGenerarPlacas() {
         initComponents();
     }
-     public TramiteGenerarPlacas(ControladorVentana ventana,AutomovilDTO auto,String tipo) {
+     public TramiteGenerarPlacas(ControladorVentana ventana,AutomovilDTO auto,PlacaDTO placa,String tipo) {
         this.ventana = ventana;
         this.auto = auto;
         this.tipo=tipo;
+        this.placa=placa;
         initComponents();
     }
 
@@ -38,8 +47,8 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fecha_Recepcion = new javax.swing.JTextField();
-        Fecha_emision = new javax.swing.JTextField();
+        FechaEmisionDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        FechaRecepcionDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         tipo_Auto = new javax.swing.JTextField();
         Costo = new javax.swing.JTextField();
         regresar = new javax.swing.JButton();
@@ -47,14 +56,8 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        fecha_Recepcion.setEditable(false);
-        fecha_Recepcion.setBackground(new java.awt.Color(217, 217, 217));
-        add(fecha_Recepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 200, 40));
-
-        Fecha_emision.setEditable(false);
-        Fecha_emision.setBackground(new java.awt.Color(217, 217, 217));
-        add(Fecha_emision, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 190, 40));
+        add(FechaEmisionDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, 40));
+        add(FechaRecepcionDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 200, 40));
 
         tipo_Auto.setEditable(false);
         tipo_Auto.setBackground(new java.awt.Color(217, 217, 217));
@@ -104,6 +107,28 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
+        try {
+            IRegistroPlacasBO rp = new RegistroPlacasBO();
+            LocalDate localDate=FechaEmisionDatePicker.getDate();
+            Calendar calendar = Calendar.getInstance();
+            calendar.clear();
+            calendar.set(Calendar.YEAR, localDate.getYear());
+            calendar.set(Calendar.MONTH, localDate.getMonthValue() - 1);
+            calendar.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
+            placa.setFecha_emision(calendar);
+            
+            localDate=FechaRecepcionDatePicker.getDate();
+            calendar = Calendar.getInstance();
+            calendar.clear();
+            calendar.set(Calendar.YEAR, localDate.getYear());
+            calendar.set(Calendar.MONTH, localDate.getMonthValue() - 1);
+            calendar.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
+            placa.setFecha_recepcion(calendar);
+            rp.RegistrarPlacasNuevas(placa, auto);
+        } catch (persistenciaException ex) {
+            Logger.getLogger(TramiteGenerarPlacas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void tipo_AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_AutoActionPerformed
@@ -114,8 +139,8 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
     private javax.swing.JTextField Costo;
-    private javax.swing.JTextField Fecha_emision;
-    private javax.swing.JTextField fecha_Recepcion;
+    private com.github.lgooddatepicker.components.DatePicker FechaEmisionDatePicker;
+    private com.github.lgooddatepicker.components.DatePicker FechaRecepcionDatePicker;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton regresar;
     private javax.swing.JTextField tipo_Auto;

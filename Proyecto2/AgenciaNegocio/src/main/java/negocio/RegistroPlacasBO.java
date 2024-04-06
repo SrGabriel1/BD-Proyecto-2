@@ -6,7 +6,7 @@ package negocio;
 
 import DAOs.PlacasDAO;
 import DTOs.AutomovilDTO;
-import DTOs.PlacasDTO;
+import DTOs.PlacaDTO;
 import Entidades.Automovil;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
@@ -21,7 +21,7 @@ import Validadores.Validador;
 public class RegistroPlacasBO implements IRegistroPlacasBO {
 
     @Override
-    public String RegistrarPlacasNuevas(PlacasDTO placadto, AutomovilDTO auto) throws persistenciaException {
+    public String RegistrarPlacasNuevas(PlacaDTO placadto, AutomovilDTO auto) throws persistenciaException {
         Validador validador = new Validador();
         String numeroPlaca = Placas.generarPlaca();
         placadto.setEstado("Activa");
@@ -47,7 +47,7 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
     //popipopopipo
     // miku miku oeo
     @Override
-    public String RegistrarPlacasViejas(PlacasDTO placa) throws persistenciaException {
+    public String RegistrarPlacasViejas(PlacaDTO placa) throws persistenciaException {
         Validador validador = new Validador();
         Placas Placa = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), placa.getAuto_id(), placa.getTipo(), placa.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();

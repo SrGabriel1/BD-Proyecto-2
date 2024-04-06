@@ -62,21 +62,22 @@ public class LicenciasDAO implements ILicenciasDAO {
     }
     @Override
     public Licencia regresarLicencia(String numLicencia)throws persistenciaException{
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-
-        String jpql = "SELECT l FROM Licencia l WHERE l.Numero_Licencia = :numero";
-        TypedQuery<Licencia> query = em.createQuery(jpql, Licencia.class);
-        query.setParameter("numero", numLicencia);
-        Licencia licenciaTemp=query.getSingleResult();
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
-        return licenciaTemp;
         
-        
-        
+        try {
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+            EntityManager em = emf.createEntityManager();
+            em.getTransaction().begin();
+            String jpql = "SELECT l FROM Licencias l WHERE l.Numero_Licencia = :numero";
+            TypedQuery<Licencia> query = em.createQuery(jpql, Licencia.class);
+            query.setParameter("numero", numLicencia);
+            Licencia licenciaTemp = query.getSingleResult();
+            em.getTransaction().commit();
+            em.close();
+            emf.close();
+            return licenciaTemp;
+        } catch (Exception e) {
+            throw new persistenciaException("No existen licencias con ese número");
+        }
     }
 
     

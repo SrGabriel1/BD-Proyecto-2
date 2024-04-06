@@ -4,6 +4,7 @@
  */
 package GUI.Placas;
 
+import DTOs.LicenciaDTO;
 import GUI.ControladorVentana;
 
 /**
