@@ -29,7 +29,6 @@ public class AutomovilDTO implements IAutomovilDAO {
 
     private String color;
     
-    private Placas placa;
     
     private Persona persona;
 
@@ -37,13 +36,13 @@ public class AutomovilDTO implements IAutomovilDAO {
         this.auto = new AutomovilDAO();
     }
 
-    public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color, Placas placa) {
+    public AutomovilDTO(String Numero_Serie, String Modelo, String línea, String marca, String color,Persona persona) {
         this.Numero_Serie = Numero_Serie;
         this.Modelo = Modelo;
         this.línea = línea;
         this.marca = marca;
         this.color = color;
-        this.placa = placa;
+        this.persona=persona;
     }
     
     @Override
@@ -102,22 +101,6 @@ public class AutomovilDTO implements IAutomovilDAO {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public Placas getPlacas() {
-        return placa;
-    }
-
-    public void setPlacas(Placas placa) {
-        this.placa = placa;
-    }
-
-    public Placas getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(Placas placa) {
-        this.placa = placa;
     }
 
     public Persona getPersona() {

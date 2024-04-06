@@ -121,7 +121,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
             if (persona != null) {
                 txtNombre.setText(persona.getNombre()+" "+persona.getApellido_materno()+" "+persona.getApellido_paterno());
                 Encriptador e = new Encriptador();
-                String telefono = e.encriptar(persona.getTelefono());
+                String telefono = e.desencriptar(persona.getTelefono());
                 txtTelefono.setText(telefono);
 
                 Calendar fecha = persona.getFecha_nacimiento();

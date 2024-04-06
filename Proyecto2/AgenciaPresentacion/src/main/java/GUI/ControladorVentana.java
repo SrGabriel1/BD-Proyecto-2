@@ -146,9 +146,9 @@ public class ControladorVentana extends javax.swing.JFrame {
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
     }
-    public void cambiarVistaTramiteGenerar(AutomovilDTO auto,PlacaDTO placa,String tipo) {
+    public void cambiarVistaTramiteGenerar(AutomovilDTO auto,PlacaDTO placa,String tipo,int modo) {
         limpiarFrame();
-        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,placa,tipo);
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,placa,tipo,modo);
         ponerEnJFrame(tramiteGenerarPlacas );
         panelActual = tramiteGenerarPlacas ;
     }

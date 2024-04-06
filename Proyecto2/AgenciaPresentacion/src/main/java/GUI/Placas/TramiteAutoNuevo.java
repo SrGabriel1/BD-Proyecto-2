@@ -8,6 +8,7 @@ import DTOs.AutomovilDTO;
 import DTOs.PlacaDTO;
 import Excepciones.persistenciaException;
 import GUI.ControladorVentana;
+import Inegocio.IConsultasBO;
 import Inegocio.IRegistroLicenciaBO;
 import Inegocio.IRegistroPlacasBO;
 import java.util.Calendar;
@@ -15,6 +16,7 @@ import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import negocio.ConsultasBO;
 import negocio.RegistroLicenciaBO;
 import negocio.RegistroPlacasBO;
 
@@ -147,14 +149,15 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
         String color = txtColor.getText();
         String marca = txtMarca.getText();
         IRegistroLicenciaBO rl = new RegistroLicenciaBO();
+        IConsultasBO consulta=new ConsultasBO();
         try {
-            AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color, rl.regresarLicencias(licencia));
+            AutomovilDTO auto = new AutomovilDTO(Numero_Serie, Modelo, linea, marca, color,consulta.regresarPersona(consulta.regresarLicencia(licencia)) );
             Calendar fecha_emision, fecha_recepcion;
             fecha_emision = Calendar.getInstance();
             fecha_recepcion = Calendar.getInstance();
             PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1500.f);
 
-            ventana.cambiarVistaTramiteGenerar(auto, placa, "nuevo");
+            ventana.cambiarVistaTramiteGenerar(auto, placa, "nuevo",1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }

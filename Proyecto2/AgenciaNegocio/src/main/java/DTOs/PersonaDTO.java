@@ -13,7 +13,7 @@ import Interfaces.IPersonasDAO;
  *
  * @author yohan
  */
-public class PersonaDTO implements IPersonasDAO{
+public class PersonaDTO{
   
     private IPersonasDAO personasDAO;
 
@@ -21,12 +21,12 @@ public class PersonaDTO implements IPersonasDAO{
         this.personasDAO = new PersonasDAO(); 
     }
 
-    @Override
+    
     public boolean agregarPersona(Persona persona) {
         return personasDAO.agregarPersona(persona);
     }
 
-    @Override
+    
     public Persona VerificarPersona(String rfc) throws persistenciaException {
         return personasDAO.VerificarPersona(rfc);
     }

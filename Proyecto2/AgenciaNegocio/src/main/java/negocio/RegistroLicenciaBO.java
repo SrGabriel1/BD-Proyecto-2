@@ -71,18 +71,6 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
         return personaDTO.VerificarPersona(rfc);
     }
 
-    @Override
-    public Licencia regresarLicencias(String numLicencia) throws persistenciaException{
-        ILicenciasDAO ilicencia = new LicenciasDAO();
-       
-        try {
-            return ilicencia.regresarLicencia(numLicencia);
-        } catch (persistenciaException ex) {
-            throw new persistenciaException(ex.getMessage()); 
-            
-        }
-        
-        
-    }
+    
 
 }

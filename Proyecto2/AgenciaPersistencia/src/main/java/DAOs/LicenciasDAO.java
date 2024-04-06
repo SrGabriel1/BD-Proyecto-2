@@ -72,6 +72,9 @@ public class LicenciasDAO implements ILicenciasDAO {
         query.setParameter("numero", numLicencia);
         try {
             Licencia licenciaTemp = (Licencia) query.getSingleResult();
+            if(licenciaTemp.getEstado().equals("Vencida")){
+                throw new persistenciaException("Su licencia está vencida");
+            }
             return licenciaTemp;
         } catch (NoResultException e) {
             throw new persistenciaException("Error al buscar la licencia: " + e.getMessage());

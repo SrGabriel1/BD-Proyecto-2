@@ -30,12 +30,17 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     public TramiteGenerarPlacas() {
         initComponents();
     }
-     public TramiteGenerarPlacas(ControladorVentana ventana,AutomovilDTO auto,PlacaDTO placa,String tipo) {
+     public TramiteGenerarPlacas(ControladorVentana ventana,AutomovilDTO auto,PlacaDTO placa,String tipo,int modo) {
         this.ventana = ventana;
         this.auto = auto;
         this.tipo=tipo;
         this.placa=placa;
         initComponents();
+        if(modo==1){
+            
+        }else if(modo==2){
+            
+        }
     }
 
     /**

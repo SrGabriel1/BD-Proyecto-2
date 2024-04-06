@@ -4,14 +4,17 @@
  */
 package DAOs;
 
+import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Interfaces.IPersonasDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -65,5 +68,21 @@ public class PersonasDAO implements IPersonasDAO {
 
     public EntityManager getEntityManager() {
         return em;
+    }
+
+    @Override
+    public Persona regresarPersona(Licencia licencia) throws persistenciaException {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Persona> criteriaQuery = criteriaBuilder.createQuery(Persona.class);
+
+        Root<Licencia> licenciaRoot = criteriaQuery.from(Licencia.class);
+        Join<Licencia, Persona> personaJoin = licenciaRoot.join("persona");
+
+        Predicate predicate = criteriaBuilder.equal(licenciaRoot, licencia);
+        
+        criteriaQuery.select(personaJoin).where(predicate);
+        TypedQuery<Persona> typedQuery = em.createQuery(criteriaQuery);
+        return typedQuery.getSingleResult();
+    
     }
 }

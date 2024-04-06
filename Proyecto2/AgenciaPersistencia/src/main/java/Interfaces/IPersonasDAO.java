@@ -5,6 +5,7 @@
 package Interfaces;
 
 import DAOs.PersonasDAO;
+import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 
@@ -17,5 +18,7 @@ public interface IPersonasDAO {
     public boolean agregarPersona(Persona persona);
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
+    
+    public Persona regresarPersona(Licencia licencia) throws persistenciaException;
 
 }
