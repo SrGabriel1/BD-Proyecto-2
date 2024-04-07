@@ -66,7 +66,7 @@ public class LicenciasDAO implements ILicenciasDAO {
             }
             return licenciaTemp;
         } catch (NoResultException e) {
-            throw new persistenciaException("Error al buscar la licencia: " + e.getMessage());
+            throw new persistenciaException("Esa licencia no existe");
             
         }
     }

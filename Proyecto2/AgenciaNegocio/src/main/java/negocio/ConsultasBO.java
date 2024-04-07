@@ -34,6 +34,9 @@ public class ConsultasBO implements IConsultasBO{
 
     @Override
     public Licencia regresarLicencia(String numLicencia) throws persistenciaException{
+        if(numLicencia.equals("")){
+            throw new persistenciaException("Escribe el número de licencia"); 
+        }
         ILicenciasDAO ilicencia = new LicenciasDAO();
        
         try {
@@ -46,10 +49,23 @@ public class ConsultasBO implements IConsultasBO{
 
     @Override
     public Automovil regresarAutomovil(String numPlaca) throws persistenciaException {
+        if(numPlaca.equals("")){
+            throw new persistenciaException("Escribe el número de placa"); 
+        }
         IAutomovilDAO iAutomovilDAO=new AutomovilDAO();
         return iAutomovilDAO.buscarAutomovilPorPlaca(numPlaca);
         
     }
+
+    @Override
+    public void comprobarMismoDueno(Automovil auto, Licencia licencia) throws persistenciaException {
+        if(auto.getPersona()!=licencia.getPersona()){
+            throw new persistenciaException("La licencia y el automovil no pertenecen a la misma persona"); 
+        }
+        
+    }
+    
+    
 
     
 }

@@ -9,9 +9,12 @@ import DTOs.LicenciaDTO;
 import DTOs.PlacaDTO;
 import Excepciones.persistenciaException;
 import GUI.ControladorVentana;
+import Inegocio.IConsultasBO;
 import Inegocio.IRegistroPlacasBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import negocio.ConsultasBO;
 import negocio.RegistroPlacasBO;
 
 /**
@@ -88,11 +91,20 @@ public class TramiteAutoUsado extends javax.swing.JPanel {
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         // TODO add your handling code here:
-        IRegistroPlacasBO iRegistroPlacasBO = new RegistroPlacasBO();
-        PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1000.f);
-
         
-        ventana.cambiarVistaTramiteGenerar(txtPlacasAntiguas.getText(), placa, "Usado", 2);
+        try{
+            IConsultasBO consultas=new ConsultasBO();
+            consultas.comprobarMismoDueno(consultas.regresarAutomovil(txtPlacasAntiguas.getText()),consultas.regresarLicencia(txtLicencia.getText()));
+            
+            PlacaDTO placa = new PlacaDTO("Usado", "Activa", 1000.f);
+            ventana.cambiarVistaTramiteGenerar(txtPlacasAntiguas.getText(), placa, "Usado", 2);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed

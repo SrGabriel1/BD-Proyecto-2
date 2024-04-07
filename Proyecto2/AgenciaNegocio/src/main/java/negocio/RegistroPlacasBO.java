@@ -50,14 +50,15 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
     public String RegistrarPlacasViejas(String numeroPlaca,PlacaDTO placa) throws persistenciaException {
         
         Validador validador = new Validador();
-        Placas Placa = new Placas(placa.getNumero(), placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), placa.getAuto_id(), placa.getTipo(), placa.getEstado());
+        String numeroPlacaGenerado = Placas.generarPlaca();
+        Placas Placa = new Placas(numeroPlacaGenerado, placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), placa.getAuto_id(), placa.getTipo(), placa.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();
         IAutomovilDAO Iautomovil=new AutomovilDAO();
         IConsultasBO consultas=new ConsultasBO();
         try{
             Automovil autoTemp=consultas.regresarAutomovil(numeroPlaca);
             Iautomovil.actualizarPlaca(Placa, autoTemp);
-            return placa.getNumero();
+            return numeroPlacaGenerado;
         }catch(Exception e){
             throw new persistenciaException(e.getMessage());
         }

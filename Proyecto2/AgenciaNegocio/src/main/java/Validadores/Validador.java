@@ -4,8 +4,12 @@
  */
 package Validadores;
 
+import DAOs.PersonasDAO;
 import Entidades.Licencia;
+import Entidades.Persona;
 import Entidades.Placas;
+import Excepciones.persistenciaException;
+import Interfaces.IPersonasDAO;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,10 +32,8 @@ public class Validador {
         Root<Licencia> rootLicencia = cq.from(Licencia.class);
         cq.select(rootLicencia);
 
-        cq.where(
-                cb.equal(rootLicencia.get("tipo"), licencia.getTipo()) // Comparar por tipo de licencia
-        );
-
+        cq.where(cb.equal(rootLicencia.get("persona"), licencia.getPersona()));
+        
         List<Licencia> licencias = em.createQuery(cq).getResultList();
         em.close();
         emf.close();
@@ -55,6 +57,10 @@ public class Validador {
         em.close();
         emf.close();
         return !placa1.isEmpty();
+    }
+    public Persona VerificarPersona(String rfc) throws persistenciaException {
+        IPersonasDAO persona=new PersonasDAO();
+        return persona.VerificarPersona(rfc);
     }
 
 }

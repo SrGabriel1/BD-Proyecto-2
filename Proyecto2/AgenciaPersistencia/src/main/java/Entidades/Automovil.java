@@ -146,10 +146,7 @@ public class Automovil implements Serializable {
         this.placas = placas;
     }
 
-    @Override
-    public String toString() {
-        return "Automovil{" + "id=" + id + ", Numero_Serie=" + Numero_Serie + ", Modelo=" + Modelo + ", l\u00ednea=" + línea + ", marca=" + marca + ", color=" + color + ", persona=" + persona + ", placas=" + placas + '}';
-    }
+    
 
 }
      

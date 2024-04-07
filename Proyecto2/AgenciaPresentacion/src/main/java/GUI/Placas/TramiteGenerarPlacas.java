@@ -158,7 +158,7 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
             }
             
             
-            ventana.cambiarVistaPlacaGenerada( numPlaca,Costo.getText());
+            ventana.cambiarVistaPlacaGenerada( numPlacaTemp,Costo.getText());
         } catch (persistenciaException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }

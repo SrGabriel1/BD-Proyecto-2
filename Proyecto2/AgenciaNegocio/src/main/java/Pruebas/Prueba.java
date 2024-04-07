@@ -24,7 +24,7 @@ public class Prueba {
         PersonaDTO personaDTO = new PersonaDTO();
         LicenciaDTO licenciaDTO = new LicenciaDTO();
         
-        IRegistroLicenciaBO registroLicenciaBO = new RegistroLicenciaBO(personaDTO, licenciaDTO);
+        IRegistroLicenciaBO registroLicenciaBO = new RegistroLicenciaBO();
 
         String rfc = "FOLC920713345";
         Persona persona = registroLicenciaBO.VerificarPersona(rfc);

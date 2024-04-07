@@ -10,6 +10,7 @@ import Excepciones.persistenciaException;
 import Interfaces.IAutomovilDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -73,8 +74,8 @@ public class AutomovilDAO implements IAutomovilDAO {
 
             TypedQuery<Automovil> typedQuery = em.createQuery(criteriaQuery);
             return typedQuery.getSingleResult();
-        } catch (Exception e) {
-            throw new persistenciaException(e.getMessage());
+        } catch (NoResultException e) {
+            throw new persistenciaException("No existen esas placas");
         }
 
     }

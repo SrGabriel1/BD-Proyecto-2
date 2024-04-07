@@ -27,9 +27,7 @@ public class PersonaDTO{
     }
 
     
-    public Persona VerificarPersona(String rfc) throws persistenciaException {
-        return personasDAO.VerificarPersona(rfc);
-    }
+    
     
 }
 

@@ -93,9 +93,6 @@ public class PlacasDAO implements IPlacasDAO {
             }
             
         } catch (persistenciaException e) {
-            if (em.getTransaction() != null && em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
             throw new persistenciaException("Error al actualizar la placa en la base de datos: " + e.getMessage());
         }
         em.close();

@@ -159,9 +159,6 @@ public class Persona implements Serializable {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", CURP=" + CURP + ", telefono=" + telefono + ", fecha_nacimiento=" + fecha_nacimiento.getTime() + '}';
-    }
+    
 
 }
