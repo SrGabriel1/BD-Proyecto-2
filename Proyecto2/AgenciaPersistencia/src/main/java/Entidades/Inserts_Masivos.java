@@ -50,14 +50,14 @@ public class Inserts_Masivos {
         Persona p4 = new Persona("Pepe", "Pérez", "Cervantes", "PECR780525HMCFVR03 ", "PECR780525321", "6444567890", fecha4,"Normal");
         Persona p5 = new Persona("Juan", "Rodríguez", "Espinoza", "RODE851005HDFRTN04 ", "ROES851005678", "6445678901", fecha5,"Normal");
         Persona p6 = new Persona("Ximena", "Martínez", "Fuentes", "MAFJ870725HDFXRS06 ", "MAFJ870725901", "6446789012", fecha6,"Normal");
-        Persona p7 = new Persona("Andrea", "García", "Gómez", "GAAG910321HDFGRR09 ", "GAGG910321234", "6447890123", fecha7,"Normal");
+        Persona p7 = new Persona("Andrea", "García", "Gómez", "GAAG910321HDFGRR09 ", "GAGG910321234", "6447890123", fecha7,"Discapacitado");
         Persona p8 = new Persona("Daniela", "Sánchez", "Herrera", "SANJ891105HDFHRR08 ", "SAHD891105567", "6448901234", fecha8,"Normal");
         Persona p9 = new Persona("Gabriela", "Ramírez", "Juárez", "RAGJ910630HDFTNZ02 ", "RAJG910630890", "6449012345", fecha9,"Normal");
         Persona p10 = new Persona("Paulina", "Torres", "Ibarra", "TOCP880218HDFRLS08 ", "TOIP880218234", "6440123456", fecha10,"Normal");
-        Persona p11 = new Persona("Carla", "Flores", "León", "FLRC920713HDFCRN01 ", "FOLC920713345", "6441234567", fecha11,"Normal");
+        Persona p11 = new Persona("Carla", "Flores", "León", "FLRC920713HDFCRN01 ", "FOLC920713345", "6441234567", fecha11,"Discapacitado");
         Persona p12 = new Persona("Carlos", "Vázquez", "Morales", "VZCM900504HDFMLL00 ", "VAMC900504678", "6442345678", fecha12,"Normal");
         Persona p13 = new Persona("Felipe", "Díaz", "Núñez", "DIFP800719HDFNXF02 ", "DINF800719901", "6443456789", fecha13,"Normal");
-        Persona p14 = new Persona("Sarahi", "Romero", "Ortega", "RORX930830HDFMTG02 ", "RORS930830456", "6444567890", fecha14,"Normal");
+        Persona p14 = new Persona("Sarahi", "Romero", "Ortega", "RORX930830HDFMTG02 ", "RORS930830456", "6444567890", fecha14,"Discapacitado");
         Persona p15 = new Persona("Ana", "González", "Martínez", "GONM990505HDFXXX01 ", "GOMA990505XXX", "6449876543", fecha15,"Normal");
         Persona p16 = new Persona("Miguel", "Hernández", "López", "HELM871124HDFXXX02 ", "HELO871124XXX", "6448765432", fecha16,"Normal");
         Persona p17 = new Persona("Elena", "Martínez", "Pérez", "MAPJ800712HDFXXX03 ", "MAPE800712XXX", "6447654321", fecha17,"Normal");

@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -20,8 +21,8 @@ import javax.persistence.Table;
  * @author yohan
  */
 @Entity
-@Table(name = "Licencias")
-public class Licencia implements Serializable {
+@PrimaryKeyJoinColumn(name = "tramite_id")
+public class Licencia extends Tramite implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,10 +30,10 @@ public class Licencia implements Serializable {
 
     @Column(name = "vigencia", nullable = false)
     private String vigencia;
-    
+
     @Column(name = "Numero_Licencia", nullable = false)
     private String numeroLicencia;
-    
+
     @Column(name = "tipo", nullable = false)
     private String tipo;
 
@@ -47,9 +48,11 @@ public class Licencia implements Serializable {
     private Persona persona;
 
     public Licencia() {
+        super();
     }
 
     public Licencia(String vigencia, String tipo, Float precio, String estado, Persona persona) {
+        super(persona, "Licencia",precio);
         this.vigencia = vigencia;
         this.tipo = tipo;
         this.precio = precio;

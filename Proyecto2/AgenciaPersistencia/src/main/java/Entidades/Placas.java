@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,8 +24,8 @@ import javax.persistence.TemporalType;
  * @author yohan
  */
 @Entity
-@Table(name = "Placas")
-public class Placas implements Serializable {
+@PrimaryKeyJoinColumn(name = "tramite_id")
+public class Placas extends Tramite implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,6 +78,7 @@ public class Placas implements Serializable {
     }
 
     public Placas(String Numero, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id, String tipo, String Estado) {
+        super(auto_id.getPersona(), "Placas",costo);
         this.Numero = Numero;
         this.fecha_emision = fecha_emision;
         this.fecha_recepcion = fecha_recepcion;
@@ -88,6 +90,7 @@ public class Placas implements Serializable {
 
 
     public Placas() {
+        super();
     }
 
     public String getEstado() {
