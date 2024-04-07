@@ -44,26 +44,26 @@ public class Inserts_Masivos {
         GregorianCalendar fecha19 = new GregorianCalendar(1983, 2, 15);
         GregorianCalendar fecha20 = new GregorianCalendar(1995, 6, 20);
         // creamos Personas
-        Persona p1 = new Persona("Jesus", "mendoza", "cruz", "MENJ040205HMCRNL04 ", "MECJ940205123", "644213413", fecha1);
-        Persona p2 = new Persona("Gabriel", "Hernández", "Álvarez", "MENJ040205HMCRNL04 ", "HEAG880702456", "6442345678", fecha2);
-        Persona p3 = new Persona("Luis", "López", "Bautista", "LOBL660612HDFXTC01 ", "LOBL660612789", "6443456789", fecha3);
-        Persona p4 = new Persona("Pepe", "Pérez", "Cervantes", "PECR780525HMCFVR03 ", "PECR780525321", "6444567890", fecha4);
-        Persona p5 = new Persona("Juan", "Rodríguez", "Espinoza", "RODE851005HDFRTN04 ", "ROES851005678", "6445678901", fecha5);
-        Persona p6 = new Persona("Ximena", "Martínez", "Fuentes", "MAFJ870725HDFXRS06 ", "MAFJ870725901", "6446789012", fecha6);
-        Persona p7 = new Persona("Andrea", "García", "Gómez", "GAAG910321HDFGRR09 ", "GAGG910321234", "6447890123", fecha7);
-        Persona p8 = new Persona("Daniela", "Sánchez", "Herrera", "SANJ891105HDFHRR08 ", "SAHD891105567", "6448901234", fecha8);
-        Persona p9 = new Persona("Gabriela", "Ramírez", "Juárez", "RAGJ910630HDFTNZ02 ", "RAJG910630890", "6449012345", fecha9);
-        Persona p10 = new Persona("Paulina", "Torres", "Ibarra", "TOCP880218HDFRLS08 ", "TOIP880218234", "6440123456", fecha10);
-        Persona p11 = new Persona("Carla", "Flores", "León", "FLRC920713HDFCRN01 ", "FOLC920713345", "6441234567", fecha11);
-        Persona p12 = new Persona("Carlos", "Vázquez", "Morales", "VZCM900504HDFMLL00 ", "VAMC900504678", "6442345678", fecha12);
-        Persona p13 = new Persona("Felipe", "Díaz", "Núñez", "DIFP800719HDFNXF02 ", "DINF800719901", "6443456789", fecha13);
-        Persona p14 = new Persona("Sarahi", "Romero", "Ortega", "RORX930830HDFMTG02 ", "RORS930830456", "6444567890", fecha14);
-        Persona p15 = new Persona("Ana", "González", "Martínez", "GONM990505HDFXXX01 ", "GOMA990505XXX", "6449876543", fecha15);
-        Persona p16 = new Persona("Miguel", "Hernández", "López", "HELM871124HDFXXX02 ", "HELO871124XXX", "6448765432", fecha16);
-        Persona p17 = new Persona("Elena", "Martínez", "Pérez", "MAPJ800712HDFXXX03 ", "MAPE800712XXX", "6447654321", fecha17);
-        Persona p18 = new Persona("David", "López", "Gómez", "LOGD910409HDFXXX04 ", "LOGO910409XXX", "6446543210", fecha18);
-        Persona p19 = new Persona("Alejandra", "Torres", "Rodríguez", "TORA830215HDFXXX05 ", "TORO830215XXX", "6445432109", fecha19);
-        Persona p20 = new Persona("Santiago", "García", "Flores", "GAFS950620HDFXXX06 ", "GAFL950620XXX", "6444321098", fecha20);
+        Persona p1 = new Persona("Jesus", "mendoza", "cruz", "MENJ040205HMCRNL04 ", "MECJ940205123", "644213413", fecha1,"Normal");
+        Persona p2 = new Persona("Gabriel", "Hernández", "Álvarez", "MENJ040205HMCRNL04 ", "HEAG880702456", "6442345678", fecha2,"Normal");
+        Persona p3 = new Persona("Luis", "López", "Bautista", "LOBL660612HDFXTC01 ", "LOBL660612789", "6443456789", fecha3,"Normal");
+        Persona p4 = new Persona("Pepe", "Pérez", "Cervantes", "PECR780525HMCFVR03 ", "PECR780525321", "6444567890", fecha4,"Normal");
+        Persona p5 = new Persona("Juan", "Rodríguez", "Espinoza", "RODE851005HDFRTN04 ", "ROES851005678", "6445678901", fecha5,"Normal");
+        Persona p6 = new Persona("Ximena", "Martínez", "Fuentes", "MAFJ870725HDFXRS06 ", "MAFJ870725901", "6446789012", fecha6,"Normal");
+        Persona p7 = new Persona("Andrea", "García", "Gómez", "GAAG910321HDFGRR09 ", "GAGG910321234", "6447890123", fecha7,"Normal");
+        Persona p8 = new Persona("Daniela", "Sánchez", "Herrera", "SANJ891105HDFHRR08 ", "SAHD891105567", "6448901234", fecha8,"Normal");
+        Persona p9 = new Persona("Gabriela", "Ramírez", "Juárez", "RAGJ910630HDFTNZ02 ", "RAJG910630890", "6449012345", fecha9,"Normal");
+        Persona p10 = new Persona("Paulina", "Torres", "Ibarra", "TOCP880218HDFRLS08 ", "TOIP880218234", "6440123456", fecha10,"Normal");
+        Persona p11 = new Persona("Carla", "Flores", "León", "FLRC920713HDFCRN01 ", "FOLC920713345", "6441234567", fecha11,"Normal");
+        Persona p12 = new Persona("Carlos", "Vázquez", "Morales", "VZCM900504HDFMLL00 ", "VAMC900504678", "6442345678", fecha12,"Normal");
+        Persona p13 = new Persona("Felipe", "Díaz", "Núñez", "DIFP800719HDFNXF02 ", "DINF800719901", "6443456789", fecha13,"Normal");
+        Persona p14 = new Persona("Sarahi", "Romero", "Ortega", "RORX930830HDFMTG02 ", "RORS930830456", "6444567890", fecha14,"Normal");
+        Persona p15 = new Persona("Ana", "González", "Martínez", "GONM990505HDFXXX01 ", "GOMA990505XXX", "6449876543", fecha15,"Normal");
+        Persona p16 = new Persona("Miguel", "Hernández", "López", "HELM871124HDFXXX02 ", "HELO871124XXX", "6448765432", fecha16,"Normal");
+        Persona p17 = new Persona("Elena", "Martínez", "Pérez", "MAPJ800712HDFXXX03 ", "MAPE800712XXX", "6447654321", fecha17,"Normal");
+        Persona p18 = new Persona("David", "López", "Gómez", "LOGD910409HDFXXX04 ", "LOGO910409XXX", "6446543210", fecha18,"Normal");
+        Persona p19 = new Persona("Alejandra", "Torres", "Rodríguez", "TORA830215HDFXXX05 ", "TORO830215XXX", "6445432109", fecha19,"Normal");
+        Persona p20 = new Persona("Santiago", "García", "Flores", "GAFS950620HDFXXX06 ", "GAFL950620XXX", "6444321098", fecha20,"Normal");
 
         // Encripta los teléfonos antes de agregarlos a la lista de entidades
         p1.setTelefono(Encriptador.encriptar(p1.getTelefono()));

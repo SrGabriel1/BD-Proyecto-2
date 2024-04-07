@@ -25,23 +25,23 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
 
     @Override
     public String RegistrarPlacasNuevas(PlacaDTO placadto, AutomovilDTO auto) throws persistenciaException {
-        Validador validador = new Validador();
-        String numeroPlaca = Placas.generarPlaca();
-        placadto.setEstado("Activa");
-        Automovil autoTemp=new Automovil(auto.getNumero_Serie(),auto.getModelo(),auto.getLínea(),auto.getMarca(),auto.getColor(),auto.getPersona());
-        Placas placa = new Placas(numeroPlaca, placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), autoTemp, placadto.getTipo(), placadto.getEstado());
-        
-        IAutomovilDAO Iautomovil=new AutomovilDAO();
-        if (validador.ValidarPlaca(placa)) {
-            throw new persistenciaException("Hay una placa con esos datos");
-        }else{
-            try{
-               Iautomovil.registrarAutoYPlaca(placa, autoTemp); 
-               return numeroPlaca;
-            }catch(Exception e){
-                throw new persistenciaException(e.getMessage());
+        try {
+            Validador validador = new Validador();
+            String numeroPlaca = Placas.generarPlaca();
+            placadto.setEstado("Activa");
+
+            Automovil autoTemp = new Automovil(auto.getNumero_Serie(), auto.getModelo(), auto.getLínea(), auto.getMarca(), auto.getColor(), auto.getPersona());
+            Placas placa = new Placas(numeroPlaca, placadto.getFecha_emision(), placadto.getFecha_recepcion(), placadto.getCosto(), autoTemp, placadto.getTipo(), placadto.getEstado());
+
+            IAutomovilDAO Iautomovil = new AutomovilDAO();
+            if (validador.ValidarPlaca(placa)) {
+                throw new persistenciaException("Hay una placa con esos datos");
+            } else {
+                Iautomovil.registrarAutoYPlaca(placa, autoTemp);
+                return numeroPlaca;
             }
-            
+        } catch (Exception e) {
+            throw new persistenciaException(e.getMessage());
         }
     }
 

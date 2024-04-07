@@ -48,6 +48,9 @@ public class Persona implements Serializable {
     private String RFC;
     @Column(name = "telefono", nullable = false)
     private String telefono;
+    
+    @Column(name = "condicion", nullable = false)
+    private String condicion;
 
     @Column(name = "fecha_nacimiento", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -62,7 +65,7 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido_paterno, String apellido_materno, String CURP, String RFC, String telefono, Calendar fecha_nacimiento) {
+    public Persona(String nombre, String apellido_paterno, String apellido_materno, String CURP, String RFC, String telefono, Calendar fecha_nacimiento, String condicion) {
         this.nombre = nombre;
         this.apellido_paterno = apellido_paterno;
         this.apellido_materno = apellido_materno;
@@ -70,7 +73,9 @@ public class Persona implements Serializable {
         this.RFC = RFC;
         this.telefono = telefono;
         this.fecha_nacimiento = fecha_nacimiento;
+        
         this.licencias = new ArrayList<>();
+        this.condicion=condicion;
     }
 
     public Licencia getLicenciaActiva() {
@@ -158,6 +163,15 @@ public class Persona implements Serializable {
     public void setFecha_nacimiento(Calendar fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
+
+    public String getCondicion() {
+        return condicion;
+    }
+
+    public void setCondicion(String condicion) {
+        this.condicion = condicion;
+    }
+    
 
     
 

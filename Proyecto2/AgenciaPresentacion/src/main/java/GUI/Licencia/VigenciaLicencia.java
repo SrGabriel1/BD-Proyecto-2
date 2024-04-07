@@ -192,17 +192,15 @@ public class VigenciaLicencia extends javax.swing.JPanel {
                 licencia.setPrecio(1100F);
                 licencia.setVigencia("3 año");
             } else {
-                JOptionPane.showMessageDialog(this, "Debes seleccionar al menos una opción de licencia.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
+                JOptionPane.showMessageDialog(this, "Debes seleccionar al menos una opción de licencia.");
             }
             licencia.setEstado("Activa");
            licencia.setNumeroLicencia(rlb.RegistrarLicencia(licencia));
-        } catch (persistenciaException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(VigenciaLicencia.class.getName()).log(Level.SEVERE, null, ex);
-            return;
+           ventana.cambiarVistaLicenciaGenerada(licencia);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-        ventana.cambiarVistaLicenciaGenerada(licencia);
+        
 
     }//GEN-LAST:event_BotonAceptarActionPerformed
 

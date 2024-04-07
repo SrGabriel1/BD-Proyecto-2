@@ -59,7 +59,7 @@ public class ConsultasBO implements IConsultasBO{
 
     @Override
     public void comprobarMismoDueno(Automovil auto, Licencia licencia) throws persistenciaException {
-        if(auto.getPersona()!=licencia.getPersona()){
+        if(auto.getPersona().getId()!=licencia.getPersona().getId()){
             throw new persistenciaException("La licencia y el automovil no pertenecen a la misma persona"); 
         }
         

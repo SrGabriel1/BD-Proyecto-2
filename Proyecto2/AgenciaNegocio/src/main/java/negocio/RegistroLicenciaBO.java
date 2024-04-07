@@ -23,6 +23,7 @@ import Interfaces.IPlacasDAO;
 import Validadores.Validador;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.PersistenceException;
 
 /**
  *
@@ -34,24 +35,17 @@ public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
     @Override
     public String RegistrarLicencia(LicenciaDTO licenciadto) throws persistenciaException {
+        
         Validador validador = new Validador();
         Licencia licencia = new Licencia(licenciadto.getVigencia(), licenciadto.getTipoLicencia(), licenciadto.getPrecio(), licenciadto.getEstado(), licenciadto.getPersona());
         ILicenciasDAO ilicencia = new LicenciasDAO();
-        if (validador.ValidarLicencia(licencia)) {
-            throw new persistenciaException("Ya cuentas con una licencia!!!!!");
+        try{
+            validador.ValidarLicencia(licencia);
+            ilicencia.agregarLicencia(licencia);
+            return licencia.getNumeroLicencia();
+        }catch(Exception e){
+            throw new PersistenceException(e.getMessage());
         }
-        if (ilicencia.agregarLicencia(licencia)) {
-            Persona persona = licencia.getPersona();
-            if (persona != null) {
-                persona.agregarLicencia(licencia);
-            } else {
-                throw new persistenciaException("Error: la licencia no está asociada a una persona.");
-            }
-        } else {
-            throw new persistenciaException("Error al agregar la licencia.");
-        }
-        return licencia.getNumeroLicencia();
-
     }
 
     @Override

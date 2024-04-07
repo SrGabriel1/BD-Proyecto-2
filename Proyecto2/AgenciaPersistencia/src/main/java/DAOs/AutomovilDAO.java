@@ -8,6 +8,8 @@ import Entidades.Automovil;
 import Entidades.Placas;
 import Excepciones.persistenciaException;
 import Interfaces.IAutomovilDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -45,10 +47,14 @@ public class AutomovilDAO implements IAutomovilDAO {
 
     @Override
     public void actualizarPlaca(Placas placa, Automovil auto) throws persistenciaException {
-        auto.agregarPlaca(placa);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
+        for(int i =0; i<auto.getPlacas().size();i++){
+            if(auto.getPlacas().get(i).getEstado().equals("Activa")){
+                auto.getPlacas().get(i).setEstado("Desactivada");
+            }
+        }
         auto.agregarPlaca(placa);
 
         em.merge(auto);

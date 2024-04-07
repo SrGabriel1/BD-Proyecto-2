@@ -11,6 +11,7 @@ import GUI.ControladorVentana;
 import Inegocio.IConsultasBO;
 import Inegocio.IRegistroLicenciaBO;
 import Inegocio.IRegistroPlacasBO;
+import Validadores.Validador;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
@@ -156,7 +157,8 @@ public class TramiteAutoNuevo extends javax.swing.JPanel {
             fecha_emision = Calendar.getInstance();
             fecha_recepcion = Calendar.getInstance();
             PlacaDTO placa = new PlacaDTO("Nuevo", "Activa", 1500.f);
-
+            Validador validador=new Validador();
+            validador.validarAuto(auto);
             ventana.cambiarVistaTramiteGenerar(auto, placa, "nuevo",1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
