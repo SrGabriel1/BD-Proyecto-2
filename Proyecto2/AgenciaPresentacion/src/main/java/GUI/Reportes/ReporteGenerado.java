@@ -30,7 +30,8 @@ public class ReporteGenerado extends javax.swing.JFrame {
 
     ReporteGenerado reporte;
    Connection conexionReporte;
-//     conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia","root", "233300515");
+
+   
     /**
      * Creates new form Reporte
      */

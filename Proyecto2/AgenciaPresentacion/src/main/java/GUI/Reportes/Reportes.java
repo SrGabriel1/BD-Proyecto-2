@@ -4,11 +4,16 @@
  */
 package GUI.Reportes;
 
+import GUI.ControladorVentana;
+import negocio.RegistroLicenciaBO;
+
 /**
  *
  * @author Ximena
  */
 public class Reportes extends javax.swing.JFrame {
+
+    private ControladorVentana ventana;
 
     /**
      * Creates new form Reportes
@@ -54,13 +59,31 @@ public class Reportes extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 452));
 
         botonRegresar.setText("Regresar");
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 130, 30));
 
         botonAceptar.setText("Aceptar");
+        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 130, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+          ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_botonRegresarActionPerformed
+
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
+       
+    }//GEN-LAST:event_botonAceptarActionPerformed
 
     /**
      * @param args the command line arguments
