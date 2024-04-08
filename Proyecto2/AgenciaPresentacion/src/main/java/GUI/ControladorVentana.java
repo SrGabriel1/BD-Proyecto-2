@@ -4,6 +4,9 @@ import DTOs.AutomovilDTO;
 import DTOs.LicenciaDTO;
 import DTOs.PlacaDTO;
 import Entidades.Automovil;
+import GUI.Historial.HistorialGenerado;
+import GUI.Historial.PersonasSimilares;
+import GUI.Historial.TramiteHistorial;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
@@ -176,6 +179,27 @@ public class ControladorVentana extends javax.swing.JFrame {
         panelActual = reporteGenerado;
     }
 
+    public void cambiarVistaHistorial(){
+        limpiarFrame();
+        TramiteHistorial historial = new TramiteHistorial();
+        ponerEnJFrame(historial);
+        panelActual = historial;
+    }
+    
+    public void cambiarVistaPersonasSimilares(){
+         limpiarFrame();
+        PersonasSimilares personasSimi = new PersonasSimilares();
+        ponerEnJFrame(personasSimi);
+        panelActual = personasSimi;
+    }
+    
+    public void cambiarVistaHistorialGenerado(){
+        limpiarFrame();
+        HistorialGenerado historialGenerado = new HistorialGenerado();
+        ponerEnJFrame(historialGenerado);
+        panelActual = historialGenerado;
+    }
+    
     /**
      * Método para agregar un panel a la ventana. Este método agrega el panel
      * especificado a la ventana, lo posiciona y ajusta su tamaño

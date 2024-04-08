@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Historial;
 
@@ -8,7 +8,7 @@ package GUI.Historial;
  *
  * @author Ximena
  */
-public class TramiteHistorial extends javax.swing.JFrame {
+public class TramiteHistorial extends javax.swing.JPanel {
 
     /**
      * Creates new form TramiteHistorial
@@ -28,83 +28,37 @@ public class TramiteHistorial extends javax.swing.JFrame {
 
         txtAnioNacimiento = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtCurp = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        txtCURP = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         botonRegresar = new javax.swing.JButton();
         botonAceptar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtAnioNacimiento.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtAnioNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 170, 40));
+        add(txtAnioNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 160, 30));
 
         txtNombre.setBackground(new java.awt.Color(217, 217, 217));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 170, 40));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 160, 30));
 
-        txtCurp.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 170, 40));
+        txtCURP.setBackground(new java.awt.Color(217, 217, 217));
+        add(txtCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 160, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteHistorialCap.PNG")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 130, 40));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteHistorialCap.PNG")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 130, 30));
 
         botonAceptar.setText("jButton1");
-        getContentPane().add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 130, 30));
-
-        pack();
+        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 130, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(TramiteHistorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(TramiteHistorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(TramiteHistorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(TramiteHistorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new TramiteHistorial().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtAnioNacimiento;
-    private javax.swing.JTextField txtCurp;
+    private javax.swing.JTextField txtCURP;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
