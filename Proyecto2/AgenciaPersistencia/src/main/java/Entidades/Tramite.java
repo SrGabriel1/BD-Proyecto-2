@@ -60,6 +60,12 @@ public class Tramite implements Serializable {
         this.fechaRealizacion = Calendar.getInstance();
     }
 
+    public Tramite(Persona persona, String tipoTramite, Calendar fechaRealizacion) {
+        this.persona = persona;
+        this.tipoTramite = tipoTramite;
+        this.fechaRealizacion = fechaRealizacion;
+    }
+    
     public Float getCosto() {
         return costo;
     }
