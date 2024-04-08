@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI.Reportes;
 
@@ -8,7 +8,7 @@ package GUI.Reportes;
  *
  * @author Ximena
  */
-public class ReporteSolicitado extends javax.swing.JFrame {
+public class ReporteSolicitado extends javax.swing.JPanel {
 
     /**
      * Creates new form ReporteSolicitado
@@ -31,70 +31,34 @@ public class ReporteSolicitado extends javax.swing.JFrame {
         txtTipoTramite = new javax.swing.JTextField();
         txtFechaTramite = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        botonCancelar = new javax.swing.JButton();
         botonAceptar = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCosto.setEditable(false);
         txtCosto.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 160, 40));
+        add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 160, 40));
 
-        txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 160, 40));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 160, 40));
 
-        txtTipoTramite.setEditable(false);
         txtTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtTipoTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 160, 40));
+        add(txtTipoTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 160, 40));
 
-        txtFechaTramite.setEditable(false);
         txtFechaTramite.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtFechaTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, 40));
+        add(txtFechaTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\ReportesGeneradosCap.PNG")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 140, 40));
-        getContentPane().add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 150, 40));
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pack();
+        botonAceptar.setText("jButton1");
+        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 140, 40));
+
+        botonCancelar.setText("jButton1");
+        add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 40));
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ReporteSolicitado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ReporteSolicitado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ReporteSolicitado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ReporteSolicitado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new ReporteSolicitado().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;

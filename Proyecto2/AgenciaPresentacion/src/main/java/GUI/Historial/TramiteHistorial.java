@@ -26,31 +26,32 @@ public class TramiteHistorial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         txtAnioNacimiento = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtCurp = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         botonRegresar = new javax.swing.JButton();
         botonAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 160, 30));
-
         txtAnioNacimiento.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtAnioNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 160, 30));
+        getContentPane().add(txtAnioNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 170, 40));
 
         txtNombre.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 160, 30));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 170, 40));
 
         txtCurp.setBackground(new java.awt.Color(217, 217, 217));
-        getContentPane().add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 160, 30));
+        getContentPane().add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 170, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteHistorialCap.PNG")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteHistorialCap.PNG")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 130, 40));
 
         botonAceptar.setText("jButton1");
@@ -58,6 +59,10 @@ public class TramiteHistorial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,8 +102,7 @@ public class TramiteHistorial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtAnioNacimiento;
     private javax.swing.JTextField txtCurp;
     private javax.swing.JTextField txtNombre;

@@ -36,17 +36,25 @@ public class Menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        BotonLicencia = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         BotonPlacas = new javax.swing.JButton();
+        BotonLicencia = new javax.swing.JButton();
         BotonReportes = new javax.swing.JButton();
-        BotonHistorial = new javax.swing.JButton();
+        BotonConsultas = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioCap.PNG"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(526, 390));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 530, 360));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\InicioCap.PNG")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        BotonPlacas.setContentAreaFilled(false);
+        BotonPlacas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPlacasActionPerformed(evt);
+            }
+        });
+        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, 40));
 
         BotonLicencia.setContentAreaFilled(false);
         BotonLicencia.setFocusPainted(false);
@@ -55,15 +63,7 @@ public class Menu extends javax.swing.JPanel {
                 BotonLicenciaActionPerformed(evt);
             }
         });
-        add(BotonLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 140, 50));
-
-        BotonPlacas.setContentAreaFilled(false);
-        BotonPlacas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonPlacasActionPerformed(evt);
-            }
-        });
-        add(BotonPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 130, 30));
+        add(BotonLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 130, 30));
 
         BotonReportes.setContentAreaFilled(false);
         BotonReportes.addActionListener(new java.awt.event.ActionListener() {
@@ -73,8 +73,8 @@ public class Menu extends javax.swing.JPanel {
         });
         add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 140, 30));
 
-        BotonHistorial.setContentAreaFilled(false);
-        add(BotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 140, 40));
+        BotonConsultas.setContentAreaFilled(false);
+        add(BotonConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 130, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLicenciaActionPerformed
@@ -92,10 +92,10 @@ public class Menu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonHistorial;
+    private javax.swing.JButton BotonConsultas;
     private javax.swing.JButton BotonLicencia;
     private javax.swing.JButton BotonPlacas;
     private javax.swing.JButton BotonReportes;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
