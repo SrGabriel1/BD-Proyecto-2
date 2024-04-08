@@ -5,6 +5,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,7 +53,7 @@ public class Licencia extends Tramite implements Serializable {
     }
 
     public Licencia(String vigencia, String tipo, Float precio, String estado, Persona persona) {
-        super(persona, "Licencia",precio);
+        super(persona, "Licencia", precio);
         this.vigencia = vigencia;
         this.tipo = tipo;
         this.precio = precio;
@@ -80,10 +81,12 @@ public class Licencia extends Tramite implements Serializable {
         this.numeroLicencia = numeroLicencia;
     }
 
+    @Override
     public Persona getPersona() {
         return persona;
     }
 
+    @Override
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
@@ -130,6 +133,8 @@ public class Licencia extends Tramite implements Serializable {
 
     @Override
     public String toString() {
-        return "Licencia{" + "id=" + id + ", vigencia=" + vigencia + ", tipo=" + tipo + ", precio=" + precio + ", estado=" + estado + '}';
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaRealizacion = formato.format(getFechaRealizacion().getTime());
+        return"Trámites de licencia realizados por la persona: " + super.getPersona().getNombre() +", fechaRealizacion=" + fechaRealizacion+"," +"licencia tramitada'{ numero "+numeroLicencia + " ,vigencia=" + vigencia +", tipo=" + tipo +", precio=" + precio + ", estado=" + estado +'}';
     }
 }

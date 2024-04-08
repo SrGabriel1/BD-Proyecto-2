@@ -5,6 +5,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
 import javax.persistence.Column;
@@ -51,7 +52,7 @@ public class Placas extends Tramite implements Serializable {
 
     @Column(name = "tipo", nullable = false)
     private String tipo;
-    
+
     @Column(name = "Estado", nullable = false)
     private String Estado;
 
@@ -78,7 +79,7 @@ public class Placas extends Tramite implements Serializable {
     }
 
     public Placas(String Numero, Calendar fecha_emision, Calendar fecha_recepcion, Float costo, Automovil auto_id, String tipo, String Estado) {
-        super(auto_id.getPersona(), "Placas",costo);
+        super(auto_id.getPersona(), "Placas", costo);
         this.Numero = Numero;
         this.fecha_emision = fecha_emision;
         this.fecha_recepcion = fecha_recepcion;
@@ -87,7 +88,6 @@ public class Placas extends Tramite implements Serializable {
         this.tipo = tipo;
         this.Estado = Estado;
     }
-
 
     public Placas() {
         super();
@@ -159,9 +159,9 @@ public class Placas extends Tramite implements Serializable {
 
     @Override
     public String toString() {
-        return "Placas{" + "id=" + id + ", Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + ", costo=" + costo + ", auto_id=" + auto_id + ", tipo=" + tipo + ", Estado=" + Estado + '}';
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaRealizacion = formato.format(getFechaRealizacion().getTime());
+        return "Trámites de placas realizados por la persona: " + super.getPersona().getNombre() + ", fechaRealizacion=" + fechaRealizacion + "Placas{" + "Numero=" + Numero + ", fecha_emision=" + fecha_emision + ", fecha_recepcion=" + fecha_recepcion + ", costo=" + costo + ", auto_id=" + auto_id + ", tipo=" + tipo + ", Estado=" + Estado + '}';
     }
-
-  
 
 }

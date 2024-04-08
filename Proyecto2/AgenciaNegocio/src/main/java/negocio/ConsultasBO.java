@@ -7,14 +7,18 @@ package negocio;
 import DAOs.AutomovilDAO;
 import DAOs.LicenciasDAO;
 import DAOs.PersonasDAO;
+import DAOs.TramiteDAO;
 import Entidades.Automovil;
 import Entidades.Licencia;
 import Entidades.Persona;
+import Entidades.Tramite;
 import Excepciones.persistenciaException;
 import Inegocio.IConsultasBO;
 import Interfaces.IAutomovilDAO;
 import Interfaces.ILicenciasDAO;
 import Interfaces.IPersonasDAO;
+import Interfaces.ITramiteDAO;
+import java.util.List;
 
 /**
  *
@@ -64,8 +68,15 @@ public class ConsultasBO implements IConsultasBO{
         }
         
     }
-    
-    
 
-    
+    @Override
+    public List<Tramite> ConsultaTramite(String nombre) throws persistenciaException {
+        ITramiteDAO tramite = new TramiteDAO();
+        try {
+            return tramite.Consulta(nombre);
+        } catch (Exception e) {
+            throw new persistenciaException(e.getMessage());
+        }
+    }
+   
 }

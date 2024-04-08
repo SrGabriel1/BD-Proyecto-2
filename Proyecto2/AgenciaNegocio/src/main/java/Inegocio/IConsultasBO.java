@@ -7,7 +7,9 @@ package Inegocio;
 import Entidades.Automovil;
 import Entidades.Licencia;
 import Entidades.Persona;
+import Entidades.Tramite;
 import Excepciones.persistenciaException;
+import java.util.List;
 
 /**
  *
@@ -17,11 +19,16 @@ public interface IConsultasBO {
 
     /**
      *
-     * @return
-     * @throws persistenciaException
+     * @return @throws persistenciaException
      */
-    public Persona regresarPersona(Licencia licencia)throws persistenciaException;
-    public Licencia regresarLicencia(String numLicencia)throws persistenciaException;
-    public Automovil regresarAutomovil(String numPlaca)throws persistenciaException;
-    public void comprobarMismoDueno(Automovil auto,Licencia licencia)throws persistenciaException;
+    public Persona regresarPersona(Licencia licencia) throws persistenciaException;
+
+    public Licencia regresarLicencia(String numLicencia) throws persistenciaException;
+
+    public Automovil regresarAutomovil(String numPlaca) throws persistenciaException;
+
+    public void comprobarMismoDueno(Automovil auto, Licencia licencia) throws persistenciaException;
+
+    public  List<Tramite> ConsultaTramite(String nombre) throws persistenciaException;
+
 }
