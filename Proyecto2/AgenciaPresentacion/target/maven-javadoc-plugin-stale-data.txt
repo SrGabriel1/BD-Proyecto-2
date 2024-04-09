@@ -1,0 +1,81 @@
+@options
+@packages
+-classpath
+'C:/Users/Ximena/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE190/AbsoluteLayout-RELEASE190.jar;C:/Users/Ximena/.m2/repository/com/mycompany/AgenciaNegocio/1.0-SNAPSHOT/AgenciaNegocio-1.0-SNAPSHOT.jar;C:/Users/Ximena/.m2/repository/com/mycompany/AgenciaPersistencia/1.0-SNAPSHOT/AgenciaPersistencia-1.0-SNAPSHOT.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.core/2.7.12/org.eclipse.persistence.core-2.7.12.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.asm/9.4.0/org.eclipse.persistence.asm-9.4.0.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.antlr/2.7.12/org.eclipse.persistence.antlr-2.7.12.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.jpa/2.7.12/org.eclipse.persistence.jpa-2.7.12.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.jpa.jpql/2.7.12/org.eclipse.persistence.jpa.jpql-2.7.12.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.moxy/2.7.12/org.eclipse.persistence.moxy-2.7.12.jar;C:/Users/Ximena/.m2/repository/org/eclipse/persistence/jakarta.persistence/2.2.3/jakarta.persistence-2.2.3.jar;C:/Users/Ximena/.m2/repository/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar;C:/Users/Ximena/.m2/repository/com/google/protobuf/protobuf-java/3.25.1/protobuf-java-3.25.1.jar;C:/Users/Ximena/.m2/repository/com/github/lgooddatepicker/LGoodDatePicker/11.2.1/LGoodDatePicker-11.2.1.jar;C:/Users/Ximena/.m2/repository/net/sf/jasperreports/jasperreports/6.21.2/jasperreports-6.21.2.jar;C:/Users/Ximena/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar;C:/Users/Ximena/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar;C:/Users/Ximena/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar;C:/Users/Ximena/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar;C:/Users/Ximena/.m2/repository/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar;C:/Users/Ximena/.m2/repository/com/github/librepdf/openpdf/1.3.32/openpdf-1.3.32.jar;C:/Users/Ximena/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar;C:/Users/Ximena/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar;C:/Users/Ximena/.m2/repository/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar;C:/Users/Ximena/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar;C:/Users/Ximena/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar;C:/Users/Ximena/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar;C:/Users/Ximena/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.15.3/jackson-dataformat-xml-2.15.3.jar;C:/Users/Ximena/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar;C:/Users/Ximena/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.5.1/woodstox-core-6.5.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Ximena/Documents/GitHub/BD-Proyecto-2/Proyecto2/AgenciaPresentacion/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Ximena/Documents/GitHub/BD-Proyecto-2/Proyecto2/AgenciaPresentacion/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'AgenciaPresentacion 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'AgenciaPresentacion 1.0-SNAPSHOT API'
+com.mycompany.agenciapresentacion
+GUI.Consultas
+GUI
+GUI.Licencia
+GUI.Placas
+GUI.Reportes
+C:\Users\Ximena\.m2\repository\org\netbeans\external\AbsoluteLayout\RELEASE190\AbsoluteLayout-RELEASE190.jar = 1711160124633
+C:\Users\Ximena\.m2\repository\com\mycompany\AgenciaNegocio\1.0-SNAPSHOT\AgenciaNegocio-1.0-SNAPSHOT.jar = 1712661868648
+C:\Users\Ximena\.m2\repository\com\mycompany\AgenciaPersistencia\1.0-SNAPSHOT\AgenciaPersistencia-1.0-SNAPSHOT.jar = 1712649696897
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.core\2.7.12\org.eclipse.persistence.core-2.7.12.jar = 1709189110384
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.asm\9.4.0\org.eclipse.persistence.asm-9.4.0.jar = 1709189110433
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.antlr\2.7.12\org.eclipse.persistence.antlr-2.7.12.jar = 1709189110617
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa\2.7.12\org.eclipse.persistence.jpa-2.7.12.jar = 1709189110877
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.jpql\2.7.12\org.eclipse.persistence.jpa.jpql-2.7.12.jar = 1709189110632
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.moxy\2.7.12\org.eclipse.persistence.moxy-2.7.12.jar = 1709189110593
+C:\Users\Ximena\.m2\repository\org\eclipse\persistence\jakarta.persistence\2.2.3\jakarta.persistence-2.2.3.jar = 1709189110469
+C:\Users\Ximena\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar = 1711660302690
+C:\Users\Ximena\.m2\repository\com\google\protobuf\protobuf-java\3.25.1\protobuf-java-3.25.1.jar = 1711660302756
+C:\Users\Ximena\.m2\repository\com\github\lgooddatepicker\LGoodDatePicker\11.2.1\LGoodDatePicker-11.2.1.jar = 1712291289540
+C:\Users\Ximena\.m2\repository\net\sf\jasperreports\jasperreports\6.21.2\jasperreports-6.21.2.jar = 1712291289803
+C:\Users\Ximena\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar = 1712291289695
+C:\Users\Ximena\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar = 1708390098678
+C:\Users\Ximena\.m2\repository\commons-digester\commons-digester\2.1\commons-digester-2.1.jar = 1712291289691
+C:\Users\Ximena\.m2\repository\commons-logging\commons-logging\1.1.1\commons-logging-1.1.1.jar = 1712291289667
+C:\Users\Ximena\.m2\repository\org\apache\commons\commons-collections4\4.2\commons-collections4-4.2.jar = 1712291289750
+C:\Users\Ximena\.m2\repository\com\github\librepdf\openpdf\1.3.32\openpdf-1.3.32.jar = 1712291290277
+C:\Users\Ximena\.m2\repository\org\jfree\jcommon\1.0.23\jcommon-1.0.23.jar = 1712291289759
+C:\Users\Ximena\.m2\repository\org\jfree\jfreechart\1.0.19\jfreechart-1.0.19.jar = 1712291289825
+C:\Users\Ximena\.m2\repository\org\eclipse\jdt\ecj\3.21.0\ecj-3.21.0.jar = 1712291291061
+C:\Users\Ximena\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar = 1712291289830
+C:\Users\Ximena\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar = 1712291290453
+C:\Users\Ximena\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar = 1712291290564
+C:\Users\Ximena\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-xml\2.15.3\jackson-dataformat-xml-2.15.3.jar = 1712291290357
+C:\Users\Ximena\.m2\repository\org\codehaus\woodstox\stax2-api\4.2.1\stax2-api-4.2.1.jar = 1712291290376
+C:\Users\Ximena\.m2\repository\com\fasterxml\woodstox\woodstox-core\6.5.1\woodstox-core-6.5.1.jar = 1712291290795
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\src\main\java = 1712290377594
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\allclasses-index.html = 1712662596420
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\allpackages-index.html = 1712662596424
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\element-list = 1712662596147
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\help-doc.html = 1712662596460
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\index-all.html = 1712662596452
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\index.html = 1712662596398
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\javadoc.bat = 1712662496414
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\jquery-ui.overrides.css = 1712662596477
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\member-search-index.js = 1712662596432
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\module-search-index.js = 1712662596426
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\overview-summary.html = 1712662596455
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\overview-tree.html = 1712662596392
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\package-search-index.js = 1712662596429
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\script.js = 1712662596464
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\search.js = 1712662596466
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\serialized-form.html = 1712662596302
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\stylesheet.css = 1712662596462
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\tag-search-index.js = 1712662596434
+C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\target\site\apidocs\type-search-index.js = 1712662596430

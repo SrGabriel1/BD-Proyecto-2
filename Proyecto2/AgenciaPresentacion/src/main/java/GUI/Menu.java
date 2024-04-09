@@ -8,7 +8,9 @@ import GUI.ControladorVentana;
  */
 /**
  *
- * @author yohan
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class Menu extends javax.swing.JPanel {
 

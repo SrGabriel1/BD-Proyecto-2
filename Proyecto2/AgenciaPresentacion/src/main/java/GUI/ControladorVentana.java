@@ -30,7 +30,10 @@ import javax.swing.JPanel;
  * de usuario, así como de interactuar con el usuario mediante ventanas
  * emergentes. También mantiene instancias de DTOs y una conexión a la base de
  * datos.
- * 
+ *
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class ControladorVentana extends javax.swing.JFrame {
 
@@ -99,23 +102,28 @@ public class ControladorVentana extends javax.swing.JFrame {
     /**
      * Método para cambiar a la vista de la ventana de Carrito . Este método
      * elimina el panel actual
+     *
      * @param licencia
      */
     public void cambiarVistaVigencia(LicenciaDTO licencia) {
         limpiarFrame();
-        VigenciaLicencia vistaVigencia = new VigenciaLicencia(this,licencia);
+        VigenciaLicencia vistaVigencia = new VigenciaLicencia(this, licencia);
         ponerEnJFrame(vistaVigencia);
         panelActual = vistaVigencia;
     }
 
+    /**
+     * Cambia la vista de la ventana a la pantalla de licencia generada. Elimina
+     * el panel actual y muestra la pantalla de licencia generada.
+     *
+     * @param licencia La licencia asociada a la pantalla.
+     */
     public void cambiarVistaLicenciaGenerada(LicenciaDTO licencia) {
         limpiarFrame();
-        LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this,licencia);
+        LicenciaGenerada vistaLicenciaGenerada = new LicenciaGenerada(this, licencia);
         ponerEnJFrame(vistaLicenciaGenerada);
         panelActual = vistaLicenciaGenerada;
     }
-    
-    
 
     /**
      * Método para cambiar a la vista de la ventana de MetodoPago . Este método
@@ -127,86 +135,172 @@ public class ControladorVentana extends javax.swing.JFrame {
         ponerEnJFrame(vistaLicencia);
         panelActual = vistaLicencia;
     }
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de trámite para un automóvil
+     * nuevo. Elimina el panel actual y muestra la pantalla de trámite para un
+     * automóvil nuevo.
+     */
     public void cambiarVistaTramiteAutoNuevo() {
         limpiarFrame();
-        TramiteAutoNuevo tramiteAutoNuevo=new TramiteAutoNuevo(this);
+        TramiteAutoNuevo tramiteAutoNuevo = new TramiteAutoNuevo(this);
         ponerEnJFrame(tramiteAutoNuevo);
         panelActual = tramiteAutoNuevo;
     }
-    
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de trámite para un automóvil
+     * usado. Elimina el panel actual y muestra la pantalla de trámite para un
+     * automóvil usado.
+     */
     public void cambiarVistaTramiteAutoUsado() {
         limpiarFrame();
-        TramiteAutoUsado tramiteAutoUsado=new TramiteAutoUsado(this);
+        TramiteAutoUsado tramiteAutoUsado = new TramiteAutoUsado(this);
         ponerEnJFrame(tramiteAutoUsado);
         panelActual = tramiteAutoUsado;
     }
-    
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de trámite de placas. Elimina
+     * el panel actual y muestra la pantalla de trámite de placas.
+     */
     public void cambiarVistaPlaca() {
         limpiarFrame();
-        TramitePlacas vistaPlacas = new  TramitePlacas(this);
+        TramitePlacas vistaPlacas = new TramitePlacas(this);
         ponerEnJFrame(vistaPlacas);
         panelActual = vistaPlacas;
     }
-    
-    public void cambiarVistaPlacaGenerada(String placa,String costo) {
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de placas generadas. Elimina
+     * el panel actual y muestra la pantalla de placas generadas.
+     *
+     * @param placa El número de placa generado.
+     * @param costo El costo de la placa generada.
+     */
+    public void cambiarVistaPlacaGenerada(String placa, String costo) {
         limpiarFrame();
-        PlacaGenerada placaGenerada = new PlacaGenerada(this,placa,costo);
+        PlacaGenerada placaGenerada = new PlacaGenerada(this, placa, costo);
         ponerEnJFrame(placaGenerada);
         panelActual = placaGenerada;
     }
-    public void cambiarVistaTramiteGenerar(AutomovilDTO auto,PlacaDTO placa,String tipo,int modo) {
+
+    /**
+     * Cambia la vista a la ventana para generar un trámite de placas. Este
+     * método limpia el frame actual, crea una instancia de TramiteGenerarPlacas
+     * con los parámetros proporcionados, y muestra esa instancia en el frame.
+     *
+     * @param auto Objeto AutomovilDTO que representa los datos del automóvil
+     * asociado al trámite.
+     * @param placa Objeto PlacaDTO que representa los datos de la placa
+     * asociada al trámite.
+     * @param tipo El tipo de trámite a realizar.
+     * @param modo El modo de operación del trámite (por ejemplo, nuevo o
+     * usado).
+     */
+    public void cambiarVistaTramiteGenerar(AutomovilDTO auto, PlacaDTO placa, String tipo, int modo) {
         limpiarFrame();
-        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,auto,placa,tipo,modo);
-        ponerEnJFrame(tramiteGenerarPlacas );
-        panelActual = tramiteGenerarPlacas ;
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this, auto, placa, tipo, modo);
+        ponerEnJFrame(tramiteGenerarPlacas);
+        panelActual = tramiteGenerarPlacas;
     }
-    public void cambiarVistaTramiteGenerar(String numPlaca,PlacaDTO placa,String tipo,int modo) {
+
+    /**
+     * Cambia la vista a la ventana para generar un trámite de placas. Este
+     * método limpia el frame actual, crea una instancia de TramiteGenerarPlacas
+     * con los parámetros proporcionados, y muestra esa instancia en el frame.
+     *
+     * @param numPlaca El número de placa asociado al trámite.
+     * @param placa Objeto PlacaDTO que representa los datos de la placa
+     * asociada al trámite.
+     * @param tipo El tipo de trámite a realizar.
+     * @param modo El modo de operación del trámite (por ejemplo, nuevo o
+     * usado).
+     */
+    public void cambiarVistaTramiteGenerar(String numPlaca, PlacaDTO placa, String tipo, int modo) {
         limpiarFrame();
-        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this,numPlaca,placa,tipo,modo);
-        ponerEnJFrame(tramiteGenerarPlacas );
-        panelActual = tramiteGenerarPlacas ;
+        TramiteGenerarPlacas tramiteGenerarPlacas = new TramiteGenerarPlacas(this, numPlaca, placa, tipo, modo);
+        ponerEnJFrame(tramiteGenerarPlacas);
+        panelActual = tramiteGenerarPlacas;
     }
-        public void cambiarVistaTramiteReporte() {
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de trámite de reporte.
+     * Elimina el panel actual y muestra la pantalla de trámite de reporte.
+     */
+    public void cambiarVistaTramiteReporte() {
         limpiarFrame();
-        TramiteReporte TramiteReporte=new TramiteReporte(this);
+        TramiteReporte TramiteReporte = new TramiteReporte(this);
         ponerEnJFrame(TramiteReporte);
         panelActual = TramiteReporte;
     }
-    public void cambiarVistaReporteSolicitado(String nombre,String tipo, Calendar desde, Calendar hasta){
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de reporte solicitado.
+     * Elimina el panel actual y muestra la pantalla de reporte solicitado.
+     *
+     * @param nombre El nombre relacionado con el reporte solicitado.
+     * @param tipo El tipo de reporte solicitado.
+     * @param desde La fecha de inicio del período del reporte.
+     * @param hasta La fecha de fin del período del reporte.
+     */
+    public void cambiarVistaReporteSolicitado(String nombre, String tipo, Calendar desde, Calendar hasta) {
         limpiarFrame();
-        ReporteSolicitado reporteSolicitado = new ReporteSolicitado(this, nombre, tipo,  desde,  hasta);
+        ReporteSolicitado reporteSolicitado = new ReporteSolicitado(this, nombre, tipo, desde, hasta);
         ponerEnJFrame(reporteSolicitado);
         panelActual = reporteSolicitado;
     }
-    
-    public void cambiarVistaReporteGenerado(){
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de reporte generado. Elimina
+     * el panel actual y muestra la pantalla de reporte generado.
+     */
+    public void cambiarVistaReporteGenerado() {
         limpiarFrame();
         ReportesGenerado reporteGenerado = new ReportesGenerado(this);
         ponerEnJFrame(reporteGenerado);
         panelActual = reporteGenerado;
     }
 
-    public void cambiarVistaConsulta(){
+    /**
+     * Cambia la vista de la ventana a la pantalla de consulta. Elimina el panel
+     * actual y muestra la pantalla de consulta.
+     */
+    public void cambiarVistaConsulta() {
         limpiarFrame();
         TramiteConsulta historial = new TramiteConsulta(this);
         ponerEnJFrame(historial);
         panelActual = historial;
     }
-    
-    public void cambiarVistaPersonasSimilares(String nombre,String curp,Integer anio){
-         limpiarFrame();
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de personas similares.
+     * Elimina el panel actual y muestra la pantalla de personas similares.
+     *
+     * @param nombre El nombre para buscar personas similares.
+     * @param curp La CURP para buscar personas similares.
+     * @param anio El año de nacimiento para buscar personas similares.
+     */
+    public void cambiarVistaPersonasSimilares(String nombre, String curp, Integer anio) {
+        limpiarFrame();
         PersonasSimilares personasSimi = new PersonasSimilares(this, nombre, curp, anio);
         ponerEnJFrame(personasSimi);
         panelActual = personasSimi;
     }
-    
-    public void cambiarVistaConsultaGenerada(String RFC){
+
+    /**
+     * Cambia la vista de la ventana a la pantalla de consulta generada. Elimina
+     * el panel actual y muestra la pantalla de consulta generada.
+     *
+     * @param RFC El RFC para la consulta generada.
+     */
+    public void cambiarVistaConsultaGenerada(String RFC) {
         limpiarFrame();
-        HistorialGenerado historialGenerado = new HistorialGenerado(this,RFC);
+        HistorialGenerado historialGenerado = new HistorialGenerado(this, RFC);
         ponerEnJFrame(historialGenerado);
         panelActual = historialGenerado;
     }
-    
+
     /**
      * Método para agregar un panel a la ventana. Este método agrega el panel
      * especificado a la ventana, lo posiciona y ajusta su tamaño

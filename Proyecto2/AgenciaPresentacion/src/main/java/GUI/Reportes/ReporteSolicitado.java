@@ -17,7 +17,9 @@ import negocio.ConsultasBO;
 
 /**
  *
- * @author Ximena
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class ReporteSolicitado extends javax.swing.JPanel {
 
@@ -42,6 +44,17 @@ public class ReporteSolicitado extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Método para poblar una tabla con los datos de los trámites realizados
+     * dentro de un rango de fechas y un tipo de trámite específico. Este método
+     * consulta a la capa de negocio para obtener una lista de trámites que
+     * coinciden con los criterios de nombre, tipo de trámite, fecha de inicio y
+     * fecha de fin proporcionados. Luego, utiliza un modelo de tabla para
+     * mostrar estos datos en una tabla en la interfaz gráfica.
+     *
+     * @throws persistenciaException Si ocurre un error durante la consulta a la
+     * capa de persistencia.
+     */
     public void tabla() throws persistenciaException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Persona");
@@ -60,7 +73,7 @@ public class ReporteSolicitado extends javax.swing.JPanel {
                     datos[1] = t.getTipoTramite();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     datos[2] = formato.format(t.getFechaRealizacion().getTime());
-                    datos[3]=Float.toString(t.getCosto());
+                    datos[3] = Float.toString(t.getCosto());
                     modelo.addRow(datos);
                 }
                 tablaSql.setModel(modelo);
@@ -128,11 +141,11 @@ public class ReporteSolicitado extends javax.swing.JPanel {
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         ventana.cambiarVistaReporteGenerado();
-               
+
     }//GEN-LAST:event_botonAceptarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-ventana.cambiarVistaTramiteReporte();
+        ventana.cambiarVistaTramiteReporte();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
 

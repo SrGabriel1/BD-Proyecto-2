@@ -25,7 +25,9 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author Ximena
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class ReportesGenerado extends javax.swing.JPanel {
 
@@ -85,6 +87,20 @@ public class ReportesGenerado extends javax.swing.JPanel {
         add(botonImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 230, 20));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método para generar un informe utilizando JasperReports. Este método
+     * establece una conexión con la base de datos y carga el archivo de informe
+     * (.jasper) desde el directorio de recursos. Luego, utiliza JasperReports
+     * para llenar el informe con los datos de la base de datos y devuelve el
+     * objeto JasperPrint que representa el informe generado.
+     *
+     * @return El objeto JasperPrint que representa el informe generado.
+     * @throws SQLException Si ocurre un error durante la conexión con la base
+     * de datos.
+     * @throws JRException Si ocurre un error durante la generación del informe
+     * con JasperReports.
+     * @throws FileNotFoundException Si no se encuentra el archivo de informe.
+     */
     public JasperPrint reporteGenerado() throws SQLException, JRException, FileNotFoundException {
         conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia", "root", "23300515");
         File reporte = new File(getClass().getResource("/reportes/ReporteAF.jasper").getFile());

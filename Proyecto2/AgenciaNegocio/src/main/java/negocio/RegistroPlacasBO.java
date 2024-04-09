@@ -19,10 +19,23 @@ import Validadores.Validador;
 
 /**
  *
- * @author USER
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class RegistroPlacasBO implements IRegistroPlacasBO {
 
+    /**
+     * Registra placas nuevas para un automóvil.
+     *
+     * @param placadto El objeto PlacaDTO que contiene la información de las
+     * placas a registrar.
+     * @param auto El objeto AutomovilDTO que contiene la información del
+     * automóvil al que se le asignarán las placas.
+     * @return El número de placa generado para las nuevas placas.
+     * @throws persistenciaException Si ocurre un error durante el registro de
+     * las placas.
+     */
     @Override
     public String RegistrarPlacasNuevas(PlacaDTO placadto, AutomovilDTO auto) throws persistenciaException {
         try {
@@ -45,23 +58,32 @@ public class RegistroPlacasBO implements IRegistroPlacasBO {
         }
     }
 
-    
+    /**
+     * Registra placas para un automóvil existente (placas viejas).
+     *
+     * @param numeroPlaca El número de placa a asignar.
+     * @param placa El objeto PlacaDTO que contiene la información de las placas
+     * a registrar.
+     * @return El número de placa generado para las placas registradas.
+     * @throws persistenciaException Si ocurre un error durante el registro de
+     * las placas.
+     */
     @Override
-    public String RegistrarPlacasViejas(String numeroPlaca,PlacaDTO placa) throws persistenciaException {
-        
+    public String RegistrarPlacasViejas(String numeroPlaca, PlacaDTO placa) throws persistenciaException {
+
         Validador validador = new Validador();
         String numeroPlacaGenerado = Placas.generarPlaca();
         Placas Placa = new Placas(numeroPlacaGenerado, placa.getFecha_emision(), placa.getFecha_recepcion(), placa.getCosto(), placa.getAuto_id(), placa.getTipo(), placa.getEstado());
         IPlacasDAO Iplacas = new PlacasDAO();
-        IAutomovilDAO Iautomovil=new AutomovilDAO();
-        IConsultasBO consultas=new ConsultasBO();
-        try{
-            Automovil autoTemp=consultas.regresarAutomovil(numeroPlaca);
+        IAutomovilDAO Iautomovil = new AutomovilDAO();
+        IConsultasBO consultas = new ConsultasBO();
+        try {
+            Automovil autoTemp = consultas.regresarAutomovil(numeroPlaca);
             Iautomovil.actualizarPlaca(Placa, autoTemp);
             return numeroPlacaGenerado;
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new persistenciaException(e.getMessage());
         }
-        
+
     }
 }

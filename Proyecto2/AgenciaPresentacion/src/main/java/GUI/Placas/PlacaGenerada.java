@@ -11,7 +11,9 @@ import negocio.RegistroPlacasBO;
 
 /**
  *
- * @author USER
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class PlacaGenerada extends javax.swing.JPanel {
 
@@ -27,11 +29,9 @@ public class PlacaGenerada extends javax.swing.JPanel {
         initComponents();
     }
 
-    public PlacaGenerada(ControladorVentana ventana,String placa,String costo) {
+    public PlacaGenerada(ControladorVentana ventana, String placa, String costo) {
         this.ventana = ventana;
-        
-        
-        
+
         initComponents();
         txtPlacasNuevas.setText(placa);
         txtPrecio.setText(costo);

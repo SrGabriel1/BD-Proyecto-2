@@ -17,7 +17,9 @@ import negocio.ConsultasBO;
 
 /**
  *
- * @author Ximena
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class HistorialGenerado extends javax.swing.JPanel {
 
@@ -27,17 +29,27 @@ public class HistorialGenerado extends javax.swing.JPanel {
     /**
      * Creates new form HistorialGenerado
      */
-    public HistorialGenerado(ControladorVentana ventana, String RFC)  {
+    public HistorialGenerado(ControladorVentana ventana, String RFC) {
         this.ventana = ventana;
         this.RFC = RFC;
         initComponents();
         try {
-               tabla();
+            tabla();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * Método para poblar una tabla con los datos de los trámites consultados.
+     * Este método obtiene los trámites asociados a un RFC dado, los cuales son
+     * recuperados mediante una consulta a la capa de persistencia. Luego,
+     * utiliza un modelo de tabla para mostrar los datos en una tabla en la
+     * interfaz gráfica.
+     *
+     * @throws persistenciaException Si ocurre un error durante la consulta a la
+     * capa de persistencia.
+     */
     public void tabla() throws persistenciaException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Persona");
@@ -50,7 +62,7 @@ public class HistorialGenerado extends javax.swing.JPanel {
             List<Tramite> tramite = consulta.ConsultaTramite(RFC);
             System.out.println(tramite.get(0).getPersona());
             if (!tramite.isEmpty()) {
-                for (Tramite t:tramite) {
+                for (Tramite t : tramite) {
                     datos[0] = t.getPersona().getNombre();
                     datos[1] = t.getTipoTramite();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -110,7 +122,7 @@ public class HistorialGenerado extends javax.swing.JPanel {
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
         ventana.cambiarVistaMenu();
     }//GEN-LAST:event_botonRegresarMenuActionPerformed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarMenu;

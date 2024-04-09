@@ -18,7 +18,9 @@ import negocio.ConsultasBO;
 
 /**
  *
- * @author Ximena
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class PersonasSimilares extends javax.swing.JPanel {
 
@@ -36,13 +38,23 @@ public class PersonasSimilares extends javax.swing.JPanel {
         this.curp = curp;
         initComponents();
         try {
-               tabla();
+            tabla();
         } catch (Exception e) {
             System.out.println("que bobis");
         }
-     
+
     }
 
+    /**
+     * Método para poblar una tabla con los datos de personas similares según
+     * los criterios de búsqueda. Este método consulta a la capa de negocio para
+     * obtener una lista de personas que coinciden con los criterios de nombre,
+     * CURP y año de nacimiento proporcionados. Luego, utiliza un modelo de
+     * tabla para mostrar estos datos en una tabla en la interfaz gráfica.
+     *
+     * @throws persistenciaException Si ocurre un error durante la consulta a la
+     * capa de persistencia.
+     */
     public void tabla() throws persistenciaException {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
@@ -155,7 +167,7 @@ public class PersonasSimilares extends javax.swing.JPanel {
         if (txtRFC.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Escriba antes el RFC");
         } else {
-            
+
             ventana.cambiarVistaConsultaGenerada(txtRFC.getText());
         }
     }//GEN-LAST:event_botonAceptarActionPerformed

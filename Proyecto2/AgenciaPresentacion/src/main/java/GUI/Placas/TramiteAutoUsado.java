@@ -19,7 +19,9 @@ import negocio.RegistroPlacasBO;
 
 /**
  *
- * @author USER
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class TramiteAutoUsado extends javax.swing.JPanel {
 

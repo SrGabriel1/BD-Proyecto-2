@@ -18,47 +18,53 @@ import negocio.RegistroPlacasBO;
 
 /**
  *
- * @author yohan
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class TramiteGenerarPlacas extends javax.swing.JPanel {
+
     private ControladorVentana ventana;
     private AutomovilDTO auto;
     private String numPlaca;
     private String tipo;
     private PlacaDTO placa;
     private int modo;
+
     /**
      * Creates new form TramiteGenerarPlacas
      */
     public TramiteGenerarPlacas() {
         initComponents();
     }
-     public TramiteGenerarPlacas(ControladorVentana ventana,AutomovilDTO auto,PlacaDTO placa,String tipo,int modo) {
+
+    public TramiteGenerarPlacas(ControladorVentana ventana, AutomovilDTO auto, PlacaDTO placa, String tipo, int modo) {
         this.ventana = ventana;
         this.auto = auto;
-        this.tipo=tipo;
-        this.placa=placa;
-        this.modo=modo;
+        this.tipo = tipo;
+        this.placa = placa;
+        this.modo = modo;
         initComponents();
-        if(modo==1){
+        if (modo == 1) {
             Costo.setText("$1,500");
             tipo_Auto.setText("Nuevo");
-        }else if(modo==2){
+        } else if (modo == 2) {
             Costo.setText("$1,000");
             tipo_Auto.setText("Usado");
         }
     }
-     public TramiteGenerarPlacas(ControladorVentana ventana,String numPlaca,PlacaDTO placa,String tipo,int modo) {
+
+    public TramiteGenerarPlacas(ControladorVentana ventana, String numPlaca, PlacaDTO placa, String tipo, int modo) {
         this.ventana = ventana;
-        this.numPlaca=numPlaca;
-        this.tipo=tipo;
-        this.placa=placa;
-        this.modo=modo;
+        this.numPlaca = numPlaca;
+        this.tipo = tipo;
+        this.placa = placa;
+        this.modo = modo;
         initComponents();
-        if(modo==1){
+        if (modo == 1) {
             Costo.setText("$1,500");
             tipo_Auto.setText("Nuevo");
-        }else if(modo==2){
+        } else if (modo == 2) {
             Costo.setText("$1,000");
             tipo_Auto.setText("Usado");
         }
@@ -125,8 +131,8 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         if (tipo.equalsIgnoreCase("nuevo")) {
             ventana.cambiarVistaTramiteAutoNuevo();
-        }else if (tipo.equalsIgnoreCase("usado")) {
-                        ventana.cambiarVistaTramiteAutoUsado();
+        } else if (tipo.equalsIgnoreCase("usado")) {
+            ventana.cambiarVistaTramiteAutoUsado();
         }
 
     }//GEN-LAST:event_regresarActionPerformed
@@ -135,15 +141,15 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             IRegistroPlacasBO rp = new RegistroPlacasBO();
-            LocalDate localDate=FechaEmisionDatePicker.getDate();
+            LocalDate localDate = FechaEmisionDatePicker.getDate();
             Calendar calendar = Calendar.getInstance();
             calendar.clear();
             calendar.set(Calendar.YEAR, localDate.getYear());
             calendar.set(Calendar.MONTH, localDate.getMonthValue() - 1);
             calendar.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
             placa.setFecha_emision(calendar);
-            
-            localDate=FechaRecepcionDatePicker.getDate();
+
+            localDate = FechaRecepcionDatePicker.getDate();
             calendar = Calendar.getInstance();
             calendar.clear();
             calendar.set(Calendar.YEAR, localDate.getYear());
@@ -151,18 +157,17 @@ public class TramiteGenerarPlacas extends javax.swing.JPanel {
             calendar.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
             placa.setFecha_recepcion(calendar);
             String numPlacaTemp;
-            if(modo==1){
-                numPlacaTemp=rp.RegistrarPlacasNuevas(placa, auto);
-            }else{
-                numPlacaTemp=rp.RegistrarPlacasViejas(numPlaca,placa);
+            if (modo == 1) {
+                numPlacaTemp = rp.RegistrarPlacasNuevas(placa, auto);
+            } else {
+                numPlacaTemp = rp.RegistrarPlacasViejas(numPlaca, placa);
             }
-            
-            
-            ventana.cambiarVistaPlacaGenerada( numPlacaTemp,Costo.getText());
+
+            ventana.cambiarVistaPlacaGenerada(numPlacaTemp, Costo.getText());
         } catch (persistenciaException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-        
+
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void tipo_AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_AutoActionPerformed

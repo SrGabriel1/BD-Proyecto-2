@@ -27,34 +27,51 @@ import javax.persistence.PersistenceException;
 
 /**
  *
- * @author USER
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class RegistroLicenciaBO implements IRegistroLicenciaBO {
 
-    
-
+    /**
+     * Registra una nueva licencia basada en la información proporcionada en el
+     * objeto LicenciaDTO.
+     *
+     * @param licenciadto El objeto LicenciaDTO que contiene la información de
+     * la licencia a registrar.
+     * @return El número de licencia generado.
+     * @throws persistenciaException Si ocurre un error durante el registro de
+     * la licencia.
+     */
     @Override
     public String RegistrarLicencia(LicenciaDTO licenciadto) throws persistenciaException {
-        
+
         Validador validador = new Validador();
         Licencia licencia = new Licencia(licenciadto.getVigencia(), licenciadto.getTipoLicencia(), licenciadto.getPrecio(), licenciadto.getEstado(), licenciadto.getPersona());
         ILicenciasDAO ilicencia = new LicenciasDAO();
-        try{
+        try {
             validador.ValidarLicencia(licencia);
             ilicencia.agregarLicencia(licencia);
             return licencia.getNumeroLicencia();
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new PersistenceException(e.getMessage());
         }
     }
 
+    /**
+     * Verifica la existencia de una persona en la base de datos a partir de su
+     * RFC.
+     *
+     * @param rfc El RFC de la persona a verificar.
+     * @return La persona encontrada en la base de datos, si existe.
+     * @throws persistenciaException Si ocurre un error durante la verificación
+     * de la persona.
+     */
     @Override
     public Persona VerificarPersona(String rfc) throws persistenciaException {
-        IPersonasDAO persona=new PersonasDAO();
-        
+        IPersonasDAO persona = new PersonasDAO();
+
         return persona.VerificarPersona(rfc);
     }
-
-    
 
 }

@@ -11,23 +11,31 @@ import Interfaces.IPersonasDAO;
 
 /**
  *
- * @author yohan
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
-public class PersonaDTO{
-  
+public class PersonaDTO {
+
+    //Atributos de la clase
     private IPersonasDAO personasDAO;
 
+    /**
+     * Constructor de PersonaDTO que inicializa el objeto PersonasDAO.
+     */
     public PersonaDTO() {
-        this.personasDAO = new PersonasDAO(); 
+        this.personasDAO = new PersonasDAO();
     }
 
-    
+    /**
+     * Agrega una persona.
+     *
+     * @param persona La persona a agregar.
+     * @return true si la operación de agregar fue exitosa, false en caso
+     * contrario.
+     */
     public boolean agregarPersona(Persona persona) {
         return personasDAO.agregarPersona(persona);
     }
 
-    
-    
-    
 }
-

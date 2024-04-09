@@ -12,7 +12,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ximena
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class TramiteReporte extends javax.swing.JPanel {
 
