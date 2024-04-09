@@ -5,6 +5,10 @@
 package GUI.Reportes;
 
 import GUI.ControladorVentana;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,31 +38,36 @@ public class TramiteReporte extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNombre = new javax.swing.JTextField();
-        comboBoxTipoTramite = new javax.swing.JComboBox<>();
         datePickerPeriodo2 = new com.github.lgooddatepicker.components.DatePicker();
         datePickerPeriodo1 = new com.github.lgooddatepicker.components.DatePicker();
-        jLabel1 = new javax.swing.JLabel();
+        comboBoxTipoTramite = new javax.swing.JComboBox<>();
+        txtNombre = new javax.swing.JTextField();
         botonRegresar = new javax.swing.JButton();
         botonAceptar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtNombre.setText("jTextField1");
-        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
-        txtNombre.setForeground(new java.awt.Color(217, 217, 217));
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 240, 40));
-
-        comboBoxTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
-        comboBoxTipoTramite.setForeground(new java.awt.Color(217, 217, 217));
-        comboBoxTipoTramite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(comboBoxTipoTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 240, 40));
         add(datePickerPeriodo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 166, 190, -1));
         add(datePickerPeriodo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 166, 190, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        comboBoxTipoTramite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Licencia", "Placa" }));
+        comboBoxTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
+        comboBoxTipoTramite.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxTipoTramite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxTipoTramiteActionPerformed(evt);
+            }
+        });
+        add(comboBoxTipoTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 240, 40));
 
+        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
+        txtNombre.setForeground(new java.awt.Color(0, 0, 0));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 240, 40));
+
+        botonRegresar.setBorderPainted(false);
+        botonRegresar.setContentAreaFilled(false);
+        botonRegresar.setDefaultCapable(false);
+        botonRegresar.setFocusPainted(false);
         botonRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegresarActionPerformed(evt);
@@ -66,22 +75,47 @@ public class TramiteReporte extends javax.swing.JPanel {
         });
         add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 130, 40));
 
-        botonAceptar.setText("jButton1");
+        botonAceptar.setBorderPainted(false);
+        botonAceptar.setContentAreaFilled(false);
+        botonAceptar.setFocusPainted(false);
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAceptarActionPerformed(evt);
             }
         });
         add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 140, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
+        ventana.cambiarVistaMenu();
     }//GEN-LAST:event_botonRegresarActionPerformed
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
-ventana.cambiarVistaReporteSolicitado();
+        try {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date desde1 = sdf.parse(datePickerPeriodo2.getText());
+            Calendar desde = Calendar.getInstance();
+            desde.setTime(desde1);
+            Calendar hasta = Calendar.getInstance();
+            Date hasta2 = sdf.parse(datePickerPeriodo2.getText());
+            hasta.setTime(hasta2);
+            ventana.cambiarVistaReporteSolicitado(txtNombre.getText(), comboBoxTipoTramite.getSelectedItem().toString(), desde, hasta);
+
+        } catch (Exception e) {
+            ventana.cambiarVistaReporteSolicitado(txtNombre.getText(), comboBoxTipoTramite.getSelectedItem().toString(), null, null);
+        }
+
+
     }//GEN-LAST:event_botonAceptarActionPerformed
+
+    private void comboBoxTipoTramiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxTipoTramiteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxTipoTramiteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

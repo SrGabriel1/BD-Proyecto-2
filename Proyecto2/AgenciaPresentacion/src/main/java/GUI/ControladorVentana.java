@@ -17,8 +17,10 @@ import GUI.Placas.TramiteGenerarPlacas;
 import GUI.Placas.TramitePlacas;
 import GUI.Reportes.TramiteReporte;
 import GUI.Reportes.ReporteSolicitado;
+import GUI.Reportes.ReportesGenerado;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -164,17 +166,22 @@ public class ControladorVentana extends javax.swing.JFrame {
         ponerEnJFrame(tramiteGenerarPlacas );
         panelActual = tramiteGenerarPlacas ;
     }
-    
-    public void cambiarVistaReporteSolicitado(){
+        public void cambiarVistaTramiteReporte() {
         limpiarFrame();
-        ReporteSolicitado reporteSolicitado = new ReporteSolicitado(this);
+        TramiteReporte TramiteReporte=new TramiteReporte(this);
+        ponerEnJFrame(TramiteReporte);
+        panelActual = TramiteReporte;
+    }
+    public void cambiarVistaReporteSolicitado(String nombre,String tipo, Calendar desde, Calendar hasta){
+        limpiarFrame();
+        ReporteSolicitado reporteSolicitado = new ReporteSolicitado(this, nombre, tipo,  desde,  hasta);
         ponerEnJFrame(reporteSolicitado);
         panelActual = reporteSolicitado;
     }
     
     public void cambiarVistaReporteGenerado(){
         limpiarFrame();
-        TramiteReporte reporteGenerado = new TramiteReporte(this);
+        ReportesGenerado reporteGenerado = new ReportesGenerado(this);
         ponerEnJFrame(reporteGenerado);
         panelActual = reporteGenerado;
     }

@@ -38,7 +38,11 @@ public class ReportesGenerado extends javax.swing.JPanel {
      */
     public ReportesGenerado(ControladorVentana ventana) {
         this.ventana = ventana;
+        this.reporte = new ReportesGenerado();
         initComponents();
+    }
+
+    public ReportesGenerado() {
     }
 
     /**
@@ -59,10 +63,20 @@ public class ReportesGenerado extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ReporteExitosoCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        botonRegresarMenu.setText("jButton1");
+        botonRegresarMenu.setToolTipText("");
+        botonRegresarMenu.setBorderPainted(false);
+        botonRegresarMenu.setContentAreaFilled(false);
+        botonRegresarMenu.setFocusPainted(false);
+        botonRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarMenuActionPerformed(evt);
+            }
+        });
         add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 230, 30));
 
-        botonImprimir.setText("jButton1");
+        botonImprimir.setBorderPainted(false);
+        botonImprimir.setContentAreaFilled(false);
+        botonImprimir.setFocusPainted(false);
         botonImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonImprimirActionPerformed(evt);
@@ -72,7 +86,7 @@ public class ReportesGenerado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public JasperPrint reporteGenerado() throws SQLException, JRException, FileNotFoundException {
-        conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia", "root", "233300515");
+        conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia", "root", "16426Mel");
         File reporte = new File(getClass().getResource("/reportes/ReporteAF.jasper").getFile());
         if (!reporte.exists()) {
             return null;
@@ -81,6 +95,7 @@ public class ReportesGenerado extends javax.swing.JPanel {
             InputStream is = new BufferedInputStream(new FileInputStream(reporte.getAbsoluteFile()));
             JasperReport jr = (JasperReport) JRLoader.loadObject(is);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, conexionReporte);
+            return jp;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -101,6 +116,11 @@ public class ReportesGenerado extends javax.swing.JPanel {
             Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_botonImprimirActionPerformed
+
+    private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
+        // TODO add your handling code here:
+        ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

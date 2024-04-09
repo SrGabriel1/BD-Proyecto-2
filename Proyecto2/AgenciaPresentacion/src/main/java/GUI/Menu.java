@@ -90,7 +90,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonPlacasActionPerformed
 
     private void BotonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReportesActionPerformed
-        // TODO add your handling code here:
+ventana.cambiarVistaTramiteReporte();
     }//GEN-LAST:event_BotonReportesActionPerformed
 
     private void BotonConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultasActionPerformed

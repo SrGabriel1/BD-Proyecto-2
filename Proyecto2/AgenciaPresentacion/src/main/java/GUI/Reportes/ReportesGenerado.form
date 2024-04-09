@@ -32,8 +32,14 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonRegresarMenu">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegresarMenuActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="100" y="350" width="230" height="30"/>
@@ -42,7 +48,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonImprimir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonImprimirActionPerformed"/>

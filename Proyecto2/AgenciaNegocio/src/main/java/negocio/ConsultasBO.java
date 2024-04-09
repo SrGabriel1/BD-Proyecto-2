@@ -18,6 +18,7 @@ import Interfaces.IAutomovilDAO;
 import Interfaces.ILicenciasDAO;
 import Interfaces.IPersonasDAO;
 import Interfaces.ITramiteDAO;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -102,6 +103,19 @@ public class ConsultasBO implements IConsultasBO {
             }
         } else {
             System.out.println("No se encontraron trámites para la persona con el nombre proporcionado.");
+        }
+    }
+
+    @Override
+    public List<Tramite> ConsultaConTipo(String nombre, String tipoTramite, Calendar desde, Calendar hasta) throws persistenciaException {
+        ITramiteDAO tramite = new TramiteDAO();
+        try {
+            if(tramite.ConsultaConTipo(nombre, tipoTramite, desde, hasta).isEmpty()){
+                throw new persistenciaException();
+            }
+            return tramite.ConsultaConTipo(nombre, tipoTramite, desde, hasta);
+        } catch (Exception e) {
+            throw new persistenciaException(e.getMessage());
         }
     }
 }

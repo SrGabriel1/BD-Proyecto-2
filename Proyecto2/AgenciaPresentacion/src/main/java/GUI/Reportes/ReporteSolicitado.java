@@ -4,23 +4,70 @@
  */
 package GUI.Reportes;
 
+import Entidades.Tramite;
+import Excepciones.persistenciaException;
 import GUI.ControladorVentana;
+import Inegocio.IConsultasBO;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import negocio.ConsultasBO;
 
 /**
  *
  * @author Ximena
  */
 public class ReporteSolicitado extends javax.swing.JPanel {
-    ControladorVentana ventana;
 
- 
+    ControladorVentana ventana;
+    String nombre, tipo;
+    Calendar desde, hasta;
+
     /**
      * Creates new form ReporteSolicitado
      */
-    public ReporteSolicitado(ControladorVentana ventana) {
-                this.ventana = ventana;
-
+    public ReporteSolicitado(ControladorVentana ventana, String nombre, String tipo, Calendar desde, Calendar hasta) {
+        this.ventana = ventana;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.desde = desde;
+        this.hasta = hasta;
         initComponents();
+        try {
+            tabla();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void tabla() throws persistenciaException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Persona");
+        modelo.addColumn("Tramite");
+        modelo.addColumn("Fecha de Realizacion");
+        modelo.addColumn("costo");
+
+        String[] datos = new String[4];
+        try {
+            IConsultasBO consulta = new ConsultasBO();
+            List<Tramite> tramite = consulta.ConsultaConTipo(nombre, tipo, desde, hasta);
+            System.out.println(tramite.get(0).getPersona());
+            if (!tramite.isEmpty()) {
+                for (Tramite t : tramite) {
+                    datos[0] = t.getPersona().getNombre();
+                    datos[1] = t.getTipoTramite();
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    datos[2] = formato.format(t.getFechaRealizacion().getTime());
+                    datos[3]=Float.toString(t.getCosto());
+                    modelo.addRow(datos);
+                }
+                tablaSql.setModel(modelo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
     }
 
     /**
@@ -61,13 +108,32 @@ public class ReporteSolicitado extends javax.swing.JPanel {
         botonAceptar.setBorderPainted(false);
         botonAceptar.setContentAreaFilled(false);
         botonAceptar.setFocusPainted(false);
-        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 140, 40));
+        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarActionPerformed(evt);
+            }
+        });
+        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 140, 50));
 
         botonCancelar.setBorderPainted(false);
         botonCancelar.setContentAreaFilled(false);
         botonCancelar.setFocusPainted(false);
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
         add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 130, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
+        ventana.cambiarVistaReporteGenerado();
+               
+    }//GEN-LAST:event_botonAceptarActionPerformed
+
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+ventana.cambiarVistaTramiteReporte();
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -68,7 +68,7 @@ public class TramiteDAO implements ITramiteDAO {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        String jpql = "SELECT * FROM Persona  ";
+        String jpql = "SELECT p FROM Persona p ";
         TypedQuery<Persona> query = em.createQuery(jpql, Persona.class);
 
         try {
@@ -127,12 +127,12 @@ public class TramiteDAO implements ITramiteDAO {
 
     public static void main(String[] args) throws Exception {
         TramiteDAO t = new TramiteDAO();
-        List<Tramite> tramites = t.Consulta("MECJ940205123");
+        List<Tramite> tramites = t.ConsultaConTipo("Elena", "Licencia", null, null);
 
         if (!tramites.isEmpty()) {
             System.out.println("Trámites realizados por la persona:");
             for (Tramite tramite : tramites) {
-                System.out.println(tramite.getPersona());
+                System.out.println(tramite);
             }
         } else {
             System.out.println("No se encontraron trámites para la persona con el nombre proporcionado.");

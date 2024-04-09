@@ -9,6 +9,7 @@ import Entidades.Licencia;
 import Entidades.Persona;
 import Entidades.Tramite;
 import Excepciones.persistenciaException;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -32,4 +33,6 @@ public interface IConsultasBO {
     public List<Tramite> ConsultaTramite(String RFC) throws persistenciaException;
 
     public List<Persona> regresarPersonasSimilares(String nombre, String curp, Integer anioNacimiento) throws persistenciaException;
+
+    public List<Tramite> ConsultaConTipo(String nombre, String tipoTramite, Calendar desde, Calendar hasta) throws persistenciaException;
 }
