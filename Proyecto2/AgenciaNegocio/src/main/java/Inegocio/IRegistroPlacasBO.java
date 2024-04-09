@@ -16,9 +16,30 @@ import Excepciones.persistenciaException;
  */
 public interface IRegistroPlacasBO {
 
+    /**
+     * Registra un nuevo juego de placas para un automóvil nuevo en el sistema.
+     *
+     * @param placa La información de la placa que se va a registrar.
+     * @param auto La información del automóvil al que se le asignarán las
+     * placas.
+     * @return Un mensaje indicando el resultado del registro de placas.
+     * @throws persistenciaException Si ocurre algún error durante el proceso de
+     * persistencia.
+     */
     public String RegistrarPlacasNuevas(PlacaDTO placa, AutomovilDTO auto) throws persistenciaException;
 
-  
+    /**
+     * Registra la devolución de un juego de placas viejas y asigna nuevas
+     * placas al vehículo correspondiente.
+     *
+     * @param numeroPlaca El número de placa que se está devolviendo.
+     * @param placa La información de la nueva placa que se asignará al
+     * vehículo.
+     * @return Un mensaje indicando el resultado del registro de la devolución y
+     * asignación de placas.
+     * @throws persistenciaException Si ocurre algún error durante el proceso de
+     * persistencia.
+     */
     public String RegistrarPlacasViejas(String numeroPlaca, PlacaDTO placa) throws persistenciaException;
 
 }
