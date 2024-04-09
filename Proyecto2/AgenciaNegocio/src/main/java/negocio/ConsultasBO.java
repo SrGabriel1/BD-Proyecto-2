@@ -24,49 +24,49 @@ import java.util.List;
  *
  * @author USER
  */
-public class ConsultasBO implements IConsultasBO{
+public class ConsultasBO implements IConsultasBO {
 
     @Override
     public Persona regresarPersona(Licencia licencia) throws persistenciaException {
-        IPersonasDAO ipersona=new PersonasDAO();
-        try{
+        IPersonasDAO ipersona = new PersonasDAO();
+        try {
             return ipersona.regresarPersona(licencia);
-        }catch(Exception e){
-            throw new persistenciaException(e.getMessage()); 
+        } catch (Exception e) {
+            throw new persistenciaException(e.getMessage());
         }
     }
 
     @Override
-    public Licencia regresarLicencia(String numLicencia) throws persistenciaException{
-        if(numLicencia.equals("")){
-            throw new persistenciaException("Escribe el número de licencia"); 
+    public Licencia regresarLicencia(String numLicencia) throws persistenciaException {
+        if (numLicencia.equals("")) {
+            throw new persistenciaException("Escribe el número de licencia");
         }
         ILicenciasDAO ilicencia = new LicenciasDAO();
-       
+
         try {
             return ilicencia.regresarLicencia(numLicencia);
         } catch (persistenciaException ex) {
-            throw new persistenciaException(ex.getMessage()); 
-            
+            throw new persistenciaException(ex.getMessage());
+
         }
     }
 
     @Override
     public Automovil regresarAutomovil(String numPlaca) throws persistenciaException {
-        if(numPlaca.equals("")){
-            throw new persistenciaException("Escribe el número de placa"); 
+        if (numPlaca.equals("")) {
+            throw new persistenciaException("Escribe el número de placa");
         }
-        IAutomovilDAO iAutomovilDAO=new AutomovilDAO();
+        IAutomovilDAO iAutomovilDAO = new AutomovilDAO();
         return iAutomovilDAO.buscarAutomovilPorPlaca(numPlaca);
-        
+
     }
 
     @Override
     public void comprobarMismoDueno(Automovil auto, Licencia licencia) throws persistenciaException {
-        if(auto.getPersona().getId()!=licencia.getPersona().getId()){
-            throw new persistenciaException("La licencia y el automovil no pertenecen a la misma persona"); 
+        if (auto.getPersona().getId() != licencia.getPersona().getId()) {
+            throw new persistenciaException("La licencia y el automovil no pertenecen a la misma persona");
         }
-        
+
     }
 
     @Override
@@ -78,5 +78,14 @@ public class ConsultasBO implements IConsultasBO{
             throw new persistenciaException(e.getMessage());
         }
     }
-   
+
+    @Override
+    public List<Persona> regresarPersonasSimilares(String nombre, String curp, Integer anioNacimiento) throws persistenciaException {
+        IPersonasDAO ipersona = new PersonasDAO();
+        try {
+            return ipersona.regresarPersonasSimilares(nombre, curp, anioNacimiento);
+        } catch (Exception e) {
+            throw new persistenciaException(e.getMessage());
+        }
+    }
 }

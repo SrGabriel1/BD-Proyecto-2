@@ -8,6 +8,8 @@ import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
 import Interfaces.IPersonasDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -79,10 +81,36 @@ public class PersonasDAO implements IPersonasDAO {
         Join<Licencia, Persona> personaJoin = licenciaRoot.join("persona");
 
         Predicate predicate = criteriaBuilder.equal(licenciaRoot, licencia);
-        
+
         criteriaQuery.select(personaJoin).where(predicate);
         TypedQuery<Persona> typedQuery = em.createQuery(criteriaQuery);
         return typedQuery.getSingleResult();
-    
+
+    }
+
+    @Override
+    public List<Persona> regresarPersonasSimilares(String nombre, String curp, Integer anioNacimiento) throws persistenciaException {
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Persona> criteriaQuery = criteriaBuilder.createQuery(Persona.class);
+        Root<Persona> personaRoot = criteriaQuery.from(Persona.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        if (nombre != null && !nombre.isEmpty()) {
+            predicates.add(criteriaBuilder.like(personaRoot.get("nombre"), nombre ));
+        }
+
+        if (curp != null && !curp.isEmpty()) {
+            predicates.add(criteriaBuilder.like(personaRoot.get("curp"),curp ));
+        }
+
+        if (anioNacimiento != null) {
+            predicates.add(criteriaBuilder.equal(criteriaBuilder.function("year", Integer.class, personaRoot.get("fechaNacimiento")), anioNacimiento));
+        }
+
+        criteriaQuery.select(personaRoot).where(predicates.toArray(new Predicate[0]));
+        TypedQuery<Persona> typedQuery = em.createQuery(criteriaQuery);
+        
+        return typedQuery.getResultList();
     }
 }

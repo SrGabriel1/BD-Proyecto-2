@@ -44,9 +44,8 @@ public class Menu extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\InicioCap.PNG")); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InicioCap.PNG"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 390));
 
         BotonPlacas.setContentAreaFilled(false);
         BotonPlacas.addActionListener(new java.awt.event.ActionListener() {
@@ -71,9 +70,14 @@ public class Menu extends javax.swing.JPanel {
                 BotonReportesActionPerformed(evt);
             }
         });
-        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 140, 30));
+        add(BotonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 140, 40));
 
         BotonConsultas.setContentAreaFilled(false);
+        BotonConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonConsultasActionPerformed(evt);
+            }
+        });
         add(BotonConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 130, 30));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -89,6 +93,10 @@ public class Menu extends javax.swing.JPanel {
     private void BotonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReportesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonReportesActionPerformed
+
+    private void BotonConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonConsultasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

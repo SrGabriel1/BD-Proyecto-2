@@ -8,6 +8,7 @@ import DAOs.PersonasDAO;
 import Entidades.Licencia;
 import Entidades.Persona;
 import Excepciones.persistenciaException;
+import java.util.List;
 
 /**
  *
@@ -18,7 +19,8 @@ public interface IPersonasDAO {
     public boolean agregarPersona(Persona persona);
 
     public Persona VerificarPersona(String rfc) throws persistenciaException;
-    
+
     public Persona regresarPersona(Licencia licencia) throws persistenciaException;
 
+    public List<Persona> regresarPersonasSimilares(String nombre, String curp, Integer anioNacimiento) throws persistenciaException;
 }

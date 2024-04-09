@@ -36,9 +36,9 @@ public class TramiteReporte extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtCurp.setText("jTextField1");
         txtCurp.setBackground(new java.awt.Color(217, 217, 217));
         txtCurp.setForeground(new java.awt.Color(217, 217, 217));
-        txtCurp.setText("jTextField1");
         add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 240, 40));
 
         comboBoxTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
@@ -48,7 +48,7 @@ public class TramiteReporte extends javax.swing.JPanel {
         add(datePickerPeriodo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 166, 190, -1));
         add(datePickerPeriodo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 166, 190, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\TramiteReportesCap.PNG")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TramiteReportesCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 130, 30));
 

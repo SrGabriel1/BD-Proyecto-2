@@ -48,8 +48,7 @@ public class ReporteSolicitado extends javax.swing.JPanel {
         txtFechaTramite.setBackground(new java.awt.Color(217, 217, 217));
         add(txtFechaTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\ReportesGeneradosCap.PNG")); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ReportesGeneradosCap.PNG"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         botonAceptar.setText("jButton1");

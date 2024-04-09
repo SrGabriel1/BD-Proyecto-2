@@ -4,9 +4,9 @@ import DTOs.AutomovilDTO;
 import DTOs.LicenciaDTO;
 import DTOs.PlacaDTO;
 import Entidades.Automovil;
-import GUI.Historial.HistorialGenerado;
-import GUI.Historial.PersonasSimilares;
-import GUI.Historial.TramiteHistorial;
+import GUI.Consultas.HistorialGenerado;
+import GUI.Consultas.PersonasSimilares;
+import GUI.Consultas.TramiteConsulta;
 import GUI.Licencia.LicenciaGenerada;
 import GUI.Licencia.TramiteLicenciaMenu;
 import GUI.Licencia.VigenciaLicencia;
@@ -181,7 +181,7 @@ public class ControladorVentana extends javax.swing.JFrame {
 
     public void cambiarVistaHistorial(){
         limpiarFrame();
-        TramiteHistorial historial = new TramiteHistorial();
+        TramiteConsulta historial = new TramiteConsulta();
         ponerEnJFrame(historial);
         panelActual = historial;
     }
