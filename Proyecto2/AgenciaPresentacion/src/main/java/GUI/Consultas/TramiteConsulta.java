@@ -5,6 +5,7 @@
 package GUI.Consultas;
 
 import GUI.ControladorVentana;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -109,6 +110,10 @@ public class TramiteConsulta extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAnioNacimientoActionPerformed
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
+        if (txtNombre.getText().isEmpty() && txtCURP.getText().isEmpty() && txtAnioNacimiento.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese minimo un valor");
+            return;
+        }
         try {
             ventana.cambiarVistaPersonasSimilares(txtNombre.getText(), txtCURP.getText(), Integer.parseInt(txtAnioNacimiento.getText()));
 

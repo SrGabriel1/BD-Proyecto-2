@@ -60,6 +60,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtFecha_nacimiento.setEditable(false);
         txtFecha_nacimiento.setBackground(new java.awt.Color(217, 217, 217));
         txtFecha_nacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +77,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
         });
         add(txtIngreseRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 50));
 
+        txtTelefono.setEditable(false);
         txtTelefono.setBackground(new java.awt.Color(217, 217, 217));
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +86,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
         });
         add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 250, 50));
 
+        txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(217, 217, 217));
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +97,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
 
         BotonIngresar.setBorderPainted(false);
         BotonIngresar.setContentAreaFilled(false);
+        BotonIngresar.setFocusPainted(false);
         BotonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonIngresarActionPerformed(evt);
@@ -103,6 +107,7 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
 
         BotonRegresar.setBorderPainted(false);
         BotonRegresar.setContentAreaFilled(false);
+        BotonRegresar.setFocusPainted(false);
         BotonRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRegresarActionPerformed(evt);
@@ -115,11 +120,15 @@ public class TramiteLicenciaMenu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
+        if (txtIngreseRFC.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese el rfc antes");
+            return;
+        }
         try {
             String rfc = txtIngreseRFC.getText();
             Persona persona = rlb.VerificarPersona(rfc);
             if (persona != null) {
-                txtNombre.setText(persona.getNombre()+" "+persona.getApellido_materno()+" "+persona.getApellido_paterno());
+                txtNombre.setText(persona.getNombre() + " " + persona.getApellido_materno() + " " + persona.getApellido_paterno());
                 Encriptador e = new Encriptador();
                 String telefono = e.desencriptar(persona.getTelefono());
                 txtTelefono.setText(telefono);

@@ -137,6 +137,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         BotonAceptar.setBorderPainted(false);
         BotonAceptar.setContentAreaFilled(false);
+        BotonAceptar.setFocusPainted(false);
         BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAceptarActionPerformed(evt);
@@ -146,6 +147,7 @@ public class VigenciaLicencia extends javax.swing.JPanel {
 
         BotonRegresar.setBorderPainted(false);
         BotonRegresar.setContentAreaFilled(false);
+        BotonRegresar.setFocusPainted(false);
         BotonRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRegresarActionPerformed(evt);
