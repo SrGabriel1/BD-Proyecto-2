@@ -73,19 +73,50 @@ public class TramiteDAO implements ITramiteDAO {
 
         try {
             List<Persona> personas = query.getResultList();
-            List<Tramite> tramites = new ArrayList<>();
+            List<Tramite> tramitesTemp = new ArrayList<>();
+            List<Tramite> tramites= new ArrayList<>();
             for (Persona p : personas) {
                 for (Tramite t : p.getTramites()) {
-                    tramites.add(t);
+                    t.setPersona(p);
+                    tramitesTemp.add(t);
                 }
             }
-            if (!nombre.equals("")) {
+            if(nombre.equals("") && tipoTramite.equals("")&& desde == null && hasta == null){
+                return tramitesTemp;
+            }else{
+                for (Tramite t : tramitesTemp) {
+                    if (!nombre.equals("") && !tipoTramite.equals("") && desde != null && hasta != null) {
+                        if(t.getTipoTramite().equals(tipoTramite) && t.getPersona().getNombre().equals(nombre)&&t.getFechaRealizacion().compareTo(desde) > 0 && t.getFechaRealizacion().compareTo(hasta) < 0){
+                           tramites.add(t);
+                        }
+                    }else if(!nombre.equals("") && !tipoTramite.equals("")){
+                        if(t.getTipoTramite().equals(tipoTramite) && t.getPersona().getNombre().equals(nombre)){
+                           tramites.add(t);
+                        }
+                    }else if(!nombre.equals("") && desde != null && hasta != null){
+                        if(t.getPersona().getNombre().equals(nombre)&&t.getFechaRealizacion().compareTo(desde) > 0 && t.getFechaRealizacion().compareTo(hasta) < 0){
+                           tramites.add(t);
+                        }
+                    }else if(!tipoTramite.equals("") && desde != null && hasta != null){
+                        if(t.getTipoTramite().equals(tipoTramite) &&t.getFechaRealizacion().compareTo(desde) > 0 && t.getFechaRealizacion().compareTo(hasta) < 0){
+                           tramites.add(t);
+                        }
+                    }else if(!nombre.equals("")){
+                        if(t.getPersona().getNombre().equals(nombre)){
+                           tramites.add(t);
+                        }
+                    }else if(!tipoTramite.equals("")){
+                        if(t.getTipoTramite().equals(tipoTramite)){
+                           tramites.add(t);
+                        }
+                    }else if(desde != null && hasta != null){
+                        if(t.getFechaRealizacion().compareTo(desde) > 0 && t.getFechaRealizacion().compareTo(hasta) < 0){
+                           tramites.add(t);
+                        }
+                    }
+                }
+                return tramites;
             }
-            if (!tipoTramite.equals("")) {
-            }
-            if (desde != null && hasta != null) {
-            }
-            return tramites;
         } catch (NoResultException e) {
             throw new persistenciaException("No se encontraron trámites para la persona con el tipo proporcionado");
         } finally {
