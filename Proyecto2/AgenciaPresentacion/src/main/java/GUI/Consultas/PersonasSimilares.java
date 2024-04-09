@@ -58,8 +58,8 @@ public class PersonasSimilares extends javax.swing.JPanel {
         try {
             IConsultasBO consulta = new ConsultasBO();
             List<Persona> persona = consulta.regresarPersonasSimilares(nombre, curp, anio);
-            if (!consulta.regresarPersonasSimilares(nombre, curp, anio).isEmpty()) {
-                for (int i = 0; i < consulta.ConsultaTramite(nombre).size(); i++) {
+            if (!persona.isEmpty()) {
+                for (int i = 0; i < persona.size(); i++) {
                     datos[0] = persona.get(i).getNombre();
                     datos[1] = persona.get(i).getApellido_paterno();
                     datos[2] = persona.get(i).getApellido_materno();
@@ -152,9 +152,10 @@ public class PersonasSimilares extends javax.swing.JPanel {
     }//GEN-LAST:event_botonRegresarActionPerformed
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
-        if (txtRFC.getText() == null) {
+        if (txtRFC.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Escriba antes el RFC");
         } else {
+            
             ventana.cambiarVistaConsultaGenerada(txtRFC.getText());
         }
     }//GEN-LAST:event_botonAceptarActionPerformed

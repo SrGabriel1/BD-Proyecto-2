@@ -96,14 +96,13 @@ public class PersonasDAO implements IPersonasDAO {
 
         List<Predicate> predicates = new ArrayList<>();
 
-        if (nombre != null && !nombre.isEmpty()) {
+        if (!nombre.equals("")) {
             predicates.add(criteriaBuilder.like(personaRoot.get("nombre"), nombre ));
         }
 
-        if (curp != null && !curp.isEmpty()) {
+        if (!curp.equals("")) {
             predicates.add(criteriaBuilder.like(personaRoot.get("curp"),curp ));
         }
-
         if (anioNacimiento != null) {
             predicates.add(criteriaBuilder.equal(criteriaBuilder.function("year", Integer.class, personaRoot.get("fechaNacimiento")), anioNacimiento));
         }

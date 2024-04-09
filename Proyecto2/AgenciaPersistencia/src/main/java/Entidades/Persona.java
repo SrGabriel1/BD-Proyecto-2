@@ -55,6 +55,9 @@ public class Persona implements Serializable {
     @Column(name = "fecha_nacimiento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Calendar fecha_nacimiento;
+    
+    @OneToMany(mappedBy = "persona")
+    private List<Tramite> tramites = new ArrayList<>();
 
     @OneToMany(mappedBy = "persona", cascade =  {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Licencia> licencias = new ArrayList<>();

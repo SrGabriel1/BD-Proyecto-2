@@ -73,6 +73,9 @@ public class ConsultasBO implements IConsultasBO {
     public List<Tramite> ConsultaTramite(String RFC) throws persistenciaException {
         ITramiteDAO tramite = new TramiteDAO();
         try {
+            if(tramite.Consulta(RFC).isEmpty()){
+                throw new persistenciaException();
+            }
             return tramite.Consulta(RFC);
         } catch (Exception e) {
             throw new persistenciaException(e.getMessage());
@@ -86,6 +89,19 @@ public class ConsultasBO implements IConsultasBO {
             return ipersona.regresarPersonasSimilares(nombre, curp, anioNacimiento);
         } catch (Exception e) {
             throw new persistenciaException(e.getMessage());
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        ConsultasBO t=new ConsultasBO();
+        List<Tramite> tramites = t.ConsultaTramite("MECJ940205123");
+
+        if (!tramites.isEmpty()) {
+            System.out.println("Trámites realizados por la persona:");
+            for (Tramite tramite : tramites) {
+                System.out.println(tramite);
+            }
+        } else {
+            System.out.println("No se encontraron trámites para la persona con el nombre proporcionado.");
         }
     }
 }

@@ -34,7 +34,7 @@ public class HistorialGenerado extends javax.swing.JPanel {
         try {
                tabla();
         } catch (Exception e) {
-            System.out.println("que bobis");
+            System.out.println(e.getMessage());
         }
     }
 
@@ -48,17 +48,18 @@ public class HistorialGenerado extends javax.swing.JPanel {
         try {
             IConsultasBO consulta = new ConsultasBO();
             List<Tramite> tramite = consulta.ConsultaTramite(RFC);
-            if (!consulta.ConsultaTramite(RFC).isEmpty()) {
-                for (int i = 0; i < consulta.ConsultaTramite(RFC).size(); i++) {
-                    datos[0] = tramite.get(i).getPersona().getNombre();
-                    datos[1] = tramite.get(i).getTipoTramite();
+            System.out.println(tramite.get(0).getPersona());
+            if (!tramite.isEmpty()) {
+                for (Tramite t:tramite) {
+                    datos[0] = t.getPersona().getNombre();
+                    datos[1] = t.getTipoTramite();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    datos[2] = formato.format(tramite.get(i).getFechaRealizacion().getTime());
+                    datos[2] = formato.format(t.getFechaRealizacion().getTime());
                     modelo.addRow(datos);
                 }
                 tablaSql.setModel(modelo);
             }
-        } catch (persistenciaException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }
     }
@@ -109,7 +110,7 @@ public class HistorialGenerado extends javax.swing.JPanel {
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
         ventana.cambiarVistaMenu();
     }//GEN-LAST:event_botonRegresarMenuActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegresarMenu;

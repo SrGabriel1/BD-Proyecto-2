@@ -4,14 +4,23 @@
  */
 package DAOs;
 
+import Entidades.Licencia;
+import Entidades.Persona;
 import Entidades.Tramite;
 import Excepciones.persistenciaException;
 import Interfaces.ITramiteDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 
 /**
@@ -22,36 +31,50 @@ public class TramiteDAO implements ITramiteDAO {
 
     @Override
     public List<Tramite> Consulta(String RFC) throws Exception {
+        
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        String jpql = "SELECT t FROM Tramite t JOIN t.persona p WHERE p.RFC = :rfc";
+        TypedQuery<Tramite> query = em.createQuery(jpql, Tramite.class);
+        query.setParameter("rfc", RFC);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Persona> cq = cb.createQuery(Persona.class);
+        Root<Persona> rootPersona = cq.from(Persona.class);
+        Predicate predicadoColonia = cb.equal(rootPersona.get("RFC"), RFC);
+
+        cq.select(rootPersona).where(predicadoColonia);
+
+        Persona Persona = em.createQuery(cq).getSingleResult();
         try {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
-            EntityManager em = emf.createEntityManager();
-
-            TypedQuery<Tramite> query = em.createQuery("SELECT t FROM Tramite t WHERE t.persona.RFC LIKE :RFC", Tramite.class);
-            query.setParameter("RFC", RFC);
-
-            List<Tramite> tramites = query.getResultList();
-
-            em.close();
-            emf.close();
-
+            
+            List<Tramite> tramites= query.getResultList();
+            for(int i=0;i<tramites.size();i++){
+                tramites.get(i).setPersona(Persona);
+            }
+            if(tramites.isEmpty()){
+                throw new persistenciaException("No hay tramites de esa persona");
+            }
             return tramites;
-
-        } catch (Exception e) {
-            throw new persistenciaException("No se encontro ningun tramite de una persona con los datos brindados");
+        } catch (NoResultException e) {
+            throw new persistenciaException(e.getMessage());
+            
         }
     }
 
     public static void main(String[] args) throws Exception {
         TramiteDAO t = new TramiteDAO();
-        List<Tramite> tramites = t.Consulta("HELO871124XXX");
+        List<Tramite> tramites = t.Consulta("MECJ940205123");
 
         if (!tramites.isEmpty()) {
             System.out.println("Trámites realizados por la persona:");
             for (Tramite tramite : tramites) {
-                System.out.println(tramite); // Suponiendo que has implementado el método toString en la clase Tramite
+                System.out.println(tramite.getPersona());
             }
         } else {
             System.out.println("No se encontraron trámites para la persona con el nombre proporcionado.");
         }
     }
+    
 }
