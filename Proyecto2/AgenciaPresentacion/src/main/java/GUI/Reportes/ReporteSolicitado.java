@@ -28,7 +28,7 @@ public class ReporteSolicitado extends javax.swing.JPanel {
     /**
      * Creates new form ReporteSolicitado
      */
-    public ReporteSolicitado() {
+    public ReporteSolicitado(ControladorVentana ventana, String nombre, String tipo, Calendar desde, Calendar hasta) {
         this.ventana = ventana;
         this.nombre = nombre;
         this.tipo = tipo;

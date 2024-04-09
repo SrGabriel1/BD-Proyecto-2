@@ -30,7 +30,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class ReportesGenerado extends javax.swing.JPanel {
 
     Connection conexionReporte;
-    ReportesGenerado reporte;
+    ReportesGenerado reporte1;
     ControladorVentana ventana;
 
     /**
@@ -38,7 +38,7 @@ public class ReportesGenerado extends javax.swing.JPanel {
      */
     public ReportesGenerado(ControladorVentana ventana) {
         this.ventana = ventana;
-        this.reporte = new ReportesGenerado();
+        this.reporte1 = new ReportesGenerado();
         initComponents();
     }
 
@@ -95,54 +95,27 @@ public class ReportesGenerado extends javax.swing.JPanel {
             InputStream is = new BufferedInputStream(new FileInputStream(reporte.getAbsoluteFile()));
             JasperReport jr = (JasperReport) JRLoader.loadObject(is);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, conexionReporte);
+
             return jp;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
-    
-//    public JasperPrint reporteGenerado() {
-//        try {
-//            // Establecer la conexión a la base de datos
-//            conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia", "root", "23300515");
-//            
-//            // Cargar el archivo Jasper como un recurso del classpath
-//            InputStream is = getClass().getResourceAsStream("/reportes/ReporteAF.jrxml");
-//            if (is == null) {
-//                System.out.println("El archivo Jasper no pudo ser cargado");
-//                return null;
-//            }
-//            
-//            // Crear el objeto JasperReport
-//            JasperReport jr = (JasperReport) JRLoader.loadObject(is);
-//            
-//            // Llenar el reporte con datos de la base de datos
-//            JasperPrint jp = JasperFillManager.fillReport(jr, null, conexionReporte);
-//            
-//            return jp;
-//        } catch (SQLException | JRException ex) {
-//            Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-//    }
-
-//    public static void main(String[] args) {
-//        ReportesGenerado reportesGenerado = new ReportesGenerado();
-//        JasperPrint reporte = reportesGenerado.reporteGenerado();
-//        if (reporte != null) {
-//            System.out.println("El reporte ha sido generado correctamente");
-//        } else {
-//            System.out.println("Error al generar el reporte");
-//        }
-//    }
-    
 
     private void botonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirActionPerformed
         JasperPrint jp;
-        jp = reporte.reporteGenerado();
-        JasperViewer.viewReport(jp);
+        try {
+            jp = reporte1.reporteGenerado();
+            JasperViewer.viewReport(jp);
+        } catch (SQLException ex) {
+            Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JRException ex) {
+            Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_botonImprimirActionPerformed
 
     private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed

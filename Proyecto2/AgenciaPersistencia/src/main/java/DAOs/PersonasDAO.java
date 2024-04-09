@@ -22,18 +22,32 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author USER
+ * @author Yohan Gabriel Melendrez Leal - 244907
+ * @author Jesus Francisco Tapia Maldonado - 245136
+ * @author Ximena Oliva Andrade - 247563
  */
 public class PersonasDAO implements IPersonasDAO {
-
+//Entidades de la clase
     private EntityManager em;
     private Persona persona;
 
+    /**
+     * Constructor de la clase PersonasDAO. Inicializa el EntityManager para
+     * interactuar con la base de datos.
+     */
     public PersonasDAO() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
         em = emf.createEntityManager();
     }
 
+    /**
+     * Agrega una nueva persona a la base de datos.
+     *
+     * @param persona Objeto de tipo Persona que representa la persona a
+     * agregar.
+     * @return true si la persona se agregó correctamente, de lo contrario
+     * false.
+     */
     @Override
     public boolean agregarPersona(Persona persona) {
         try {
@@ -46,6 +60,13 @@ public class PersonasDAO implements IPersonasDAO {
         }
     }
 
+    /**
+     * Verifica y devuelve una persona por su RFC.
+     *
+     * @param rfc RFC de la persona a buscar.
+     * @return Objeto de tipo Persona encontrado.
+     * @throws persistenciaException Si la persona no existe.
+     */
     @Override
     public Persona VerificarPersona(String rfc) throws persistenciaException {
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -60,18 +81,41 @@ public class PersonasDAO implements IPersonasDAO {
         return Persona;
     }
 
+    /**
+     * Devuelve la persona asociada actualmente a la instancia de PersonasDAO.
+     *
+     * @return Objeto de tipo Persona asociado.
+     */
     public Persona getPersona() {
         return persona;
     }
 
+    /**
+     * Establece la persona asociada a la instancia de PersonasDAO.
+     *
+     * @param persona Objeto de tipo Persona a establecer.
+     */
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
 
+    /**
+     * Devuelve el EntityManager utilizado por la instancia de PersonasDAO.
+     *
+     * @return EntityManager asociado.
+     */
     public EntityManager getEntityManager() {
         return em;
     }
 
+    /**
+     * Retorna la persona asociada a una licencia específica.
+     *
+     * @param licencia Objeto de tipo Licencia a través de la cual se busca la
+     * persona asociada.
+     * @return Objeto de tipo Persona encontrado.
+     * @throws persistenciaException Si la persona no existe.
+     */
     @Override
     public Persona regresarPersona(Licencia licencia) throws persistenciaException {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
@@ -88,6 +132,18 @@ public class PersonasDAO implements IPersonasDAO {
 
     }
 
+    /**
+     * Retorna una lista de personas que coinciden con ciertos criterios de
+     * búsqueda.
+     *
+     * @param nombre Nombre de la persona a buscar (puede ser vacío).
+     * @param curp CURP de la persona a buscar (puede ser vacío).
+     * @param anioNacimiento Año de nacimiento de la persona a buscar (puede ser
+     * null).
+     * @return Lista de personas encontradas.
+     * @throws persistenciaException Si no se encuentran personas que coincidan
+     * con los criterios de búsqueda.
+     */
     @Override
     public List<Persona> regresarPersonasSimilares(String nombre, String curp, Integer anioNacimiento) throws persistenciaException {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
@@ -97,11 +153,11 @@ public class PersonasDAO implements IPersonasDAO {
         List<Predicate> predicates = new ArrayList<>();
 
         if (!nombre.equals("")) {
-            predicates.add(criteriaBuilder.like(personaRoot.get("nombre"), nombre ));
+            predicates.add(criteriaBuilder.like(personaRoot.get("nombre"), nombre));
         }
 
         if (!curp.equals("")) {
-            predicates.add(criteriaBuilder.like(personaRoot.get("curp"),curp ));
+            predicates.add(criteriaBuilder.like(personaRoot.get("curp"), curp));
         }
         if (anioNacimiento != null) {
             predicates.add(criteriaBuilder.equal(criteriaBuilder.function("year", Integer.class, personaRoot.get("fechaNacimiento")), anioNacimiento));
@@ -109,7 +165,7 @@ public class PersonasDAO implements IPersonasDAO {
 
         criteriaQuery.select(personaRoot).where(predicates.toArray(new Predicate[0]));
         TypedQuery<Persona> typedQuery = em.createQuery(criteriaQuery);
-        
+
         return typedQuery.getResultList();
     }
 }
