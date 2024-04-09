@@ -4,11 +4,16 @@
  */
 package GUI.Consultas;
 
+import Entidades.Tramite;
 import Excepciones.persistenciaException;
+import GUI.ControladorVentana;
+import Inegocio.IConsultasBO;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import negocio.ConsultasBO;
 
 /**
  *
@@ -16,33 +21,39 @@ import javax.swing.table.DefaultTableModel;
  */
 public class HistorialGenerado extends javax.swing.JPanel {
 
+    String RFC;
+    ControladorVentana ventana;
+
     /**
      * Creates new form HistorialGenerado
      */
-    public HistorialGenerado() {
+    public HistorialGenerado(ControladorVentana ventana, String RFC)  {
+        this.ventana = ventana;
+        this.RFC = RFC;
         initComponents();
-    }
- public void tabla() throws persistenciaException {
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Id Activista");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Apellido P");
-        modelo.addColumn("Apellido M");
-        modelo.addColumn("Telefono ");
-        modelo.addColumn("FechaInicio ");
-
-        String[] datos = new String[6];
-        activistaDAO activista = new activistaDAO(conexionBD);
         try {
-            List<> activistas = activista.consultarActivista();
-            if (!activista.consultarActivista().isEmpty()) {
-                for (int i = 0; i < activista.consultarActivista().size(); i++) {
-                    datos[0] = Integer.toString(activistas.get(i).getId());
-                    datos[1] = activistas.get(i).getNombre();
-                    datos[2] = activistas.get(i).getApellidoPaterno();
-                    datos[3] = activistas.get(i).getApellidoMaterno();
-                    datos[4] = activistas.get(i).getTelefono();
-                    datos[5] = activistas.get(i).getFechaInicio();
+               tabla();
+        } catch (Exception e) {
+            System.out.println("que bobis");
+        }
+    }
+
+    public void tabla() throws persistenciaException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Persona");
+        modelo.addColumn("Tramite");
+        modelo.addColumn("Fecha de Realizacion");
+
+        String[] datos = new String[3];
+        try {
+            IConsultasBO consulta = new ConsultasBO();
+            List<Tramite> tramite = consulta.ConsultaTramite(RFC);
+            if (!consulta.ConsultaTramite(RFC).isEmpty()) {
+                for (int i = 0; i < consulta.ConsultaTramite(RFC).size(); i++) {
+                    datos[0] = tramite.get(i).getPersona().getNombre();
+                    datos[1] = tramite.get(i).getTipoTramite();
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    datos[2] = formato.format(tramite.get(i).getFechaRealizacion().getTime());
                     modelo.addRow(datos);
                 }
                 tablaSql.setModel(modelo);
@@ -51,6 +62,7 @@ public class HistorialGenerado extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, e);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,25 +81,34 @@ public class HistorialGenerado extends javax.swing.JPanel {
 
         tablaSql.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID Activista", "Nombre", "Apellido P", "Apellido M", "Telefono", "FechaInicio"
+                "Persona", "Tramite", "Fecha de Realizacion"
             }
         ));
         jScrollPane2.setViewportView(tablaSql);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 530, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 490, 190));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/HistorialGeneradoCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         botonRegresarMenu.setText("jButton1");
+        botonRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarMenuActionPerformed(evt);
+            }
+        });
         add(botonRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 230, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarMenuActionPerformed
+        ventana.cambiarVistaMenu();
+    }//GEN-LAST:event_botonRegresarMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

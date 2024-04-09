@@ -29,7 +29,7 @@ public interface IConsultasBO {
 
     public void comprobarMismoDueno(Automovil auto, Licencia licencia) throws persistenciaException;
 
-    public List<Tramite> ConsultaTramite(String nombre) throws persistenciaException;
+    public List<Tramite> ConsultaTramite(String RFC) throws persistenciaException;
 
     public List<Persona> regresarPersonasSimilares(String nombre, String curp, Integer anioNacimiento) throws persistenciaException;
 }

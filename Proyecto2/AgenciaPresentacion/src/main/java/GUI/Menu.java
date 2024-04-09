@@ -1,13 +1,11 @@
 package GUI;
 
-
 import GUI.ControladorVentana;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
 /**
  *
  * @author yohan
@@ -22,7 +20,8 @@ public class Menu extends javax.swing.JPanel {
     public Menu() {
         initComponents();
     }
-       public Menu(ControladorVentana ventana) {
+
+    public Menu(ControladorVentana ventana) {
         this.ventana = ventana;
         initComponents();
     }
@@ -95,7 +94,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonReportesActionPerformed
 
     private void BotonConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultasActionPerformed
-        // TODO add your handling code here:
+        ventana.cambiarVistaConsulta();
     }//GEN-LAST:event_BotonConsultasActionPerformed
 
 

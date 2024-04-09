@@ -179,23 +179,23 @@ public class ControladorVentana extends javax.swing.JFrame {
         panelActual = reporteGenerado;
     }
 
-    public void cambiarVistaHistorial(){
+    public void cambiarVistaConsulta(){
         limpiarFrame();
-        TramiteConsulta historial = new TramiteConsulta();
+        TramiteConsulta historial = new TramiteConsulta(this);
         ponerEnJFrame(historial);
         panelActual = historial;
     }
     
-    public void cambiarVistaPersonasSimilares(){
+    public void cambiarVistaPersonasSimilares(String nombre,String curp,Integer anio){
          limpiarFrame();
-        PersonasSimilares personasSimi = new PersonasSimilares();
+        PersonasSimilares personasSimi = new PersonasSimilares(this, nombre, curp, anio);
         ponerEnJFrame(personasSimi);
         panelActual = personasSimi;
     }
     
-    public void cambiarVistaHistorialGenerado(){
+    public void cambiarVistaConsultaGenerada(String RFC){
         limpiarFrame();
-        HistorialGenerado historialGenerado = new HistorialGenerado();
+        HistorialGenerado historialGenerado = new HistorialGenerado(this,RFC);
         ponerEnJFrame(historialGenerado);
         panelActual = historialGenerado;
     }

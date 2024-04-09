@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ITramiteDAO {
 
-    public List<Tramite> Consulta(String nombre) throws Exception;
+    public List<Tramite> Consulta(String RFC) throws Exception;
     
 //    public List<Tramite>
 }

@@ -70,10 +70,10 @@ public class ConsultasBO implements IConsultasBO {
     }
 
     @Override
-    public List<Tramite> ConsultaTramite(String nombre) throws persistenciaException {
+    public List<Tramite> ConsultaTramite(String RFC) throws persistenciaException {
         ITramiteDAO tramite = new TramiteDAO();
         try {
-            return tramite.Consulta(nombre);
+            return tramite.Consulta(RFC);
         } catch (Exception e) {
             throw new persistenciaException(e.getMessage());
         }

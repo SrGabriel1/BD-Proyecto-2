@@ -21,13 +21,13 @@ import javax.persistence.TypedQuery;
 public class TramiteDAO implements ITramiteDAO {
 
     @Override
-    public List<Tramite> Consulta(String nombre) throws Exception {
+    public List<Tramite> Consulta(String RFC) throws Exception {
         try {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
             EntityManager em = emf.createEntityManager();
 
-            TypedQuery<Tramite> query = em.createQuery("SELECT t FROM Tramite t WHERE t.persona.nombre LIKE :nombre", Tramite.class);
-            query.setParameter("nombre", nombre);
+            TypedQuery<Tramite> query = em.createQuery("SELECT t FROM Tramite t WHERE t.persona.RFC LIKE :RFC", Tramite.class);
+            query.setParameter("RFC", RFC);
 
             List<Tramite> tramites = query.getResultList();
 
@@ -43,7 +43,7 @@ public class TramiteDAO implements ITramiteDAO {
 
     public static void main(String[] args) throws Exception {
         TramiteDAO t = new TramiteDAO();
-        List<Tramite> tramites = t.Consulta("Miguel");
+        List<Tramite> tramites = t.Consulta("HELO871124XXX");
 
         if (!tramites.isEmpty()) {
             System.out.println("Trámites realizados por la persona:");
