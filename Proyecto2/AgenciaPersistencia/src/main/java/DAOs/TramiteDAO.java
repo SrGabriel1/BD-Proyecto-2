@@ -72,16 +72,16 @@ public class TramiteDAO implements ITramiteDAO {
         TypedQuery<Persona> query = em.createQuery(jpql, Persona.class);
 
 
-       List<Persona>persona = query.getResultList();
-
+        
         try {
-            List<Tramite> tramites = query.getResultList();
-            for (Tramite tramite : tramites) {
-                tramite.setPersona(persona);
+            List<Persona> personas = query.getResultList();
+            List<Tramite> tramites = new ArrayList<>();
+            for (Persona p : personas) {
+                for (Tramite t : p.getTramites()) {
+                    tramites.add(t);
+                }
             }
-            if (tramites.isEmpty()) {
-                throw new persistenciaException("No hay trámites de esa persona con el tipo proporcionado");
-            }
+            
             return tramites;
         } catch (NoResultException e) {
             throw new persistenciaException("No se encontraron trámites para la persona con el tipo proporcionado");

@@ -174,6 +174,10 @@ public class Persona implements Serializable {
     public void setCondicion(String condicion) {
         this.condicion = condicion;
     }
+
+    public List<Tramite> getTramites() {
+        return tramites;
+    }
     
 
     
