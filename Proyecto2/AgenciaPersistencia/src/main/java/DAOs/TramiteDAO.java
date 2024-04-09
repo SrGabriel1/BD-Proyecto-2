@@ -10,6 +10,7 @@ import Entidades.Tramite;
 import Excepciones.persistenciaException;
 import Interfaces.ITramiteDAO;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,7 +23,6 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-
 /**
  *
  * @author yohan
@@ -31,8 +31,7 @@ public class TramiteDAO implements ITramiteDAO {
 
     @Override
     public List<Tramite> Consulta(String RFC) throws Exception {
-        
-        
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -48,18 +47,47 @@ public class TramiteDAO implements ITramiteDAO {
 
         Persona Persona = em.createQuery(cq).getSingleResult();
         try {
-            
-            List<Tramite> tramites= query.getResultList();
-            for(int i=0;i<tramites.size();i++){
+
+            List<Tramite> tramites = query.getResultList();
+            for (int i = 0; i < tramites.size(); i++) {
                 tramites.get(i).setPersona(Persona);
             }
-            if(tramites.isEmpty()){
+            if (tramites.isEmpty()) {
                 throw new persistenciaException("No hay tramites de esa persona");
             }
             return tramites;
         } catch (NoResultException e) {
             throw new persistenciaException(e.getMessage());
-            
+
+        }
+    }
+
+    @Override
+    public List<Tramite> ConsultaConTipo(String nombre, String tipoTramite, Calendar desde, Calendar hasta) throws Exception {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ConexionPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        String jpql = "SELECT * FROM Persona  ";
+        TypedQuery<Persona> query = em.createQuery(jpql, Persona.class);
+
+
+       List<Persona>persona = query.getResultList();
+
+        try {
+            List<Tramite> tramites = query.getResultList();
+            for (Tramite tramite : tramites) {
+                tramite.setPersona(persona);
+            }
+            if (tramites.isEmpty()) {
+                throw new persistenciaException("No hay trámites de esa persona con el tipo proporcionado");
+            }
+            return tramites;
+        } catch (NoResultException e) {
+            throw new persistenciaException("No se encontraron trámites para la persona con el tipo proporcionado");
+        } finally {
+            em.close();
+            emf.close();
         }
     }
 
@@ -76,5 +104,5 @@ public class TramiteDAO implements ITramiteDAO {
             System.out.println("No se encontraron trámites para la persona con el nombre proporcionado.");
         }
     }
-    
+
 }

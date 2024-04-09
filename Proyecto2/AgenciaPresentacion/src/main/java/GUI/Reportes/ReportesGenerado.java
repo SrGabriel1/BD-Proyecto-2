@@ -4,6 +4,7 @@
  */
 package GUI.Reportes;
 
+import GUI.ControladorVentana;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,11 +31,13 @@ public class ReportesGenerado extends javax.swing.JPanel {
 
     Connection conexionReporte;
     ReportesGenerado reporte;
-    
+    ControladorVentana ventana;
+
     /**
      * Creates new form Reportes
      */
-    public ReportesGenerado() {
+    public ReportesGenerado(ControladorVentana ventana) {
+        this.ventana = ventana;
         initComponents();
     }
 
@@ -53,7 +56,7 @@ public class ReportesGenerado extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ximena\\Documents\\GitHub\\BD-Proyecto-2\\Proyecto2\\AgenciaPresentacion\\src\\main\\resources\\Imagenes\\ReporteExitosoCap.PNG")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ReporteExitosoCap.PNG"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         botonRegresarMenu.setText("jButton1");
@@ -68,25 +71,25 @@ public class ReportesGenerado extends javax.swing.JPanel {
         add(botonImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 230, 20));
     }// </editor-fold>//GEN-END:initComponents
 
-    public JasperPrint reporteGenerado() throws SQLException, JRException, FileNotFoundException{
-        conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia","root", "233300515");
+    public JasperPrint reporteGenerado() throws SQLException, JRException, FileNotFoundException {
+        conexionReporte = DriverManager.getConnection("jdbc:mysql://localhost:3306/Agencia", "root", "233300515");
         File reporte = new File(getClass().getResource("/reportes/ReporteAF.jasper").getFile());
-        if(!reporte.exists()){
+        if (!reporte.exists()) {
             return null;
         }
-       try {
-           InputStream is = new BufferedInputStream(new FileInputStream(reporte.getAbsoluteFile()));
-           JasperReport jr = (JasperReport) JRLoader.loadObject(is);
-           JasperPrint jp = JasperFillManager.fillReport(jr, null, conexionReporte);
-       } catch (FileNotFoundException ex) {
-           Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       return null;
+        try {
+            InputStream is = new BufferedInputStream(new FileInputStream(reporte.getAbsoluteFile()));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(is);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, conexionReporte);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ReportesGenerado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-    
-    
+
+
     private void botonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirActionPerformed
-     JasperPrint jp;
+        JasperPrint jp;
         try {
             jp = reporte.reporteGenerado();
             JasperViewer.viewReport(jp);

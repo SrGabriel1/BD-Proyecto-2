@@ -4,16 +4,22 @@
  */
 package GUI.Reportes;
 
+import GUI.ControladorVentana;
+
 /**
  *
  * @author Ximena
  */
 public class ReporteSolicitado extends javax.swing.JPanel {
+    ControladorVentana ventana;
 
+ 
     /**
      * Creates new form ReporteSolicitado
      */
-    public ReporteSolicitado() {
+    public ReporteSolicitado(ControladorVentana ventana) {
+                this.ventana = ventana;
+
         initComponents();
     }
 
@@ -26,36 +32,41 @@ public class ReporteSolicitado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCosto = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtTipoTramite = new javax.swing.JTextField();
-        txtFechaTramite = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaSql = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         botonAceptar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCosto.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 160, 40));
+        tablaSql.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Persona", "Tramite", "Fecha de Realizacion", "Costo"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaSql);
 
-        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 160, 40));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 490, 190));
 
-        txtTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtTipoTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 160, 40));
-
-        txtFechaTramite.setBackground(new java.awt.Color(217, 217, 217));
-        add(txtFechaTramite, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ReportesGeneradosCap.PNG"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        botonAceptar.setText("jButton1");
-        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 140, 40));
+        botonAceptar.setBorderPainted(false);
+        botonAceptar.setContentAreaFilled(false);
+        botonAceptar.setFocusPainted(false);
+        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 140, 40));
 
-        botonCancelar.setText("jButton1");
-        add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 40));
+        botonCancelar.setBorderPainted(false);
+        botonCancelar.setContentAreaFilled(false);
+        botonCancelar.setFocusPainted(false);
+        add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 130, 40));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -63,9 +74,7 @@ public class ReporteSolicitado extends javax.swing.JPanel {
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextField txtFechaTramite;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTipoTramite;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tablaSql;
     // End of variables declaration//GEN-END:variables
 }

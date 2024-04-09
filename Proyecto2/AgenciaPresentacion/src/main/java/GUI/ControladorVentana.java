@@ -167,14 +167,14 @@ public class ControladorVentana extends javax.swing.JFrame {
     
     public void cambiarVistaReporteSolicitado(){
         limpiarFrame();
-        ReporteSolicitado reporteSolicitado = new ReporteSolicitado();
+        ReporteSolicitado reporteSolicitado = new ReporteSolicitado(this);
         ponerEnJFrame(reporteSolicitado);
         panelActual = reporteSolicitado;
     }
     
     public void cambiarVistaReporteGenerado(){
         limpiarFrame();
-        TramiteReporte reporteGenerado = new TramiteReporte();
+        TramiteReporte reporteGenerado = new TramiteReporte(this);
         ponerEnJFrame(reporteGenerado);
         panelActual = reporteGenerado;
     }

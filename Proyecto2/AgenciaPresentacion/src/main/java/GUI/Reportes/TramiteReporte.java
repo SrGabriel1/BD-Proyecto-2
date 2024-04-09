@@ -4,19 +4,27 @@
  */
 package GUI.Reportes;
 
+import GUI.ControladorVentana;
+
 /**
  *
  * @author Ximena
  */
 public class TramiteReporte extends javax.swing.JPanel {
 
+    ControladorVentana ventana;
+
     /**
      * Creates new form ReporteGenerado
      */
-    public TramiteReporte() {
+    public TramiteReporte(ControladorVentana ventana) {
+        this.ventana = ventana;
         initComponents();
     }
 
+    /**
+     * Creates new form HistorialGenerado
+     */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,7 +34,7 @@ public class TramiteReporte extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCurp = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         comboBoxTipoTramite = new javax.swing.JComboBox<>();
         datePickerPeriodo2 = new com.github.lgooddatepicker.components.DatePicker();
         datePickerPeriodo1 = new com.github.lgooddatepicker.components.DatePicker();
@@ -36,10 +44,10 @@ public class TramiteReporte extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCurp.setText("jTextField1");
-        txtCurp.setBackground(new java.awt.Color(217, 217, 217));
-        txtCurp.setForeground(new java.awt.Color(217, 217, 217));
-        add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 240, 40));
+        txtNombre.setText("jTextField1");
+        txtNombre.setBackground(new java.awt.Color(217, 217, 217));
+        txtNombre.setForeground(new java.awt.Color(217, 217, 217));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 240, 40));
 
         comboBoxTipoTramite.setBackground(new java.awt.Color(217, 217, 217));
         comboBoxTipoTramite.setForeground(new java.awt.Color(217, 217, 217));
@@ -48,13 +56,32 @@ public class TramiteReporte extends javax.swing.JPanel {
         add(datePickerPeriodo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 166, 190, -1));
         add(datePickerPeriodo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 166, 190, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TramiteReportesCap.PNG"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 130, 30));
+
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
+        add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 130, 40));
 
         botonAceptar.setText("jButton1");
-        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 130, 30));
+        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarActionPerformed(evt);
+            }
+        });
+        add(botonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonRegresarActionPerformed
+
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
+ventana.cambiarVistaReporteSolicitado();
+    }//GEN-LAST:event_botonAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -64,6 +91,6 @@ public class TramiteReporte extends javax.swing.JPanel {
     private com.github.lgooddatepicker.components.DatePicker datePickerPeriodo1;
     private com.github.lgooddatepicker.components.DatePicker datePickerPeriodo2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtCurp;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

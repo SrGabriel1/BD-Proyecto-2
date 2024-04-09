@@ -21,7 +21,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Ximena\Documents\GitHub\BD-Proyecto-2\Proyecto2\AgenciaPresentacion\src\main\resources\Imagenes\ReporteExitosoCap.PNG"/>
+          <Image iconType="3" name="/Imagenes/ReporteExitosoCap.PNG"/>
         </Property>
       </Properties>
       <Constraints>

@@ -5,6 +5,7 @@
 package Interfaces;
 
 import Entidades.Tramite;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -14,6 +15,6 @@ import java.util.List;
 public interface ITramiteDAO {
 
     public List<Tramite> Consulta(String RFC) throws Exception;
-    
-//    public List<Tramite>
+
+public List<Tramite> ConsultaConTipo(String nombre, String tipoTramite,Calendar desde, Calendar hasta) throws Exception;
 }
